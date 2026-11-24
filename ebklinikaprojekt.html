@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EbKlinika Projekt leírás | Vállalkozó Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --eb-900: #0d1e2e;
+      --eb-800: #152840;
+      --eb-700: #1e3a5a;
+      --eb-600: #2560a0;
+      --eb-500: #2d72a8;
+      --eb-400: #4a8ec4;
+      --eb-300: #7ab0d8;
+      --eb-200: #b8d6ee;
+      --eb-100: #dceef8;
+      --eb-50:  #f0f7fc;
+      --cream:     #f8fbff;
+      --text-dark: #0d1e2e;
+      --text-mid:  #3a5a7a;
+      --text-light: #7a9ab8;
+      --green-accent: #3a7a40;
+      --white: #ffffff;
+      --blue-700: #0d0963;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 5vw;
+      background: rgba(248,251,255,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(45,114,168,0.1);
+    }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.84rem; font-weight: 600; color: var(--eb-600);
+      text-decoration: none; transition: color 0.2s, gap 0.2s;
+    }
+    .nav-back:hover { color: var(--eb-500); gap: 0.7rem; }
+    .nav-back .arrow { font-size: 1rem; transition: transform 0.2s; }
+    .nav-back:hover .arrow { transform: translateX(-3px); }
+    .nav-back .back-text { display: inline; }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--eb-700);
+      text-decoration: none;
+    }
+    .nav-live {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--eb-500); color: white;
+      font-size: 0.82rem; font-weight: 600;
+      padding: 0.5rem 1.1rem; border-radius: 50px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 3px 14px rgba(45,114,168,0.3);
+    }
+    .nav-live:hover { background: var(--eb-600); transform: translateY(-1px); }
+    .nav-live::before { content: ''; width: 7px; height: 7px; background: #a0ff80; border-radius: 50%; animation: pulse-dot 2s infinite; flex-shrink: 0; }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.3)} }
+
+    /* ── MOBILE NAVBAR ── */
+    @media(max-width: 600px) {
+      nav { padding: 0.7rem 4vw; }
+
+      .nav-back .back-text { display: none; }
+      .nav-back { gap: 0; font-size: 1.2rem; }
+
+      .nav-live {
+        font-size: 0.68rem;
+        padding: 0.38rem 0.7rem;
+        gap: 0.3rem;
+      }
+      .nav-live::before { width: 5px; height: 5px; }
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 7rem 5vw 4rem;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-left { position: relative; z-index: 1; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--eb-50); border: 1.5px solid var(--eb-200);
+      color: var(--eb-600); font-size: 0.73rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.38rem 0.9rem; border-radius: 50px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-tag img { width: 16px; height: 16px; object-fit: contain; }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--text-dark);
+      margin-bottom: 1.2rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    .hero h1 em { font-style: italic; color: var(--eb-500); }
+    .hero-sub {
+      font-size: 1.05rem; font-weight: 300;
+      color: var(--text-mid); max-width: 480px;
+      margin-bottom: 2.4rem; line-height: 1.75;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .hero-meta {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      margin-bottom: 2.4rem;
+      animation: fadeUp 0.7s 0.25s ease both;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 0.15rem; }
+    .meta-label { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); }
+    .meta-value { font-size: 0.92rem; font-weight: 600; color: var(--text-dark); }
+    .hero-btns {
+      display: flex; gap: 0.9rem; flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: var(--eb-500); color: white;
+      font-weight: 600; font-size: 0.92rem;
+      padding: 0.85rem 1.8rem; border-radius: 50px;
+      text-decoration: none; border: none; cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      box-shadow: 0 4px 20px rgba(45,114,168,0.3);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--eb-600); transform: translateY(-2px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: transparent; color: var(--eb-600);
+      font-weight: 600; font-size: 0.92rem;
+      padding: 0.85rem 1.8rem; border-radius: 50px;
+      text-decoration: none; border: 2px solid var(--eb-200);
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover { background: var(--eb-50); border-color: var(--eb-300); transform: translateY(-2px); }
+
+    .hero-right { position: relative; animation: fadeUp 0.8s 0.15s ease both; }
+    .hero-mockup-wrap { position: relative; border-radius: 24px; overflow: visible; }
+    .browser-window {
+      background: white; border-radius: 18px;
+      box-shadow: 0 30px 80px rgba(13,30,46,0.18), 0 6px 24px rgba(45,114,168,0.12);
+      overflow: hidden;
+    }
+    .browser-bar {
+      height: 36px; background: var(--eb-50);
+      border-bottom: 1px solid var(--eb-100);
+      display: flex; align-items: center;
+      padding: 0 14px; gap: 6px;
+    }
+    .b-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .browser-url {
+      flex: 1; margin-left: 8px;
+      height: 20px; background: white;
+      border-radius: 4px; border: 1px solid var(--eb-100);
+      display: flex; align-items: center;
+      padding: 0 8px; font-size: 0.67rem; color: var(--text-light);
+      font-family: monospace;
+    }
+    .browser-content {
+      background: linear-gradient(135deg, var(--eb-800) 0%, var(--eb-600) 100%);
+      min-height: 320px;
+      display: flex; align-items: center; justify-content: center;
+      padding: 2rem;
+    }
+    .browser-content img.site-logo-img {
+      max-width: 65%; max-height: 220px;
+      object-fit: contain; display: block;
+    }
+    .float-badge {
+      position: absolute; background: white; border-radius: 14px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 30px rgba(13,30,46,0.14);
+      font-size: 0.78rem; font-weight: 600; color: var(--text-dark);
+      white-space: nowrap; display: flex; align-items: center; gap: 7px;
+      border: 1.5px solid rgba(45,114,168,0.12); z-index: 10;
+      animation: float 4s ease-in-out infinite;
+    }
+    .float-badge .fb-icon img { width: 22px; height: 22px; object-fit: contain; }
+    .float-badge .fb-sub { font-size: 0.65rem; font-weight: 400; color: var(--text-light); display: block; }
+    .badge-top-left { top: -18px; left: -28px; animation-delay: 0s; }
+    .badge-bottom-right { bottom: -16px; right: -24px; animation-delay: 2s; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+
+    .stats-bar { background: var(--eb-500); padding: 2.2rem 5vw; }
+    .stats-inner {
+      max-width: 1000px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+    }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.75); font-weight: 400; }
+
+    .section { padding: 5.5rem 5vw; }
+    .section-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--eb-500); margin-bottom: 0.65rem;
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -0.02em; color: var(--text-dark); margin-bottom: 1rem;
+    }
+    h2 em { font-style: italic; color: var(--eb-500); }
+    .section-intro {
+      font-size: 1rem; color: var(--text-mid);
+      font-weight: 300; line-height: 1.8;
+      max-width: 560px; margin-bottom: 2.8rem;
+    }
+
+    #overview { background: var(--cream); }
+    .overview-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr;
+      gap: 5rem; align-items: start; max-width: 1100px; margin: 0 auto;
+    }
+    .overview-text h2 { margin-bottom: 1.4rem; }
+    .overview-text p { font-size: 1rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.2rem; font-weight: 300; }
+    .overview-text p strong { color: var(--text-dark); font-weight: 600; }
+    .overview-sidebar { display: flex; flex-direction: column; gap: 1.2rem; padding-top: 0.5rem; }
+    .info-card {
+      background: white; border: 1.5px solid var(--eb-100);
+      border-radius: 16px; padding: 1.3rem 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .info-card:hover { border-color: var(--eb-300); box-shadow: 0 6px 24px rgba(45,114,168,0.08); }
+    .info-card .ic-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--eb-400); margin-bottom: 0.5rem; }
+    .info-card .ic-value { font-size: 0.95rem; font-weight: 600; color: var(--text-dark); }
+    .info-card .ic-sub { font-size: 0.8rem; color: var(--text-light); margin-top: 0.2rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-top: 0.5rem; }
+    .tag { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 0.22rem 0.7rem; border-radius: 20px; background: var(--eb-50); border: 1px solid var(--eb-100); color: var(--eb-600); }
+
+    #features { background: var(--eb-50); }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem; max-width: 1000px; margin: 0 auto;
+    }
+    .feat-card {
+      background: white; border: 1.5px solid var(--eb-100);
+      border-radius: 18px; padding: 1.8rem 1.6rem;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+    .feat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(45,114,168,0.1); border-color: var(--eb-300); }
+    .feat-icon {
+      width: 52px; height: 52px;
+      background: var(--eb-50); border: 1.5px solid var(--eb-100);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.1rem; transition: background 0.2s;
+    }
+    .feat-card:hover .feat-icon { background: var(--eb-100); }
+    .feat-icon img { width: 28px; height: 28px; object-fit: contain; }
+    .feat-card h3 { font-size: 0.98rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.4rem; }
+    .feat-card p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.65; }
+
+    #gallery { background: white; }
+    .devices-row {
+      display: flex; gap: 1.5rem; align-items: stretch;
+      justify-content: center; flex-wrap: wrap; margin-top: 2.5rem;
+    }
+    .devices-row img {
+      flex: 1;
+      min-width: 220px;
+      max-width: 500px;
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
+
+    #tech { background: white; padding: 4rem 5vw; }
+    .tech-inner { max-width: 900px; margin: 0 auto; }
+    .tech-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.6rem; }
+    .tech-chip {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--eb-50); border: 1.5px solid var(--eb-100);
+      color: var(--eb-700); font-size: 0.82rem; font-weight: 600;
+      padding: 0.45rem 1rem; border-radius: 50px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .tech-chip:hover { background: var(--eb-100); border-color: var(--eb-200); }
+    .tech-chip img { width: 16px; height: 16px; object-fit: contain; }
+
+    #cta {
+      background: var(--eb-900); padding: 6rem 5vw;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    #cta::before {
+      content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(45,114,168,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #cta > div { position: relative; z-index: 1; }
+    #cta h2 { color: white; margin-bottom: 1rem; }
+    #cta h2 em { color: var(--eb-300); }
+    #cta p { color: rgba(200,220,240,0.65); font-size: 1rem; max-width: 480px; margin: 0 auto 2.4rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--eb-400); color: white;
+      font-weight: 700; font-size: 0.95rem;
+      padding: 0.95rem 2rem; border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(45,114,168,0.4);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-cta-primary:hover { background: var(--eb-300); transform: translateY(-2px); }
+    .btn-cta-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: transparent; color: rgba(200,220,240,0.8);
+      font-weight: 600; font-size: 0.95rem;
+      padding: 0.95rem 2rem; border-radius: 50px;
+      text-decoration: none; border: 2px solid rgba(74,142,196,0.3);
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-cta-ghost:hover { background: rgba(74,142,196,0.1); border-color: rgba(74,142,196,0.5); }
+
+    footer {
+      background: #060e1f; padding: 1.6rem 5vw;
+      border-top: 1px solid rgba(45,114,168,0.15);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 0.8rem;
+    }
+    .footer-left { font-size: 0.75rem; color: rgba(200,220,240,0.28); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.75rem; color: rgba(200,220,240,0.38); text-decoration: none; transition: color 0.18s; }
+    .footer-links a:hover { color: var(--eb-300); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1000px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 6rem; }
+      .hero-right { display: none; }
+      .overview-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .stats-inner { grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+    }
+    @media (max-width: 720px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+      /* laptop méret csökkentve mobilon */
+      .devices-row img {
+        min-width: 100%;
+        max-width: 320px;
+        height: 220px;
+        margin: 0 auto;
+      }
+    }
+    @media (max-width: 500px) {
+      .stats-inner { grid-template-columns: 1fr 1fr; }
+      footer { flex-direction: column; text-align: center; }
+      .hero-meta { gap: 1.2rem; }
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--blue-700);
+      text-decoration: none;
+      font-family: 'Sora', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-back">
+    <span class="arrow">←</span>
+    <span class="back-text">Vissza a főoldalra</span>
+  </a>
+  <a href="index.html" class="logo">Ebklinika</a>
+  <a href="https://ebklinika.hu" target="_blank" rel="noopener" class="nav-live">Élő oldal →</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">
+      <img src="pictures/ebklinikalogo_vilagos_allo_feher_felirat_nellkuli.png" alt="">
+      Egyedi weboldal projekt
+    </div>
+    <h1>Ebklinika <br><em>Állatorvosirendelő</em><br>amiben megbízhatsz.</h1>
+    <p class="hero-sub">Teljes körű webfejlesztés egy állatorvosi klinika számára. Modern arculat, teljes mobiloptimalizáció az állatgazdák bizalmát megnyerő digitális jelenlét.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Kategória</span>
+        <span class="meta-value">Állatorvosi rendelő</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Típus</span>
+        <span class="meta-value">Egyedi weboldal</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Státusz</span>
+        <span class="meta-value" style="color: var(--green-accent);">● Élő</span>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="https://ebklinika.hu" target="_blank" rel="noopener" class="btn-primary">Megnézem élőben →</a>
+      <a href="index.html#arak" class="btn-outline">Hasonló projektet kérek</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-mockup-wrap">
+      <div class="float-badge badge-top-left">
+        <div class="fb-icon"><img src="pictures/star.png" alt=""></div>
+        <div>
+          <span>Prémium kivitelezés</span>
+          <span class="fb-sub">100% egyedi dizájn</span>
+        </div>
+      </div>
+      <div class="browser-window">
+        <div class="browser-bar">
+          <div class="b-dot" style="background:#ff5f57"></div>
+          <div class="b-dot" style="background:#febc2e"></div>
+          <div class="b-dot" style="background:#28c840"></div>
+          <div class="browser-url">ebklinika.hu</div>
+        </div>
+        <div class="browser-content">
+          <img src="pictures/ebklinikalogo_vilagos_allo_feher_felirat_nellkuli.png" alt="Ebklinika logó" class="site-logo-img">
+        </div>
+      </div>
+      <div class="float-badge badge-bottom-right">
+        <div class="fb-icon"><img src="pictures/phone.png" alt=""></div>
+        <div>
+          <span>Mobilbarát</span>
+          <span class="fb-sub">100% reszponzív</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="features" class="section">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div style="text-align: center;">
+      <div class="section-label reveal">Mit kapott az ügyfél</div>
+      <h2 class="reveal">Teljes körű <em>digitális jelenlét</em> egyetlen projektben.</h2>
+    </div>
+    <div class="features-grid" style="margin-top: 2.8rem;">
+      <div class="feat-card reveal">
+        <div class="feat-icon"><img src="pictures/phone.png" alt=""></div>
+        <h3>Mobile-first dizájn</h3>
+        <p>Az állatgazdák 70%-a telefonról keres állatorvost. Az oldal minden képernyőn tökéletesen jelenik meg.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><img src="pictures/magnifier.png" alt=""></div>
+        <h3>SEO-kész struktúra</h3>
+        <p>Helyes technikai felépítés, gyors betöltés, Google Search Console integráció a helyi keresések javításáért.</p>
+      </div>
+      <div class="feat-card reveal">
+        <div class="feat-icon"><img src="pictures/heart.png" alt=""></div>
+        <h3>Gondoskodó arculat</h3>
+        <p>Megbízható kék tónusok, barátságos tipográfia az arculat pontosan azt közvetíti, amit az ügyfél érez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="reveal">
+      <div class="section-label">Képernyőképek</div>
+      <h2>Az oldal <em>valódi kinézete.</em></h2>
+      <p class="section-intro">Az elkészült weboldal asztali, tablet és mobil nézetben.</p>
+    </div>
+    <div class="devices-row reveal">
+      <img src="pictures/mockuper (4).png" alt="Ebklinika asztali nézet">
+      <img src="pictures/mockuper (6).png" alt="Ebklinika mobil nézet">
+    </div>
+  </div>
+</section>
+
+
+<section id="cta">
+  <div>
+    <div class="section-label" style="color: var(--eb-300); justify-content: center; display: flex;">Te is hasonlót szeretnél?</div>
+    <h2>Kérj <em>egyedi ajánlatot</em> a vállalkozásodra.</h2>
+    <p>Minden projekt más de a cél mindig ugyanaz olyan weboldal, ami valóban hoz ügyfeleket.</p>
+    <div class="cta-btns">
+      <a href="index.html#arak" class="btn-cta-primary">Megnézem az árakat →</a>
+      <a href="https://ebklinika.hu" target="_blank" rel="noopener" class="btn-cta-ghost">Ebklinika élőben →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">© 2026 Vállalkozó Online · Ebklinika projekt</div>
+  <div class="footer-links">
+    <a href="index.html">Főoldal</a>
+    <a href="index.html#projektek">Projektek</a>
+    <a href="index.html#arak">Árak</a>
+    <a href="https://ebklinika.hu" target="_blank" rel="noopener">ebklinika.hu</a>
+  </div>
+</footer>
+
+<script>
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  document.querySelectorAll('.features-grid').forEach(grid => {
+    grid.querySelectorAll('.feat-card').forEach((child, i) => {
+      child.style.transitionDelay = (i * 0.07) + 's';
+    });
+  });
+</script>
+</body>
+</html>

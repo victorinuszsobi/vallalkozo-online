@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BurgerSite | Premium Burgers</title>
+      <link rel="icon" href="pictures/burger.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:        #D93025;
+      --red-light:  #FF4A3D;
+      --amber:      #F5A623;
+      --amber-dim:  #C27F0E;
+      --green:      #2ECC71;
+      --dark:       #0C0B09;
+      --dark-2:     #111009;
+      --surface:    #161410;
+      --surface-2:  #1E1B16;
+      --border:     rgba(255,255,255,.07);
+      --border-2:   rgba(255,255,255,.12);
+      --white:      #FAF8F4;
+      --muted:      #6E6860;
+      --muted-2:    #9A9186;
+      --display:    'Bebas Neue', sans-serif;
+      --serif:      'Instrument Serif', serif;
+      --body:       'DM Sans', sans-serif;
+      --r-sm:       8px;
+      --r-md:       14px;
+      --r-lg:       24px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--white);
+      font-family: var(--body);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ────────────────────────────────────────
+       SCROLL PROGRESS
+    ──────────────────────────────────────── */
+    #scroll-bar {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--red), var(--amber));
+      z-index: 9999; transition: width .08s linear;
+      box-shadow: 0 0 12px rgba(213,48,37,.6);
+    }
+
+    /* ────────────────────────────────────────
+       ANIMATIONS
+    ──────────────────────────────────────── */
+    @keyframes fadeUp    { from { opacity:0; transform:translateY(32px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn    { from { opacity:0; } to { opacity:1; } }
+    @keyframes popIn     { 0%{opacity:0;transform:scale(.5) translateY(10px);} 70%{transform:scale(1.05) translateY(-2px);} 100%{opacity:1;transform:scale(1) translateY(0);} }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-20px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes float     { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+    @keyframes spinSlow  { to{transform:rotate(360deg);} }
+    @keyframes pulse     { 0%,100%{opacity:1;} 50%{opacity:.5;} }
+    @keyframes shimmer   { 0%{background-position:-200% center;} 100%{background-position:200% center;} }
+    @keyframes marquee   { 0%{transform:translateX(0);} 100%{transform:translateX(-50%);} }
+    @keyframes glow      { 0%,100%{box-shadow:0 0 20px rgba(213,48,37,.2);} 50%{box-shadow:0 0 40px rgba(213,48,37,.5), 0 0 80px rgba(213,48,37,.15);} }
+    @keyframes logoWobble{ 0%,100%{transform:rotate(0);} 25%{transform:rotate(-3deg) scale(1.04);} 75%{transform:rotate(3deg) scale(1.04);} }
+    @keyframes phoneShake{ 0%,100%{transform:rotate(0);} 20%{transform:rotate(-15deg);} 40%{transform:rotate(15deg);} 60%{transform:rotate(-8deg);} 80%{transform:rotate(8deg);} }
+    @keyframes borderAnim{ 0%,100%{border-color:var(--amber);} 50%{border-color:#ffd36b; box-shadow:0 0 24px rgba(245,166,35,.4);} }
+    @keyframes countUp   { from{opacity:0;transform:translateY(12px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes ripple    { 0%{transform:translate(-50%,-50%) scale(0);opacity:.6;} 100%{transform:translate(-50%,-50%) scale(4);opacity:0;} }
+    @keyframes navLink   { from{opacity:0;transform:translateY(-10px);} to{opacity:1;transform:translateY(0);} }
+    @keyframes badgePop  { 0%{transform:scale(.8) translateY(10px);opacity:0;} 70%{transform:scale(1.06);} 100%{transform:scale(1) translateY(0);opacity:1;} }
+
+    /* ────────────────────────────────────────
+       NAVBAR
+    ──────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 52px;
+      height: 68px;
+      background: rgba(12,11,9,.88);
+      backdrop-filter: blur(20px) saturate(1.5);
+      border-bottom: 1px solid var(--border);
+      animation: slideDown .5s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    nav::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0;
+    }
+
+    .nav-logo {
+      font-family: var(--display);
+      font-size: 1.6rem; color: var(--white);
+      text-decoration: none; letter-spacing: 3px;
+      position: relative; z-index: 1;
+      transition: color .2s;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-logo:hover { animation: logoWobble .45s ease; }
+
+    .nav-links { display: flex; gap: 40px; list-style: none; position: relative; z-index: 1; }
+    .nav-links li { opacity: 0; animation: navLink .4s ease forwards; }
+    .nav-links li:nth-child(1){animation-delay:.2s;}
+    .nav-links li:nth-child(2){animation-delay:.3s;}
+    .nav-links li:nth-child(3){animation-delay:.4s;}
+
+    .nav-links a {
+      color: var(--muted-2); text-decoration: none;
+      font-size: .82rem; font-weight: 500; letter-spacing: .6px;
+      text-transform: uppercase; position: relative;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; left: 0; bottom: -4px;
+      height: 1px; width: 0; background: var(--amber);
+      transition: width .3s cubic-bezier(.22,1,.36,1);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-right {
+      display: flex; align-items: center; gap: 18px;
+      opacity: 0; animation: navLink .4s .45s ease forwards;
+      position: relative; z-index: 1;
+    }
+
+    .nav-cta {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--red); color: var(--white);
+      text-decoration: none; font-size: .78rem; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      padding: 10px 22px; border-radius: 4px;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+    .nav-cta:hover {
+      background: var(--red-light); transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(213,48,37,.4);
+    }
+    .nav-cta svg { width: 13px; height: 13px; }
+
+    .lang-switcher {
+      display: flex; gap: 2px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 6px; padding: 3px;
+    }
+    .lang-btn {
+      border: none; background: none; cursor: pointer;
+      font-family: var(--body); font-size: .7rem; font-weight: 700;
+      letter-spacing: 1px; color: var(--muted);
+      padding: 5px 11px; border-radius: 4px;
+      transition: background .2s, color .2s;
+    }
+    .lang-btn.active { background: var(--red); color: var(--white); }
+    .lang-btn:hover:not(.active) { color: var(--white); }
+
+    /* ────────────────────────────────────────
+       HERO
+    ──────────────────────────────────────── */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 55% 70% at 20% 60%, rgba(213,48,37,.12) 0%, transparent 60%),
+        radial-gradient(ellipse 40% 50% at 80% 30%, rgba(245,166,35,.06) 0%, transparent 60%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 100px 60px 80px;
+      position: relative; z-index: 2;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: .68rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 28px;
+      opacity: 0; animation: fadeUp .5s .1s ease forwards;
+    }
+    .eyebrow-line {
+      display: block; width: 28px; height: 1px; background: var(--amber);
+    }
+    .eyebrow-dot {
+      width: 5px; height: 5px; border-radius: 50%; background: var(--red);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(3.8rem, 5.5vw, 7rem);
+      line-height: .87; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .hw {
+      display: inline-block; opacity: 0;
+      animation: popIn .6s cubic-bezier(.22,1,.36,1) forwards;
+    }
+    .hw:nth-child(1){animation-delay:.15s;}
+    .hw:nth-child(2){animation-delay:.25s;}
+    .hw:nth-child(3){animation-delay:.35s;}
+    .hw:nth-child(4){animation-delay:.45s;}
+    .hw:nth-child(5){animation-delay:.55s;}
+
+    .hw-red { color: var(--red); }
+
+    .hw-marked {
+      position: relative;
+      display: inline-block;
+    }
+    .hw-marked::after {
+      content: '';
+      position: absolute; left: -2px; right: -2px; bottom: 2px;
+      height: 8px;
+      background: var(--amber);
+      opacity: .25;
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    .hero-tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--muted-2);
+      line-height: 1.65;
+      max-width: 360px;
+      margin-bottom: 40px;
+      opacity: 0; animation: fadeUp .5s .65s ease forwards;
+    }
+
+    .hero-actions {
+      display: flex; align-items: center; gap: 20px;
+      opacity: 0; animation: fadeUp .5s .8s ease forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--red); color: var(--white);
+      text-decoration: none; font-size: .82rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 15px 32px; border-radius: var(--r-sm);
+      position: relative; overflow: hidden;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      animation: glow 3s ease-in-out infinite;
+    }
+    .btn-primary:hover {
+      background: var(--red-light); transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(213,48,37,.5);
+    }
+    .btn-primary svg { width: 14px; height: 14px; }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--muted-2); text-decoration: none;
+      font-size: .82rem; font-weight: 500; letter-spacing: .5px;
+      transition: color .2s, gap .25s;
+    }
+    .btn-ghost:hover { color: var(--white); gap: 13px; }
+    .btn-ghost svg { width: 16px; height: 16px; transition: transform .2s; }
+    .btn-ghost:hover svg { transform: translateX(3px); }
+
+    .hero-trust {
+      display: flex; align-items: center; gap: 24px;
+      margin-top: 52px;
+      opacity: 0; animation: fadeUp .5s .95s ease forwards;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: .72rem; font-weight: 500; letter-spacing: .3px;
+      color: var(--muted);
+    }
+    .trust-item svg { width: 14px; height: 14px; color: var(--green); }
+    .trust-sep { width: 1px; height: 18px; background: var(--border-2); }
+
+    /* Right col: image */
+    .hero-right {
+      position: relative; overflow: visible;
+    }
+    .hero-img-clip {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero-img-clip::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to right, var(--dark) 0%, transparent 40%);
+      z-index: 2; pointer-events: none;
+    }
+    .hero-img-clip::after {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(12,11,9,.75) 0%, transparent 30%, rgba(12,11,9,.75) 75%, rgba(12,11,9,1) 100%),
+        linear-gradient(to right, transparent 60%, rgba(12,11,9,.8) 100%);
+      z-index: 2; pointer-events: none;
+    }
+
+    /* Clip the image itself but not child elements */
+    #hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 55%;
+      display: block;
+      filter: brightness(.85) saturate(1.3);
+      transform: scale(1.0);
+      transform-origin: center;
+      opacity: 0; animation: fadeIn .8s .3s ease forwards;
+    }
+
+    /* ── FIXED: hero card position – brought inside the image, top-left area ── */
+    .hero-card {
+      position: absolute;
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 24px;        /* sits comfortably inside the right column */
+      z-index: 10;       /* above both ::before and ::after overlays */
+      background: rgba(22,20,16,.92);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-md);
+      padding: 16px 22px;
+      display: flex; align-items: center; gap: 14px;
+      min-width: 200px;
+      opacity: 0; animation: badgePop .6s 1.1s ease forwards;
+    }
+    .card-icon {
+      width: 42px; height: 42px; border-radius: var(--r-sm);
+      background: rgba(213,48,37,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; flex-shrink: 0;
+    }
+    .card-meta { display: flex; flex-direction: column; gap: 2px; }
+    .card-meta strong { font-size: .82rem; font-weight: 700; color: var(--white); }
+    .card-meta span { font-size: .68rem; color: var(--muted); letter-spacing: .5px; }
+
+    .hero-rating {
+      position: absolute; top: 40px; right: 30px;
+      z-index: 4;
+      background: rgba(22,20,16,.9);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-md);
+      padding: 12px 18px;
+      text-align: center;
+      opacity: 0; animation: badgePop .6s 1.3s ease forwards;
+    }
+    .rating-num {
+      font-family: var(--display);
+      font-size: 2rem; line-height: 1; color: var(--white); letter-spacing: 1px;
+    }
+    .rating-stars { color: var(--amber); font-size: .75rem; margin: 2px 0; }
+    .rating-count { font-size: .62rem; color: var(--muted); letter-spacing: .5px; }
+
+    /* ────────────────────────────────────────
+       TICKER / MARQUEE
+    ──────────────────────────────────────── */
+    #ticker {
+      background: var(--red);
+      overflow: hidden; padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,.1);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    .ticker-track {
+      display: flex; width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+    #ticker:hover .ticker-track { animation-play-state: paused; }
+
+    .ticker-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 0 28px; white-space: nowrap;
+      font-size: .72rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .ticker-dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: rgba(255,255,255,.5);
+    }
+
+    /* ────────────────────────────────────────
+       STATS STRIP
+    ──────────────────────────────────────── */
+    #stats {
+      background: var(--surface);
+      padding: 60px 52px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    #stats::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 100% at 50% 0%, rgba(213,48,37,.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .stat-item {
+      padding: 20px 40px;
+      border-right: 1px solid var(--border);
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .5s ease, transform .5s cubic-bezier(.22,1,.36,1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-item.visible { opacity: 1; transform: translateY(0); }
+    .stat-item:nth-child(1){transition-delay:.05s;}
+    .stat-item:nth-child(2){transition-delay:.15s;}
+    .stat-item:nth-child(3){transition-delay:.25s;}
+    .stat-item:nth-child(4){transition-delay:.35s;}
+
+    .stat-value {
+      font-family: var(--display);
+      font-size: 3rem; line-height: 1; letter-spacing: 1px;
+      color: var(--white); margin-bottom: 6px;
+      display: flex; align-items: baseline; gap: 4px;
+    }
+    .stat-suffix { color: var(--red); }
+    .stat-label {
+      font-size: .68rem; font-weight: 600; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--muted);
+    }
+
+    .stat-live {
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(46,204,113,.4);
+      animation: livePulse 1.8s ease-in-out infinite;
+    }
+    @keyframes livePulse {
+      0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.5);}
+      50%{box-shadow:0 0 0 8px rgba(46,204,113,0);}
+    }
+
+    /* ────────────────────────────────────────
+       ABOUT
+    ──────────────────────────────────────── */
+    #about {
+      padding: 120px 52px;
+      background: var(--dark-2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative; overflow: hidden;
+    }
+    #about::before {
+      content: '';
+      position: absolute; left: -100px; top: 50%; transform: translateY(-50%);
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(213,48,37,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .about-label {
+      font-size: .68rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .about-label::before { content: ''; display: block; width: 20px; height: 1px; background: var(--amber); }
+
+    .about-heading {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 3.5vw, 4.2rem);
+      line-height: .9; letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .about-heading em {
+      font-style: normal; color: var(--red);
+      font-family: var(--serif); font-style: italic;
+      font-size: .85em;
+    }
+
+    .about-body {
+      font-size: .9rem; line-height: 1.85;
+      color: var(--muted-2); max-width: 440px;
+    }
+    .about-body strong { color: var(--white); font-weight: 600; }
+
+    .about-pills {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 32px;
+    }
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 40px;
+      border: 1px solid var(--border-2);
+      background: var(--surface);
+      font-size: .72rem; font-weight: 600; letter-spacing: .5px;
+      color: var(--muted-2);
+      transition: border-color .2s, color .2s, background .2s;
+    }
+    .pill:hover { border-color: var(--amber); color: var(--white); background: rgba(245,166,35,.08); }
+    .pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+
+    .about-visual {
+      position: relative; border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: 0 40px 100px rgba(0,0,0,.6);
+    }
+    .about-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(.8) saturate(1.3);
+      transition: transform .8s cubic-bezier(.22,1,.36,1);
+    }
+    .about-visual:hover img { transform: scale(1.04); }
+    .about-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(12,11,9,.7) 100%);
+    }
+
+    .about-visual-badge {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      z-index: 2;
+      background: rgba(12,11,9,.85);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border-2);
+      border-radius: var(--r-sm);
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .avb-icon { font-size: 1.4rem; }
+    .avb-text strong { display: block; font-size: .82rem; font-weight: 700; color: var(--white); }
+    .avb-text span { font-size: .68rem; color: var(--muted); }
+
+
+    /* ────────────────────────────────────────
+       MENU
+    ──────────────────────────────────────── */
+    #menu {
+      padding: 120px 52px;
+      background: var(--dark);
+      position: relative;
+    }
+    #menu::before {
+      content: '';
+      position: absolute; right: 0; top: 0; bottom: 0; width: 30%;
+      background: radial-gradient(ellipse 100% 80% at 100% 50%, rgba(245,166,35,.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .section-header { margin-bottom: 64px; }
+
+    .section-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--amber); }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 3.5vw, 4rem);
+      letter-spacing: 3px; text-transform: uppercase;
+      line-height: .9; margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1rem; color: var(--muted-2);
+      max-width: 440px; line-height: 1.7;
+    }
+
+    .menu-grid { display: flex; flex-direction: column; gap: 16px; max-width: 960px; }
+
+    .menu-card {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      min-height: 200px;
+      position: relative;
+      cursor: default;
+      transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s;
+    }
+    .menu-card:hover { transform: translateY(-6px); }
+    .menu-card.card-red { background: linear-gradient(120deg, #B82820 0%, #D93025 50%, #C02520 100%); }
+    .menu-card.card-amber { background: linear-gradient(120deg, #9A6208 0%, #C8820A 50%, #A86B09 100%); }
+    .menu-card.card-green { background: linear-gradient(120deg, #1E9651 0%, #27AE60 50%, #1E9651 100%); }
+
+    .menu-card.card-red:hover   { box-shadow: 0 24px 60px rgba(213,48,37,.4); }
+    .menu-card.card-amber:hover { box-shadow: 0 24px 60px rgba(200,130,10,.4); }
+    .menu-card.card-green:hover { box-shadow: 0 24px 60px rgba(39,174,96,.4); }
+
+    .menu-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.15) 50%, transparent 60%);
+      background-size: 300% 100%; background-position: -200% center;
+      transition: background-position .6s ease;
+      pointer-events: none; z-index: 2;
+    }
+    .menu-card:hover::before { background-position: 200% center; }
+
+    .card-content {
+      padding: 36px 44px;
+      position: relative; z-index: 1;
+    }
+    .card-number {
+      font-size: .6rem; letter-spacing: 3px; text-transform: uppercase;
+      opacity: .5; margin-bottom: 8px;
+    }
+    .card-name {
+      font-family: var(--display);
+      font-size: 2.6rem; letter-spacing: 2px; text-transform: uppercase;
+      line-height: .9; margin-bottom: 10px;
+      transition: letter-spacing .3s;
+    }
+    .menu-card:hover .card-name { letter-spacing: 4px; }
+    .card-price {
+      font-size: .9rem; font-weight: 800;
+      opacity: .9; margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: .78rem; line-height: 1.65;
+      opacity: .8; max-width: 300px; margin-bottom: 20px;
+    }
+
+    .card-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(0,0,0,.3); color: var(--white);
+      text-decoration: none; font-size: .7rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 9px 18px; border-radius: 4px;
+      border: 1px solid rgba(255,255,255,.2);
+      transition: background .2s, gap .25s, border-color .2s;
+    }
+    .card-btn:hover { background: rgba(0,0,0,.5); gap: 11px; border-color: rgba(255,255,255,.4); }
+    .card-btn svg { width: 12px; height: 12px; }
+
+    .card-img-wrap {
+      padding: 24px 36px 24px 0;
+      display: flex; align-items: center; justify-content: flex-end;
+      position: relative; z-index: 1;
+    }
+    .card-img-wrap img {
+      width: 220px; height: 170px; object-fit: cover;
+      border-radius: 12px;
+      filter: drop-shadow(0 12px 32px rgba(0,0,0,.5));
+      transition: transform .5s cubic-bezier(.22,1,.36,1), filter .5s;
+    }
+    .menu-card:hover .card-img-wrap img {
+      transform: rotate(-6deg) scale(1.1) translateY(-8px);
+      filter: drop-shadow(0 24px 40px rgba(0,0,0,.6));
+    }
+
+    /* ────────────────────────────────────────
+       GALLERY STRIP
+    ──────────────────────────────────────── */
+    #gallery {
+      background: #090807;
+      padding: 0; overflow: hidden;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gallery-row {
+      display: flex; width: max-content;
+      animation: marquee 30s linear infinite;
+      padding: 20px 0;
+    }
+    .gallery-row:nth-child(2) {
+      animation-direction: reverse;
+      animation-duration: 24s;
+    }
+    #gallery:hover .gallery-row { animation-play-state: paused; }
+
+    .gallery-item {
+      flex: 0 0 280px; height: 180px; margin: 0 8px;
+      border-radius: var(--r-md); overflow: hidden;
+      position: relative;
+    }
+    .gallery-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(.75) saturate(1.1);
+      transition: transform .5s, filter .4s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+      filter: brightness(1) saturate(1.5);
+    }
+
+    /* ────────────────────────────────────────
+       OFFER / CTA
+    ──────────────────────────────────────── */
+    #contact {
+      padding: 130px 52px;
+      background: var(--surface);
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: center; gap: 60px;
+      position: relative; overflow: hidden;
+      border-top: 1px solid var(--border);
+    }
+    #contact::before {
+      content: '';
+      position: absolute; left: -80px; top: 50%; transform: translateY(-50%);
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(213,48,37,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .offer-left { position: relative; z-index: 1; }
+
+    .offer-eyebrow {
+      font-size: .68rem; font-weight: 700; letter-spacing: 4px;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .offer-eyebrow::before { content: ''; display: block; width: 20px; height: 1px; background: var(--amber); }
+
+    .offer-title {
+      font-family: var(--display);
+      font-size: clamp(2.8rem, 4.5vw, 5.5rem);
+      line-height: .88; letter-spacing: 2px;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .offer-title .highlight {
+      display: inline-block;
+      border: 3px solid var(--amber);
+      padding: 0 16px 4px; border-radius: 6px;
+      color: var(--amber);
+      animation: borderAnim 2.5s ease-in-out infinite;
+    }
+
+    .offer-desc {
+      font-family: var(--serif); font-style: italic;
+      font-size: 1rem; color: var(--muted-2);
+      line-height: 1.75; max-width: 440px;
+    }
+
+    .offer-right {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; align-items: center; gap: 14px;
+    }
+
+    .offer-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--red); color: var(--white);
+      text-decoration: none; font-size: .85rem; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 18px 40px; border-radius: 6px;
+      white-space: nowrap;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      animation: glow 3s ease-in-out infinite;
+    }
+    .offer-cta:hover {
+      background: var(--red-light); transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 20px 50px rgba(213,48,37,.55);
+    }
+    .offer-cta:hover .ph { animation: phoneShake .5s ease; }
+    .ph { display: inline-block; font-size: 1rem; }
+    .offer-note { font-size: .7rem; color: var(--muted); letter-spacing: .5px; }
+
+    /* ────────────────────────────────────────
+       FOOTER
+    ──────────────────────────────────────── */
+    footer {
+      background: #0A0906;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+      padding: 72px 52px 52px;
+    }
+
+    .foot-brand .foot-logo {
+      font-family: var(--display); font-size: 2rem;
+      color: var(--white); text-decoration: none;
+      letter-spacing: 3px; display: inline-block; margin-bottom: 16px;
+      transition: color .2s, transform .3s;
+    }
+    .foot-brand .foot-logo span { color: var(--red); }
+    .foot-brand .foot-logo:hover { color: var(--white); transform: scale(1.06); }
+
+    .foot-tagline {
+      font-family: var(--serif); font-style: italic;
+      font-size: .9rem; color: var(--muted); line-height: 1.7;
+      max-width: 240px; margin-bottom: 28px;
+    }
+
+    .foot-socials { display: flex; gap: 12px; }
+    .foot-social {
+      width: 38px; height: 38px; border-radius: var(--r-sm);
+      border: 1px solid var(--border-2);
+      background: var(--surface);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted-2); text-decoration: none;
+      transition: border-color .2s, color .2s, background .2s, transform .2s;
+    }
+    .foot-social:hover {
+      border-color: var(--amber); color: var(--amber);
+      background: rgba(245,166,35,.08); transform: translateY(-3px);
+    }
+    .foot-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    .foot-col h4 {
+      font-size: .68rem; font-weight: 700; letter-spacing: 2.5px;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .foot-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .foot-col ul li a {
+      color: var(--muted-2); text-decoration: none;
+      font-size: .82rem; display: inline-flex; align-items: center; gap: 6px;
+      transition: color .2s, gap .2s;
+    }
+    .foot-col ul li a:hover { color: var(--white); gap: 10px; }
+
+    .foot-col .contact-block { display: flex; flex-direction: column; gap: 12px; }
+    .foot-contact-line {
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .fci { font-size: .9rem; margin-top: 1px; flex-shrink: 0; }
+    .foot-contact-line p, .foot-contact-line a {
+      font-size: .8rem; line-height: 1.6;
+      color: var(--muted-2); text-decoration: none;
+      transition: color .2s;
+    }
+    .foot-contact-line a:hover { color: var(--amber); }
+
+    .foot-hours { margin-top: 8px; }
+    .foot-hours-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .75rem;
+    }
+    .foot-hours-row:last-child { border-bottom: none; }
+    .fhr-day { color: var(--muted-2); font-weight: 500; }
+    .fhr-time { color: var(--white); font-weight: 700; font-size: .7rem; letter-spacing: .3px; }
+    .fhr-today { color: var(--green); }
+    .fhr-time.open { color: var(--green); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding: 20px 52px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-copy { font-size: .72rem; color: var(--muted); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a {
+      font-size: .72rem; color: var(--muted);
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-legal a:hover { color: var(--amber); }
+
+    /* ────────────────────────────────────────
+       REVEAL UTILITY
+    ──────────────────────────────────────── */
+    .reveal     { opacity:0; transform:translateY(40px); transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal-l   { opacity:0; transform:translateX(-50px); transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal-r   { opacity:0; transform:translateX(50px); transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal-s   { opacity:0; transform:scale(.9); transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1); }
+    .reveal.vis, .reveal-l.vis, .reveal-r.vis, .reveal-s.vis { opacity:1; transform:none; }
+    .d1{transition-delay:.1s!important;} .d2{transition-delay:.2s!important;} .d3{transition-delay:.3s!important;} .d4{transition-delay:.4s!important;}
+
+    /* ────────────────────────────────────────
+       CURSOR RIPPLE
+    ──────────────────────────────────────── */
+    .cursor-ripple {
+      position: fixed; pointer-events: none; z-index: 99998;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: rgba(213,48,37,.35);
+      animation: ripple .6s ease-out forwards;
+    }
+
+    /* ────────────────────────────────────────
+       HAMBURGER / MOBILE
+    ──────────────────────────────────────── */
+    .hamburger {
+      display: none; flex-direction: column; justify-content: center;
+      align-items: center; gap: 5px;
+      width: 40px; height: 40px;
+      background: none; border: none; cursor: pointer;
+      border-radius: 6px; transition: background .2s;
+    }
+    .hamburger:hover { background: var(--surface); }
+    .hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--white); border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(9,8,7,.97);
+      backdrop-filter: blur(24px);
+      z-index: 1050;
+      flex-direction: column; align-items: center; justify-content: center;
+      padding: 80px 30px 40px; gap: 6px;
+    }
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      color: var(--muted-2); text-decoration: none;
+      font-family: var(--display); font-size: 2.6rem;
+      letter-spacing: 4px; text-transform: uppercase;
+      padding: 14px 0; width: 100%; text-align: center;
+      border-bottom: 1px solid var(--border);
+      opacity: 0; transform: translateY(16px);
+      transition: color .2s, transform .4s, opacity .4s;
+    }
+    .mobile-menu a:last-of-type { border-bottom: none; }
+    .mobile-menu a:hover { color: var(--white); }
+    .mobile-menu.open a:nth-child(1){opacity:1;transform:none;transition-delay:.05s;}
+    .mobile-menu.open a:nth-child(2){opacity:1;transform:none;transition-delay:.12s;}
+    .mobile-menu.open a:nth-child(3){opacity:1;transform:none;transition-delay:.19s;}
+    .mobile-menu.open a:nth-child(4){opacity:1;transform:none;transition-delay:.26s;}
+
+    .mob-close {
+      position: absolute; top: 18px; right: 18px;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 50%; width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background .2s, transform .2s;
+    }
+    .mob-close:hover { background: rgba(213,48,37,.2); transform: rotate(90deg); }
+    .mob-close span {
+      display: block; width: 18px; height: 1.5px;
+      background: var(--white); border-radius: 2px; position: absolute;
+    }
+    .mob-close span:first-child { transform: rotate(45deg); }
+    .mob-close span:last-child  { transform: rotate(-45deg); }
+
+    .mobile-lang {
+      margin-top: 28px; display: flex; gap: 8px;
+      opacity: 0; transform: translateY(12px);
+      transition: opacity .4s .35s, transform .4s .35s;
+    }
+    .mobile-menu.open .mobile-lang { opacity: 1; transform: none; }
+
+    /* ────────────────────────────────────────
+       RESPONSIVE
+    ──────────────────────────────────────── */
+    @media(max-width:1024px) {
+      #home { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 90px 40px 60px; }
+      .hero-right { height: 50vw; min-height: 320px; }
+      .hero-img-clip::before { background: linear-gradient(to bottom, var(--dark) 0%, transparent 30%); }
+      .hero-card {
+        top: auto;
+        transform: none;
+        bottom: 24px;
+        left: 20px;
+      }
+      #about { grid-template-columns: 1fr; gap: 48px; padding: 80px 40px; }
+      .about-visual { max-width: 560px; aspect-ratio: 16/9; }
+      #contact { grid-template-columns: 1fr; gap: 40px; padding: 80px 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; padding: 52px 40px 40px; }
+    }
+
+    @media(max-width:768px) {
+      nav { padding: 0 18px; }
+      .nav-links, .nav-right { display: none; }
+      .hamburger { display: flex; }
+
+      .hero-left { padding: 72px 24px 40px; }
+      .hero-right { height: 60vw; }
+      .hero-rating { display: none; }
+      .hero-card {
+        top: auto;
+        transform: none;
+        bottom: 16px;
+        left: 16px;
+      }
+
+      #stats { grid-template-columns: 1fr 1fr; padding: 40px 24px; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); padding: 18px 20px; }
+      .stat-item:nth-child(odd) { border-right: 1px solid var(--border); }
+      .stat-item:nth-last-child(-n+2) { border-bottom: none; }
+
+      #about { padding: 60px 24px; }
+      #menu { padding: 60px 24px; }
+      .menu-card { grid-template-columns: 1fr; }
+      .card-img-wrap { padding: 0 24px 24px; justify-content: center; }
+      .card-img-wrap img { width: 100%; height: 200px; }
+      .card-content { padding: 28px 24px 16px; }
+
+      #contact { padding: 60px 24px; text-align: center; }
+      .offer-eyebrow { justify-content: center; }
+      .offer-title { font-size: 2.4rem; }
+      .offer-desc { margin: 0 auto; }
+
+      .footer-top { grid-template-columns: 1fr; padding: 40px 24px 28px; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 16px 24px; }
+    }
+
+    @media(max-width:480px) {
+      .hero-title { font-size: 3rem; }
+      #stats { grid-template-columns: 1fr 1fr; }
+      .offer-title { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="scroll-bar"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-logo">Burger<span>Site</span></a>
+    <ul class="nav-links">
+      <li><a href="#about"   data-i18n="nav_about">About</a></li>
+      <li><a href="#menu"    data-i18n="nav_menu">Menu</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+15001344567" class="nav-cta" data-i18n="nav_order">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.36 19.36 0 0 1 1.58 3 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.5a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Order Now
+      </a>
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn"        data-lang="hu">HU</button>
+      </div>
+    </div>
+    <button class="hamburger" id="ham-btn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mob-menu">
+    <button class="mob-close" id="mob-close"><span></span><span></span></button>
+    <a href="#about"   class="mob-link" data-i18n="nav_about">About</a>
+    <a href="#menu"    class="mob-link" data-i18n="nav_menu">Menu</a>
+    <a href="#contact" class="mob-link" data-i18n="nav_contact">Contact</a>
+    <a href="#contact" class="mob-link" data-i18n="nav_order">Order Now</a>
+    <div class="mobile-lang">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <button class="lang-btn"        data-lang="hu">HU</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span data-i18n="hero_eyebrow">Premium Burgers</span>
+        <span class="eyebrow-dot"></span>
+      </div>
+
+      <h1 class="hero-title" id="hero-title">
+        <span class="hw">The</span>
+        <span class="hw hw-red">Real</span>
+        <span class="hw">Experience</span><br>
+        <span class="hw hw-marked">Starts</span>
+        <span class="hw">Here</span>
+      </h1>
+
+      <p class="hero-tagline" data-i18n="hero_sub">Fresh. Never frozen. Grilled to perfection every single time.</p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary" data-i18n="nav_order">
+          Order Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#menu" class="btn-ghost">
+          <span data-i18n="hero_menu_link">View Menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="trust1">Fresh Daily</span>
+        </div>
+        <span class="trust-sep"></span>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="trust2">Free Delivery over $25</span>
+        </div>
+        <span class="trust-sep"></span>
+        <div class="trust-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span data-i18n="trust3">Open Every Day</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-clip">
+        <img id="hero-img"
+          src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1400&q=90"
+          alt="Signature Burger"
+        />
+      </div>
+
+      <div class="hero-card">
+        <div class="card-icon">🔥</div>
+        <div class="card-meta">
+          <strong data-i18n="hero_card_title">Best Seller</strong>
+          <span data-i18n="hero_card_sub">Beast Burger · $14.99</span>
+        </div>
+      </div>
+
+      <div class="hero-rating">
+        <div class="rating-num">4.8</div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-count" data-i18n="rating_count">2,400+ reviews</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div id="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">Fresh & Never Frozen <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Grilled to Perfection <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Free Delivery on $25+ <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Open 7 Days a Week <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Premium Ingredients <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Vegan Options Available <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Fresh & Never Frozen <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Grilled to Perfection <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Free Delivery on $25+ <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Open 7 Days a Week <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Premium Ingredients <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Vegan Options Available <span class="ticker-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div id="stats">
+    <div class="stat-item">
+      <div class="stat-value">
+        <span class="stat-count" data-target="15">0</span>
+        <span class="stat-suffix">min</span>
+      </div>
+      <div class="stat-label" data-i18n="stat1">Avg. Delivery Time</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">
+        <span class="stat-count" data-target="4" data-dec="true">0</span>
+        <span class="stat-suffix">★</span>
+      </div>
+      <div class="stat-label" data-i18n="stat2">Average Rating</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value">
+        <span class="stat-count" data-target="2400">0</span>
+        <span class="stat-suffix">+</span>
+      </div>
+      <div class="stat-label" data-i18n="stat3">Happy Customers</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-value stat-live">
+        <span class="live-dot"></span>
+        <span style="color:var(--green)" data-i18n="stat4">OPEN</span>
+      </div>
+      <div class="stat-label" data-i18n="stat4_sub">Accepting Orders Now</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="reveal-l">
+      <div class="about-label" data-i18n="about_eyebrow">Our Story</div>
+      <h2 class="about-heading">
+        <span data-i18n="about_h1">We Don't</span><br>
+        <span data-i18n="about_h2">Just Make</span><br>
+        <em data-i18n="about_h3">Burgers.</em>
+      </h2>
+      <p class="about-body" data-i18n="about_desc">
+        We craft <strong>experiences</strong>. Our fresh, never-frozen beef is hand-formed and grilled to perfection, delivering bold flavor in every bite. Prefer plant-based? Our vegetarian and vegan options are just as rich and satisfying.
+      </p>
+      <div class="about-pills">
+        <span class="pill"><span class="pill-dot"></span><span data-i18n="pill1">100% Fresh Beef</span></span>
+        <span class="pill"><span class="pill-dot"></span><span data-i18n="pill2">Homemade Sauces</span></span>
+        <span class="pill"><span class="pill-dot"></span><span data-i18n="pill3">Vegan Friendly</span></span>
+        <span class="pill"><span class="pill-dot"></span><span data-i18n="pill4">Local Ingredients</span></span>
+      </div>
+    </div>
+
+    <div class="about-visual reveal-r d1">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=85" alt="Our kitchen" />
+      <div class="about-visual-badge">
+        <span class="avb-icon">🏆</span>
+        <div class="avb-text">
+          <strong data-i18n="avb_title">Award Winning</strong>
+          <span data-i18n="avb_sub">Best Burger in Town · 2024</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu">
+    <div class="section-header reveal">
+      <div class="section-eyebrow" data-i18n="menu_eyebrow">What We Serve</div>
+      <h2 class="section-title" data-i18n="menu_title">Our Menu</h2>
+      <p class="section-sub" data-i18n="menu_sub">Handcrafted from the finest ingredients. Because ordinary is not an option here.</p>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card card-red reveal-l">
+        <div class="card-content">
+          <div class="card-number" data-i18n="card1_num">01 Signature</div>
+          <div class="card-name" data-i18n="card1_name">Beast Burger</div>
+          <div class="card-price">$14.99</div>
+          <div class="card-desc" data-i18n="card1_desc">Juicy beef, blue cheese, caramelized onions, crispy bacon and fresh arugula on a toasted brioche bun. Built for those who crave intensity.</div>
+          <a href="#contact" class="card-btn" data-i18n="order_btn">
+            Order Online
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&q=80" alt="Beast Burger"/>
+        </div>
+      </div>
+
+      <div class="menu-card card-amber reveal-r d1">
+        <div class="card-content">
+          <div class="card-number" data-i18n="card2_num">02 Classic</div>
+          <div class="card-name" data-i18n="card2_name">Classic Deluxe</div>
+          <div class="card-price">$12.99</div>
+          <div class="card-desc" data-i18n="card2_desc">Handcrafted beef, melted cheese, crisp veggies, pickles and our signature sauce on a soft sesame bun. Simple. Iconic. Perfect.</div>
+          <a href="#contact" class="card-btn" data-i18n="order_btn">
+            Order Online
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=400&q=80" alt="Classic Deluxe"/>
+        </div>
+      </div>
+
+      <div class="menu-card card-green reveal-l d2">
+        <div class="card-content">
+          <div class="card-number" data-i18n="card3_num">03 Vegan</div>
+          <div class="card-name" data-i18n="card3_name">Veggie Beast</div>
+          <div class="card-price">$13.99</div>
+          <div class="card-desc" data-i18n="card3_desc">Crispy quinoa-black bean patty, pepper jack, avocado, roasted peppers and fresh sprouts on whole wheat. Proof that vegan can be unforgettable.</div>
+          <a href="#contact" class="card-btn" data-i18n="order_btn">
+            Order Online
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="card-img-wrap">
+          <img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=400&q=80" alt="Veggie Beast"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="gallery-row">
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1603064752734-4c48eff53d05?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1520072959219-c595dc870360?w=600&q=80" alt=""/></div>
+      <div class="gallery-item"><img src="https://images.unsplash.com/photo-1603064752734-4c48eff53d05?w=600&q=80" alt=""/></div>
+    </div>
+  </section>
+
+  <!-- OFFER / CTA -->
+  <section id="contact">
+    <div class="offer-left reveal-l">
+      <div class="offer-eyebrow" data-i18n="offer_eyebrow">Weekend Special</div>
+      <h2 class="offer-title">
+        <span data-i18n="offer_t1">Limited</span><br>
+        <span class="highlight" data-i18n="offer_badge">Offer</span>
+      </h2>
+      <p class="offer-desc" data-i18n="offer_desc">Weekends just leveled up. Our limited-time specials are crafted for both meat lovers and veggie fans big flavor, unbeatable value.</p>
+    </div>
+    <div class="offer-right reveal d2">
+      <a href="tel:+15001344567" class="offer-cta">
+        <span class="ph">📞</span>
+        <span data-i18n="offer_cta">Call & Order Now</span>
+      </a>
+      <p class="offer-note" data-i18n="offer_note">Mon–Thu 08:00–23:00 · Fri–Sat 06:00–01:30</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="foot-brand reveal">
+        <a href="#home" class="foot-logo">Burger<span>Site</span></a>
+        <p class="foot-tagline" data-i18n="foot_tagline">Premium burgers, crafted with love. Fresh ingredients, bold flavors every single day.</p>
+        <div class="foot-socials">
+          <a href="#" class="foot-social" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="#" class="foot-social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2.5"/></svg>
+          </a>
+          <a href="#" class="foot-social" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.27 8.27 0 0 0 4.83 1.55V6.98a4.85 4.85 0 0 1-1.06-.29z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="foot-col reveal d1">
+        <h4 data-i18n="foot_nav_label">Navigation</h4>
+        <ul>
+          <li><a href="#about"   data-i18n="nav_about">About</a></li>
+          <li><a href="#menu"    data-i18n="nav_menu">Menu</a></li>
+          <li><a href="#gallery" data-i18n="nav_gallery">Gallery</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="foot-col reveal d2">
+        <h4 data-i18n="foot_contact_label">Contact & Hours</h4>
+        <div class="contact-block">
+          <div class="foot-contact-line">
+            <span class="fci">📍</span>
+            <p>1234 Próbahegy, Teszt utca 5.<br>Salátaváros</p>
+          </div>
+          <div class="foot-contact-line">
+            <span class="fci">📞</span>
+            <a href="tel:+36301234500">+36 30 123 4500</a>
+          </div>
+          <div class="foot-hours">
+            <div class="foot-hours-row">
+              <span class="fhr-day" data-i18n="foot_day1">Mon – Thu</span>
+              <span class="fhr-time">08:00 – 23:00</span>
+            </div>
+            <div class="foot-hours-row">
+              <span class="fhr-day fhr-today" data-i18n="foot_day2">Fri – Sat ✦</span>
+              <span class="fhr-time open">06:00 – 01:30</span>
+            </div>
+            <div class="foot-hours-row">
+              <span class="fhr-day" data-i18n="foot_day3">Sunday</span>
+              <span class="fhr-time">06:00 – 00:30</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy" data-i18n="foot_copy">© 2026 BurgerSite. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" data-i18n="foot_privacy">Privacy Policy</a>
+        <a href="#" data-i18n="foot_terms">Terms of Service</a>
+        <a href="#" data-i18n="foot_cookies">Cookie Settings</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ─── TRANSLATIONS ─────────────────────────────── */
+  const T = {
+    en: {
+      nav_about:'About', nav_menu:'Menu', nav_contact:'Contact', nav_order:'Order Now',
+      nav_gallery:'Gallery',
+      hero_eyebrow:'Premium Burgers',
+      hero_html:'<span class="hw">The</span> <span class="hw hw-red">Real</span> <span class="hw">Experience</span><br><span class="hw hw-marked">Starts</span> <span class="hw">Here</span>',
+      hero_sub:'Fresh. Never frozen. Grilled to perfection every single time.',
+      hero_menu_link:'View Menu',
+      hero_card_title:'Best Seller', hero_card_sub:'Beast Burger · $14.99',
+      rating_count:'2,400+ reviews',
+      trust1:'Fresh Daily', trust2:'Free Delivery over $25', trust3:'Open Every Day',
+      stat1:'Avg. Delivery Time', stat2:'Average Rating', stat3:'Happy Customers',
+      stat4:'OPEN', stat4_sub:'Accepting Orders Now',
+      about_eyebrow:'Our Story',
+      about_h1:'We Don\'t', about_h2:'Just Make', about_h3:'Burgers.',
+      about_desc:'We craft <strong>experiences</strong>. Our fresh, never-frozen beef is hand-formed and grilled to perfection, delivering bold flavor in every bite. Prefer plant-based? Our vegetarian and vegan options are just as rich and satisfying.',
+      pill1:'100% Fresh Beef', pill2:'Homemade Sauces', pill3:'Vegan Friendly', pill4:'Local Ingredients',
+      avb_title:'Award Winning', avb_sub:'Best Burger in Town · 2024',
+      menu_eyebrow:'What We Serve', menu_title:'Our Menu',
+      menu_sub:'Handcrafted from the finest ingredients. Because ordinary is not an option here.',
+      card1_num:'01 Signature', card1_name:'Beast Burger',
+      card1_desc:'Juicy beef, blue cheese, caramelized onions, crispy bacon and fresh arugula on a toasted brioche bun. Built for those who crave intensity.',
+      card2_num:'02 Classic', card2_name:'Classic Deluxe',
+      card2_desc:'Handcrafted beef, melted cheese, crisp veggies, pickles and our signature sauce on a soft sesame bun. Simple. Iconic. Perfect.',
+      card3_num:'03 Vegan', card3_name:'Veggie Beast',
+      card3_desc:'Crispy quinoa-black bean patty, pepper jack, avocado, roasted peppers and fresh sprouts on whole wheat. Proof that vegan can be unforgettable.',
+      order_btn:'Order Online',
+      offer_eyebrow:'Weekend Special', offer_t1:'Limited', offer_badge:'Offer',
+      offer_desc:'Weekends just leveled up. Our limited-time specials are crafted for both meat lovers and veggie fans big flavor, unbeatable value.',
+      offer_cta:'Call & Order Now', offer_note:'Mon-Thu 08:00-23:00 · Fri-Sat 06:00-01:30',
+      foot_nav_label:'Navigation', foot_contact_label:'Contact & Hours',
+      foot_tagline:'Premium burgers, crafted with love. Fresh ingredients, bold flavors - every single day.',
+      foot_day1:'Mon - Thu', foot_day2:'Fri - Sat ✦', foot_day3:'Sunday',
+      foot_copy:'© 2026 BurgerSite. All rights reserved.',
+      foot_privacy:'Privacy Policy', foot_terms:'Terms of Service', foot_cookies:'Cookie Settings',
+    },
+    hu: {
+      nav_about:'Rólunk', nav_menu:'Étlap', nav_contact:'Kapcsolat', nav_order:'Rendelés',
+      nav_gallery:'Galéria',
+      hero_eyebrow:'Prémium Burgerek',
+      hero_html:'<span class="hw">Az</span> <span class="hw hw-red">Igazi</span> <span class="hw">Élmény</span><br><span class="hw hw-marked">Itt</span> <span class="hw">Kezdődik</span>',
+      hero_sub:'Friss. Sosem fagyasztott. Tökéletesre sütve minden egyes alkalommal.',
+      hero_menu_link:'Étlap megtekintése',
+      hero_card_title:'Legjobb Eladó', hero_card_sub:'Szörnyű Burger · 5.990 Ft',
+      rating_count:'2 400+ értékelés',
+      trust1:'Frissen Naponta', trust2:'Ingyenes Szállítás 7000 Ft felett', trust3:'Minden Nap Nyitva',
+      stat1:'Átl. Szállítási Idő', stat2:'Átlagos Értékelés', stat3:'Elégedett Vendég',
+      stat4:'NYITVA', stat4_sub:'Rendelés Most',
+      about_eyebrow:'A Mi Történetünk',
+      about_h1:'Nem Csak', about_h2:'Burgereket', about_h3:'Készítünk.',
+      about_desc:'Mi <strong>élményeket</strong> alkotunk. Friss, sosem fagyasztott marhahússal dolgozunk kézzel formázott pogácsáinkat tökéletesre sütjük. Növényi alapú kínálatunk ugyanilyen gazdag.',
+      pill1:'100% Friss Marhahús', pill2:'Házi Szószok', pill3:'Vegán Lehetőségek', pill4:'Helyi Alapanyagok',
+      avb_title:'Díjnyertes', avb_sub:'Legjobb Burger a Városban · 2024',
+      menu_eyebrow:'Mit Kínálunk', menu_title:'Étlap',
+      menu_sub:'A legjobb alapanyagokból kézzel készítve. Mert a hétköznapi nálunk nem opció.',
+      card1_num:'01 Különleges', card1_name:'Szörnyű Burger',
+      card1_desc:'Szaftos marha, kéksajt, karamellizált hagyma, ropogós bacon és friss rukkola pirított briós buciban.',
+      card2_num:'02 Klasszikus', card2_name:'Klasszikus Deluxe',
+      card2_desc:'Kézműves marha, olvadt sajt, friss zöldségek, savanyúság és házi szósz puha szezámmagos buciban. Egyszerű. Ikonikus. Tökéletes.',
+      card3_num:'03 Vegán', card3_name:'Veggie Szörny',
+      card3_desc:'Ropogós quinoa-fekete bab pogácsa, pepper jack sajt, avokádó, sült paprika és friss csírák teljes kiőrlésű buciban.',
+      order_btn:'Rendelés Online',
+      offer_eyebrow:'Hétvégi Különlegesség', offer_t1:'Különleges', offer_badge:'Ajánlat',
+      offer_desc:'A hétvégék most még különlegesebbek! Korlátozott ideig elérhető különlegességeink húsimádóknak és veggie rajongóknak egyaránt.',
+      offer_cta:'Hívj és rendelj most', offer_note:'H–Cs 08:00–23:00 · P–Szo 06:00–01:30',
+      foot_nav_label:'Navigáció', foot_contact_label:'Kapcsolat és Nyitvatartás',
+      foot_tagline:'Prémium burgerek, szeretettel készítve. Friss alapanyagok, karakteres ízek minden egyes nap.',
+      foot_day1:'Hétfő – Csütörtök', foot_day2:'Péntek – Szombat ✦', foot_day3:'Vasárnap',
+      foot_copy:'© 2026 BurgerSite. Minden jog fenntartva.',
+      foot_privacy:'Adatvédelem', foot_terms:'Felhasználási feltételek', foot_cookies:'Cookie beállítások',
+    }
+  };
+
+  function applyLang(lang) {
+    const t = T[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const k = el.getAttribute('data-i18n');
+      if (t[k] !== undefined) el.innerHTML = t[k];
+    });
+    const ht = document.getElementById('hero-title');
+    if (ht) {
+      ht.innerHTML = t.hero_html;
+      ht.querySelectorAll('.hw').forEach((w, i) => {
+        w.style.opacity = '0';
+        w.style.animation = 'none';
+        requestAnimationFrame(() => {
+          w.style.animation = `popIn .6s ${.15 + i * .1}s cubic-bezier(.22,1,.36,1) forwards`;
+        });
+      });
+    }
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    try { localStorage.setItem('bs-lang', lang); } catch(e) {}
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+  /* ─── SCROLL BAR ───────────────────────────────── */
+  const bar = document.getElementById('scroll-bar');
+  function updateBar() {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (window.scrollY / max * 100) + '%';
+  }
+
+  /* ─── HERO IMG PARALLAX ────────────────────────── */
+  (function() {
+    const sec = document.getElementById('home');
+    const img = document.getElementById('hero-img');
+    if (!sec || !img) return;
+    function update() {
+      const r = sec.getBoundingClientRect();
+      const p = Math.min(Math.max(-r.top / sec.offsetHeight, 0), 1);
+      const e = p < .5 ? 2*p*p : 1 - Math.pow(-2*p+2, 2)/2;
+      img.style.transform = `scale(${(1 + e * .12).toFixed(4)})`;
+    }
+    window.addEventListener('scroll', update, { passive:true });
+    update();
+  })();
+
+  /* ─── REVEAL ───────────────────────────────────── */
+  const revObs = new IntersectionObserver(
+    es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }),
+    { threshold: .1 }
+  );
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r,.reveal-s').forEach(el => revObs.observe(el));
+
+  /* ─── STATS COUNTER ────────────────────────────── */
+  let statsDone = false;
+  const statsObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || statsDone) return;
+      statsDone = true;
+      entry.target.querySelectorAll('.stat-item').forEach((item, i) => {
+        setTimeout(() => item.classList.add('visible'), i * 100);
+      });
+      entry.target.querySelectorAll('.stat-count').forEach(el => {
+        const target = parseFloat(el.dataset.target);
+        const dec = el.dataset.dec === 'true';
+        const dur = 1400;
+        const start = performance.now();
+        function step(now) {
+          const p = Math.min((now - start) / dur, 1);
+          const e = 1 - Math.pow(1 - p, 3);
+          el.textContent = dec ? (e * target).toFixed(1) : Math.floor(e * target).toLocaleString();
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = dec ? target.toFixed(1) : target.toLocaleString();
+        }
+        requestAnimationFrame(step);
+      });
+    });
+  }, { threshold: .25 });
+  const statsEl = document.getElementById('stats');
+  if (statsEl) statsObs.observe(statsEl);
+
+  /* ─── 3D CARD TILT ─────────────────────────────── */
+  document.querySelectorAll('.menu-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width / 2)) / (r.width / 2);
+      const dy = (e.clientY - (r.top + r.height / 2)) / (r.height / 2);
+      card.style.transform = `translateY(-6px) rotateX(${(-dy * 4).toFixed(1)}deg) rotateY(${(dx * 5).toFixed(1)}deg)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+  });
+
+  /* ─── CLICK RIPPLE ─────────────────────────────── */
+  document.addEventListener('click', e => {
+    const d = document.createElement('div');
+    d.className = 'cursor-ripple';
+    d.style.cssText = `left:${e.clientX}px;top:${e.clientY}px;`;
+    document.body.appendChild(d);
+    setTimeout(() => d.remove(), 700);
+  });
+
+  /* ─── ACTIVE NAV ───────────────────────────────── */
+  const sections = document.querySelectorAll('section[id],div[id]');
+  const links    = document.querySelectorAll('.nav-links a');
+  function updateActive() {
+    let cur = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) cur = s.id; });
+    links.forEach(l => {
+      const active = l.getAttribute('href') === '#' + cur;
+      l.style.color = active ? 'var(--amber)' : '';
+    });
+  }
+
+  /* ─── SMOOTH SCROLL ────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  /* ─── HAMBURGER ─────────────────────────────────── */
+  const hamBtn  = document.getElementById('ham-btn');
+  const mobMenu = document.getElementById('mob-menu');
+  const toggle  = (close) => {
+    const open = mobMenu.classList.contains('open');
+    if (close || open) {
+      mobMenu.classList.remove('open');
+      hamBtn.classList.remove('open');
+      document.body.style.overflow = '';
+    } else {
+      mobMenu.classList.add('open');
+      hamBtn.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+  hamBtn.addEventListener('click', () => toggle());
+  document.getElementById('mob-close').addEventListener('click', () => toggle(true));
+  document.querySelectorAll('.mob-link').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      toggle(true);
+      if (t) { e.preventDefault(); setTimeout(() => t.scrollIntoView({ behavior:'smooth' }), 260); }
+    });
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') toggle(true); });
+
+  /* ─── SCROLL EVENT ──────────────────────────────── */
+  window.addEventListener('scroll', () => { updateBar(); updateActive(); }, { passive: true });
+
+  /* ─── INIT ──────────────────────────────────────── */
+  try {
+    const saved = localStorage.getItem('bs-lang');
+    if (saved && T[saved]) applyLang(saved);
+  } catch(e) {}
+  </script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="hu" id="html-root">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Áraink | Esztétikai és Lézerfogászat</title>
+  <meta name="description" content="Fogászati kezelések árai – átlátható, tételes árjegyzék minden beavatkozáshoz."/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#2bbfa0;--teal-d:#1d9e84;--teal-l:#edfaf6;--teal-m:#c2ede4;
+  --ink:#111c2d;--ink2:#3a4252;--muted:#6b7788;
+  --bg:#f4f7f5;--border:#e4eae6;--white:#fff;
+  --sh1:0 2px 10px rgba(0,0,0,.06);--sh2:0 6px 28px rgba(0,0,0,.10);--sh3:0 12px 48px rgba(0,0,0,.13);
+  --r:14px;--rL:20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none;padding:0;margin:0}
+
+/* TOP BAR */
+.top-bar{background:var(--white);border-bottom:1px solid var(--border);font-size:12.5px;color:var(--muted);padding:7px 48px;display:flex;align-items:center;gap:24px;font-weight:500;flex-wrap:wrap}
+.top-bar span{display:flex;align-items:center;gap:6px}
+.top-bar a{color:var(--muted);transition:color .15s}
+.top-bar a:hover{color:var(--teal)}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.lang-sw{display:flex;align-items:center;gap:4px;background:var(--bg);border-radius:20px;padding:4px 8px;border:1px solid var(--border)}
+.lang-sw .lbtn{cursor:pointer;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:700;transition:background .15s,color .15s;color:var(--muted)}
+.lang-sw .lbtn.active{background:var(--teal);color:var(--white)}
+.lang-sw .ldiv{color:#ddd;font-weight:300;font-size:12px}
+
+/* NAVBAR */
+.navbar{background:var(--white);padding:0 48px;display:flex;align-items:center;height:70px;box-shadow:var(--sh1);position:sticky;top:0;z-index:500}
+.logo{display:flex;align-items:center;gap:10px;margin-right:32px;flex-shrink:0}
+.logo-text{font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink)}
+.logo-text span{color:var(--teal)}
+.nav-items{display:flex;align-items:center;gap:2px;flex:1}
+.nav-link{padding:8px 13px;color:var(--ink2);font-size:13.5px;font-weight:600;border-radius:10px;white-space:nowrap;display:flex;align-items:center;gap:4px;transition:color .15s,background .15s}
+.nav-link:hover{color:var(--teal);background:var(--teal-l)}
+.nav-link.active{color:var(--teal);background:var(--teal-l)}
+.chevron{width:13px;height:13px;opacity:.5;transition:transform .2s}
+.nav-cta{margin-left:auto;padding:11px 24px;background:var(--teal);color:var(--white);font-size:13.5px;font-weight:700;border:none;border-radius:12px;cursor:pointer;white-space:nowrap;transition:background .18s,transform .12s,box-shadow .18s;box-shadow:0 4px 16px rgba(43,191,160,.32)}
+.nav-cta:hover{background:var(--teal-d);transform:translateY(-1px);box-shadow:0 6px 22px rgba(43,191,160,.42)}
+.nav-dd{position:relative}
+.dd-menu{display:none;position:absolute;top:calc(100% + 10px);left:0;background:var(--white);border-radius:var(--r);box-shadow:var(--sh3);min-width:230px;padding:8px 0;z-index:600;border:1px solid var(--border);animation:ddIn .15s ease}
+@keyframes ddIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.nav-dd.open .dd-menu{display:block}
+.nav-dd.open .chevron{transform:rotate(180deg)}
+.dd-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-size:13.5px;font-weight:600;color:var(--ink2);transition:background .12s,color .12s}
+.dd-item:hover{background:var(--teal-l);color:var(--teal)}
+.dd-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;flex-shrink:0;opacity:.4;transition:opacity .12s}
+.dd-item:hover .dd-dot{opacity:1}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:12px;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink2);border-radius:2px;transition:all .22s;transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MOBILE MENU */
+#mobileMenu{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--white);z-index:499;overflow-y:auto;padding:20px 20px 40px;box-shadow:var(--sh3)}
+.mob-link{padding:13px 16px;font-size:15px;font-weight:600;color:var(--ink2);border-radius:10px;display:block;transition:background .12s,color .12s}
+.mob-link:hover,.mob-link.active{background:var(--teal-l);color:var(--teal)}
+.mob-acc-btn{width:100%;padding:13px 16px;font-size:15px;font-weight:600;color:var(--ink2);border-radius:10px;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:left;font-family:'Sora',sans-serif;transition:background .12s,color .12s}
+.mob-acc-btn:hover{background:var(--teal-l);color:var(--teal)}
+.mob-sub{display:none;flex-direction:column;padding:4px 8px 8px 28px;gap:2px}
+.mob-sub a{padding:9px 12px;font-size:14px;font-weight:600;color:var(--ink2);border-radius:8px;display:block;transition:background .12s,color .12s}
+.mob-sub a:hover{background:var(--teal-l);color:var(--teal)}
+.mob-cta{margin-top:16px;padding:15px 22px;background:var(--teal);color:var(--white);font-size:15px;font-weight:700;border-radius:12px;text-align:center;display:block;box-shadow:0 4px 16px rgba(43,191,160,.3);transition:background .15s}
+.mob-cta:hover{background:var(--teal-d)}
+.mob-lang{display:flex;gap:8px;margin-top:16px}
+.mob-lang .lbtn{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:700;font-size:14px;border:1.5px solid var(--border);color:var(--muted);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.mob-lang .lbtn.active{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.mob-divider{margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+.mob-divider p{font-size:13.5px;color:var(--muted);line-height:2.1;display:flex;align-items:center;gap:8px}
+
+/* PAGE HERO */
+.page-hero{background:linear-gradient(130deg,#0a2e2a 0%,#0c4a42 40%,#158272 75%,#2bbfa0 100%);padding:60px 60px 56px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E")}
+.ph-ring{position:absolute;right:-60px;top:-60px;width:380px;height:380px;border-radius:50%;border:50px solid rgba(255,255,255,.05);pointer-events:none}
+.page-hero-content{position:relative;z-index:2}
+.ph-breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.6);margin-bottom:16px;font-weight:500}
+.ph-breadcrumb a{color:rgba(255,255,255,.6);transition:color .15s}
+.ph-breadcrumb a:hover{color:#fff}
+.ph-breadcrumb svg{opacity:.5}
+.page-hero h1{font-family:'DM Serif Display',serif;font-size:42px;font-weight:400;color:#fff;line-height:1.15;margin-bottom:14px}
+.page-hero p{font-size:16px;color:rgba(255,255,255,.75);max-width:560px;line-height:1.65;font-weight:400}
+
+/* SECTION HEADER */
+.sec-header{text-align:center;margin-bottom:48px}
+.sec-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.sec-header h2{font-family:'DM Serif Display',serif;font-size:34px;font-weight:400;color:var(--ink);margin-bottom:12px}
+.sec-header p{font-size:15px;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.65;font-weight:400}
+
+/* PRICE TABS */
+.prices-section{padding:72px 60px;background:var(--white)}
+.price-tabs{display:flex;gap:8px;margin-bottom:48px;flex-wrap:wrap;border-bottom:2px solid var(--border);padding-bottom:0}
+.ptab{padding:10px 20px;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;border-radius:10px 10px 0 0;border:none;background:none;font-family:'Sora',sans-serif;transition:color .15s,background .15s;position:relative;bottom:-2px;border-bottom:2px solid transparent}
+.ptab:hover{color:var(--teal)}
+.ptab.active{color:var(--teal);border-bottom:2px solid var(--teal);background:var(--teal-l)}
+.price-panel{display:none}
+.price-panel.active{display:block}
+
+/* PRICE TABLE */
+.price-table{width:100%;border-collapse:collapse;font-size:14px}
+.price-table thead th{text-align:left;padding:12px 20px;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;background:var(--bg);border-bottom:2px solid var(--border)}
+.price-table thead th:last-child{text-align:right}
+.price-table tbody tr{border-bottom:1px solid var(--border);transition:background .12s}
+.price-table tbody tr:hover{background:var(--teal-l)}
+.price-table tbody td{padding:16px 20px;color:var(--ink2);font-weight:500;line-height:1.4}
+.price-table tbody td:last-child{text-align:right;font-weight:700;color:var(--teal);white-space:nowrap}
+.price-table tbody td small{display:block;font-size:12px;color:var(--muted);font-weight:400;margin-top:3px}
+.price-badge{display:inline-block;font-size:10px;font-weight:700;color:var(--teal);background:var(--teal-l);border-radius:5px;padding:2px 8px;margin-left:8px;vertical-align:middle}
+.price-note{margin-top:24px;padding:18px 22px;background:var(--bg);border-radius:12px;border-left:3px solid var(--teal);font-size:13.5px;color:var(--muted);line-height:1.65}
+
+/* FINANCING BANNER */
+.fin-banner{background:linear-gradient(130deg,#0a2e2a,#1a6b60);border-radius:var(--rL);padding:44px 52px;display:flex;align-items:center;gap:40px;margin-top:56px;flex-wrap:wrap}
+.fin-icon{width:80px;height:80px;background:rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fin-text h3{font-family:'DM Serif Display',serif;font-size:24px;color:#fff;margin-bottom:10px;font-weight:400}
+.fin-text p{font-size:14px;color:rgba(255,255,255,.75);line-height:1.65;max-width:480px}
+.fin-actions{margin-left:auto;display:flex;gap:12px;flex-wrap:wrap;align-items:center;flex-shrink:0}
+.btn-w{padding:13px 26px;background:#fff;color:var(--ink);font-size:14px;font-weight:700;border-radius:12px;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:0 6px 22px rgba(0,0,0,.2);white-space:nowrap;border:none;display:inline-block;font-family:'Sora',sans-serif}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.btn-ghost-w{padding:12px 20px;background:transparent;color:rgba(255,255,255,.88);font-size:14px;font-weight:600;border-radius:12px;border:1.5px solid rgba(255,255,255,.3);cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap;display:inline-block}
+.btn-ghost-w:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+
+/* FAQ */
+.faq-section{padding:72px 60px;background:var(--bg);border-top:1px solid var(--border)}
+.faq-list{display:flex;flex-direction:column;gap:10px;max-width:780px;margin:0 auto}
+.faq-item{background:var(--white);border-radius:var(--r);border:1px solid var(--border);overflow:hidden;transition:box-shadow .2s}
+.faq-item.open{box-shadow:var(--sh2);border-color:var(--teal-m)}
+.faq-q{width:100%;padding:20px 24px;font-size:15px;font-weight:700;color:var(--ink);background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:left;font-family:'Sora',sans-serif;gap:16px}
+.faq-q svg{flex-shrink:0;transition:transform .25s;color:var(--teal)}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+.faq-a{display:none;padding:0 24px 20px;font-size:14px;color:var(--muted);line-height:1.75;font-weight:400}
+.faq-item.open .faq-a{display:block}
+
+/* FOOTER STICKY */
+.footer-nav{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;height:58px;gap:0;overflow:hidden}
+.fsn-logo{display:flex;align-items:center;gap:8px;margin-right:28px;font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink);flex-shrink:0}
+.fsn-links{display:flex;align-items:center;gap:2px;flex:1;overflow:hidden}
+.fsn-link{padding:6px 12px;color:var(--ink2);font-weight:600;font-size:13px;border-radius:8px;white-space:nowrap;transition:color .15s,background .15s}
+.fsn-link:hover,.fsn-link.active{color:var(--teal);background:var(--teal-l)}
+.fsn-cta{margin-left:auto;padding:9px 20px;background:var(--teal);color:#fff;font-size:13px;font-weight:700;border-radius:10px;transition:background .15s;flex-shrink:0}
+.fsn-cta:hover{background:var(--teal-d)}
+
+/* FOOTER */
+.footer-cols{background:var(--white);padding:52px 60px 36px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;border-bottom:1px solid var(--border)}
+.footer-col h4{font-size:11px;font-weight:700;color:var(--ink);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.footer-col p,.footer-col a,.footer-col li{font-size:13.5px;color:var(--muted);line-height:2.1;display:block}
+.footer-col a:hover{color:var(--teal)}
+.foot-socials{display:flex;gap:10px;margin-top:14px}
+.foot-socials a{width:34px;height:34px;border-radius:9px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .15s,color .15s}
+.foot-socials a:hover{border-color:var(--teal);color:var(--teal)}
+.footer-bottom{background:var(--white);padding:18px 60px;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:#b0bec8;flex-wrap:wrap;gap:10px}
+.footer-bottom-links{display:flex;gap:22px;flex-wrap:wrap}
+.footer-bottom-links a{font-size:12.5px;color:#b0bec8}
+.footer-bottom-links a:hover{color:var(--teal)}
+.footer-bottom-left{display:flex;align-items:center;gap:8px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .top-bar{padding:7px 24px;font-size:12px;gap:14px}
+  .navbar{padding:0 20px;height:62px}
+  #mobileMenu{top:62px}
+  .nav-items,.footer-nav{display:none}
+  .hamburger{display:flex!important}
+  .nav-cta{font-size:12.5px;padding:9px 16px;margin-left:auto}
+  .page-hero{padding:44px 28px 40px}
+  .page-hero h1{font-size:32px}
+  .prices-section{padding:48px 28px}
+  .faq-section{padding:48px 28px}
+  .footer-cols{padding:36px 28px 24px;grid-template-columns:1fr 1fr;gap:24px}
+  .footer-bottom{padding:16px 28px}
+  .fin-banner{padding:30px 28px;gap:24px}
+  .fin-actions{margin-left:0}
+}
+@media(max-width:600px){
+  .top-bar{display:none}
+  .page-hero{padding:36px 18px 32px}
+  .page-hero h1{font-size:26px}
+  .prices-section{padding:36px 18px}
+  .price-tabs{gap:4px}
+  .ptab{font-size:12.5px;padding:8px 12px}
+  .faq-section{padding:36px 18px}
+  .footer-cols{padding:32px 18px 20px;grid-template-columns:1fr}
+  .footer-bottom{padding:14px 18px;flex-direction:column;text-align:center}
+  .footer-bottom-links{justify-content:center;gap:14px}
+  .fin-banner{flex-direction:column;padding:24px 20px;gap:20px}
+  .fin-icon{width:56px;height:56px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>
+    <svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    H–Cs: 8:00–20:00  |  P: 8:00–15:00
+  </span>
+  <span>
+    <svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    [Irányítószám] [Város], [Utca, házszám]
+  </span>
+  <div class="tb-right">
+    <div class="lang-sw">
+      <span class="lbtn active" data-l="hu">HU</span>
+      <span class="ldiv">|</span>
+      <span class="lbtn" data-l="en">EN</span>
+    </div>
+    <a href="index.html#kapcsolat">Kapcsolat</a>
+    <a href="index.html#gyik">GYIK</a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-text">Fog<span>Orvos</span></span>
+  </a>
+  <div class="nav-items">
+    <div class="nav-dd" id="dd-srv">
+      <a href="szolgaltatasok.html" class="nav-link" onclick="toggleDD(event,'dd-srv')">
+        Szolgáltatásaink
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="dd-menu">
+        <a href="szolgaltatasok.html#lazer" class="dd-item"><span class="dd-dot"></span>Lézeres szájsebészet</a>
+        <a href="szolgaltatasok.html#esztetika" class="dd-item"><span class="dd-dot"></span>Esztétikai fogászat</a>
+        <a href="szolgaltatasok.html#implant" class="dd-item"><span class="dd-dot"></span>Implantáció</a>
+        <a href="szolgaltatasok.html#fogszab" class="dd-item"><span class="dd-dot"></span>Fogszabályozás</a>
+      </div>
+    </div>
+    <div class="nav-dd" id="dd-about">
+      <a href="rolunk.html" class="nav-link" onclick="toggleDD(event,'dd-about')">
+        Rólunk
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="dd-menu">
+        <a href="index.html#garancia" class="dd-item"><span class="dd-dot"></span>Rendelői Garancia</a>
+        <a href="index.html#fizetesi" class="dd-item"><span class="dd-dot"></span>Fizetési lehetőségek</a>
+        <a href="rolunk.html#bemutatkozas" class="dd-item"><span class="dd-dot"></span>Bemutatkozunk</a>
+        <a href="csapat.html" class="dd-item"><span class="dd-dot"></span>Csapatunk</a>
+        <a href="index.html#velemenyek" class="dd-item"><span class="dd-dot"></span>Pácienseink véleménye</a>
+        <a href="index.html#karrier" class="dd-item"><span class="dd-dot"></span>Karrier</a>
+      </div>
+    </div>
+    <a href="araink.html" class="nav-link active">Áraink</a>
+    <a href="panaszok.html" class="nav-link">Fogászati panaszok</a>
+    <a href="munkak.html" class="nav-link">Munkáink</a>
+  </div>
+  <a href="index.html#idopont" class="nav-cta">Időpontfoglalás</a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu">
+  <div style="display:flex;flex-direction:column;gap:4px">
+    <div>
+      <button class="mob-acc-btn" onclick="toggleAcc('mob-srv','mob-srv-ic')">
+        Szolgáltatásaink
+        <svg id="mob-srv-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform .2s;flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div id="mob-srv" class="mob-sub">
+        <a href="szolgaltatasok.html#lazer">Lézeres szájsebészet</a>
+        <a href="szolgaltatasok.html#esztetika">Esztétikai fogászat</a>
+        <a href="szolgaltatasok.html#implant">Implantáció</a>
+        <a href="szolgaltatasok.html#fogszab">Fogszabályozás</a>
+      </div>
+    </div>
+    <div>
+      <button class="mob-acc-btn" onclick="toggleAcc('mob-about','mob-about-ic')">
+        Rólunk
+        <svg id="mob-about-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform .2s;flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div id="mob-about" class="mob-sub">
+        <a href="index.html#garancia">Rendelői Garancia</a>
+        <a href="index.html#fizetesi">Fizetési lehetőségek</a>
+        <a href="rolunk.html#bemutatkozas">Bemutatkozunk</a>
+        <a href="csapat.html">Csapatunk</a>
+        <a href="index.html#velemenyek">Pácienseink véleménye</a>
+        <a href="index.html#karrier">Karrier</a>
+      </div>
+    </div>
+    <a href="araink.html" class="mob-link active">Áraink</a>
+    <a href="panaszok.html" class="mob-link">Fogászati panaszok</a>
+    <a href="munkak.html" class="mob-link">Munkáink</a>
+    <a href="index.html#idopont" class="mob-cta">Időpontfoglalás</a>
+    <div class="mob-lang">
+      <span class="lbtn active" data-l="hu">🇭🇺 Magyar</span>
+      <span class="lbtn" data-l="en">🇬🇧 English</span>
+    </div>
+  </div>
+  <div class="mob-divider">
+    <p><svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>H–Cs: 8:00–20:00  |  P: 8:00–15:00</p>
+    <p><svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>[Irányítószám] [Város], [Utca, házszám]</p>
+  </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="ph-ring"></div>
+  <div class="page-hero-content">
+    <div class="ph-breadcrumb">
+      <a href="index.html">Főoldal</a>
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      Áraink
+    </div>
+    <h1>Átlátható áraink</h1>
+    <p>Nálunk nincsenek rejtett költségek. Minden kezelés előtt részletes tájékoztatást adunk az árakról – meglepetések nélkül.</p>
+  </div>
+</section>
+
+<!-- PRICES -->
+<section class="prices-section">
+  <div class="sec-header">
+    <span class="sec-tag">Árjegyzék</span>
+    <h2>Kezelések és díjak</h2>
+    <p>Az alábbi árak tájékoztató jellegűek. Pontos árajánlatért kérjük, foglalja le állapotfelmérő konzultációját.</p>
+  </div>
+
+  <div class="price-tabs">
+    <button class="ptab active" onclick="showTab('tab-laser',this)">Lézeres szájsebészet</button>
+    <button class="ptab" onclick="showTab('tab-aesth',this)">Esztétikai fogászat</button>
+    <button class="ptab" onclick="showTab('tab-implant',this)">Implantáció</button>
+    <button class="ptab" onclick="showTab('tab-ortho',this)">Fogszabályozás</button>
+    <button class="ptab" onclick="showTab('tab-general',this)">Általános fogászat</button>
+  </div>
+
+  <!-- LASER -->
+  <div class="price-panel active" id="tab-laser">
+    <table class="price-table">
+      <thead>
+        <tr><th>Kezelés megnevezése</th><th>Leírás</th><th>Ár (Ft-tól)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[Kezelés neve 1]<small>[Rövid megjegyzés, pl. kezelési idő]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 2]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 3]<span class="price-badge">Népszerű</span><small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 4]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 5]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 6]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+      </tbody>
+    </table>
+    <div class="price-note">
+      ℹ️ Az árak tájékoztató jellegűek, és az egyéni állapottól függően változhatnak. Pontos árajánlatért foglalja le állapotfelmérő konzultációját.
+    </div>
+  </div>
+
+  <!-- AESTHETIC -->
+  <div class="price-panel" id="tab-aesth">
+    <table class="price-table">
+      <thead>
+        <tr><th>Kezelés megnevezése</th><th>Leírás</th><th>Ár (Ft-tól)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[Invisalign / Kezelés neve]<span class="price-badge">[Minősítés]</span><small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 2]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 3]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 4]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 5]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 6]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 7]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 8]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+      </tbody>
+    </table>
+    <div class="price-note">ℹ️ Az árak tájékoztató jellegűek. Pontos árajánlatért foglalja le állapotfelmérő konzultációját.</div>
+  </div>
+
+  <!-- IMPLANT -->
+  <div class="price-panel" id="tab-implant">
+    <table class="price-table">
+      <thead>
+        <tr><th>Kezelés megnevezése</th><th>Leírás</th><th>Ár (Ft-tól)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[Kezelés neve 1]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 2]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 3]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 4]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+      </tbody>
+    </table>
+    <div class="price-note">ℹ️ Az implantátum ára tartalmazza a beültetést és az állcsonttömörítést. A fogkorona ára külön kerül feltüntetésre. Pontos árajánlatért foglalja le konzultációját.</div>
+  </div>
+
+  <!-- ORTHO -->
+  <div class="price-panel" id="tab-ortho">
+    <table class="price-table">
+      <thead>
+        <tr><th>Kezelés megnevezése</th><th>Leírás</th><th>Ár (Ft-tól)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[Kezelés neve 1]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 2]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 3]<span class="price-badge">Legnépszerűbb</span><small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Kezelés neve 4]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+      </tbody>
+    </table>
+    <div class="price-note">ℹ️ A fogszabályozás teljes díja a szükséges fogak számától és a kezelés hosszától függ. Ingyenes konzultáción egyedi tervt és árajánlatot adunk.</div>
+  </div>
+
+  <!-- GENERAL -->
+  <div class="price-panel" id="tab-general">
+    <table class="price-table">
+      <thead>
+        <tr><th>Kezelés megnevezése</th><th>Leírás</th><th>Ár (Ft-tól)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>[Vizsgálat / Konzultáció]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Fogkőeltávolítás]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Tömés]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Fogeltávolítás]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+        <tr><td>[Gyökérkezelés]<small>[Rövid megjegyzés]</small></td><td>[Rövid leírás a kezelésről]</td><td>[XX.000 Ft]</td></tr>
+      </tbody>
+    </table>
+    <div class="price-note">ℹ️ Az árak tájékoztató jellegűek. Pontos árajánlatért foglalja le állapotfelmérő konzultációját.</div>
+  </div>
+
+  <!-- FINANCING -->
+  <div class="fin-banner">
+    <div class="fin-icon">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+    </div>
+    <div class="fin-text">
+      <h3>Részletfizetési lehetőség</h3>
+      <p>Kamatmentes részletfizetési konstrukciónkkal a drágább beavatkozások is hozzáférhetővé válnak. Kérdezzen bátran a fogadóorvosnál vagy online időpontfoglaláskor.</p>
+    </div>
+    <div class="fin-actions">
+      <a href="index.html#idopont" class="btn-w">Időpontfoglalás</a>
+      <a href="index.html#fizetesi" class="btn-ghost-w">Részletek</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="gyik">
+  <div class="sec-header">
+    <span class="sec-tag">Gyakori kérdések</span>
+    <h2>Árakkal kapcsolatos GYIK</h2>
+    <p>A leggyakrabban feltett kérdések – röviden és érthetően megválaszolva</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Mire vonatkoznak a feltüntetett árak?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">[Ide kerül a válasz szövege. Pl.: Az árak tájékoztató jellegűek és általános esetekre vonatkoznak. Az egyéni állapottól függően a tényleges ár eltérhet.]</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Van-e lehetőség részletfizetésre?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">[Ide kerül a válasz szövege. Pl.: Igen, kamatmentes részletfizetési konstrukciónkkal akár X hónapig fizetheti a kezelés díját.]</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Hogyan kaphatok pontos árajánlatot?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">[Ide kerül a válasz szövege. Pl.: Foglaljon ingyenes konzultációs időpontot, ahol fogorvosunk részletes állapotfelmérést és írásos árajánlatot ad.]</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Elfogadnak egészségbiztosítást vagy TB-t?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">[Ide kerül a válasz szövege. Pl.: Rendelőnk magánpraxisként működik, TB-finanszírozást nem fogadunk el. Bizonyos egészségbiztosítókkal azonban megállapodásunk van – kérdezzen munkatársainktól.]</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Milyen fizetési módokat fogadnak el?
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+      <div class="faq-a">[Ide kerül a válasz szövege. Pl.: Elfogadunk készpénzt, bankkártyát, átutalást és SZÉP-kártyát is.]</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER STICKY -->
+<div class="footer-nav">
+  <a href="index.html" class="fsn-logo">
+    <svg width="24" height="16" viewBox="0 0 44 28" fill="none"><path d="M4 20 C8 8,16 4,22 14 C28 24,36 20,40 8" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+    Fogorvosi rendelő
+  </a>
+  <div class="fsn-links">
+    <a href="szolgaltatasok.html" class="fsn-link">Szolgáltatásaink</a>
+    <a href="rolunk.html" class="fsn-link">Rólunk</a>
+    <a href="araink.html" class="fsn-link active">Áraink</a>
+    <a href="panaszok.html" class="fsn-link">Fogászati panaszok</a>
+    <a href="blog.html" class="fsn-link">Blog</a>
+    <a href="munkak.html" class="fsn-link">Munkáink</a>
+  </div>
+  <a href="index.html#idopont" class="fsn-cta">Időpontfoglalás</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4>Elérhetőségek</h4>
+      <p>[+36 X XXX XXXX]</p>
+      <p>[info@yoursite.hu]</p>
+      <p>[Irányítószám] [Város], [Utca, házszám]</p>
+      <div class="foot-socials">
+        <a href="#" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" title="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" title="TikTok"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Nyitvatartás</h4>
+      <p>Hétfő-Csütörtök: 8:00-20:00</p>
+      <p>Péntek: 8:00-15:00</p>
+      <p>Hétvége: zárva</p>
+      <p style="margin-top:8px;font-size:12px;color:#b0bec8;line-height:1.6">A rendelő áthelyezett munkanapokon is zárva tart.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Népszerű oldalak</h4>
+      <ul>
+        <li><a href="panaszok.html">Fogászati panaszok</a></li>
+        <li><a href="szolgaltatasok.html">Szolgáltatásaink</a></li>
+        <li><a href="munkak.html">Munkáink</a></li>
+        <li><a href="index.html#velemenyek">Pácienseink véleménye</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Hasznos linkek</h4>
+      <ul>
+        <li><a href="index.html#fizetesi">Fizetési lehetőségek</a></li>
+        <li><a href="araink.html">Áraink</a></li>
+        <li><a href="index.html#idopont">Időpontfoglalás</a></li>
+        <li><a href="index.html#kapcsolat">Kapcsolat</a></li>
+        <li><a href="#gyik">GYIK</a></li>
+        <li><a href="index.html#karrier">Karrier</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <svg width="18" height="12" viewBox="0 0 44 28" fill="none"><path d="M4 20 C8 8,16 4,22 14 C28 24,36 20,40 8" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+      <span>© [Rendelő neve]  ·  [Alapítás éve]-[Aktuális év] Minden jog fenntartva.</span>
+    </div>
+    <div class="footer-bottom-links">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatkezelési tájékoztató</a>
+      <a href="#">Jogi nyilatkozat</a>
+      <a href="#">Oldaltérkép</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleDD(e,id){
+  e.preventDefault();
+  document.querySelectorAll('.nav-dd').forEach(d=>{if(d.id!==id)d.classList.remove('open')});
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-dd'))document.querySelectorAll('.nav-dd').forEach(d=>d.classList.remove('open'));
+});
+document.querySelectorAll('.nav-dd').forEach(dd=>{
+  dd.addEventListener('mouseenter',function(){this.classList.add('open')});
+  dd.addEventListener('mouseleave',function(){this.classList.remove('open')});
+});
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  const h=document.getElementById('hamburger');
+  const open=m.style.display==='block';
+  m.style.display=open?'none':'block';
+  h.classList.toggle('open',!open);
+  document.body.style.overflow=open?'':'hidden';
+}
+document.querySelectorAll('#mobileMenu a').forEach(l=>{
+  l.addEventListener('click',()=>{
+    document.getElementById('mobileMenu').style.display='none';
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+function toggleAcc(id,iconId){
+  const p=document.getElementById(id);
+  const ic=document.getElementById(iconId);
+  const open=p.style.display==='flex';
+  p.style.display=open?'none':'flex';
+  p.style.flexDirection='column';
+  ic.style.transform=open?'':'rotate(180deg)';
+}
+function showTab(id,btn){
+  document.querySelectorAll('.price-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>

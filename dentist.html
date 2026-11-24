@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="hu" id="html-root">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fogorvos | Esztétikai és Lézerfogászat Budapest</title>
+  <meta name="description" content="Budapest egyik legmodernebb lézerfogászati rendelője. Invisalign, implantáció, ínykorrekció, esztétikai fogászat – modern technológiával, gondos csapattal."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://www.yoursite.hu/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://www.yoursite.hu/"/>
+  <meta property="og:title" content="[Rendelő neve] – Esztétikai és Lézerfogászat"/>
+  <meta property="og:image" content="https://www.yoursite.hu/og-image.jpg"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Dentist","name":"[Rendelő neve]","url":"https://www.yoursite.hu","telephone":"[Telefonszám]","email":"[E-mail cím]","address":{"@type":"PostalAddress","streetAddress":"[Utca, házszám]","addressLocality":"[Város]","postalCode":"[Irányítószám]","addressCountry":"HU"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"08:00","closes":"20:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"08:00","closes":"15:00"}]}
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<meta name="google-site-verification" content="MRpDgtPejx8nnLuzz5TQG4MCS5DutOMK8plvJVrC3_g" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --teal:#2bbfa0;--teal-d:#1d9e84;--teal-l:#edfaf6;--teal-m:#c2ede4;
+  --ink:#111c2d;--ink2:#3a4252;--muted:#6b7788;
+  --bg:#f4f7f5;--border:#e4eae6;--white:#fff;
+  --sh1:0 2px 10px rgba(0,0,0,.06);--sh2:0 6px 28px rgba(0,0,0,.10);--sh3:0 12px 48px rgba(0,0,0,.13);
+  --r:14px;--rL:20px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+ul{list-style:none;padding:0;margin:0}
+
+/* TOP BAR */
+.top-bar{background:var(--white);border-bottom:1px solid var(--border);font-size:12.5px;color:var(--muted);padding:7px 48px;display:flex;align-items:center;gap:24px;font-weight:500;flex-wrap:wrap}
+.top-bar span{display:flex;align-items:center;gap:6px}
+.top-bar a{color:var(--muted);transition:color .15s}
+.top-bar a:hover{color:var(--teal)}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.lang-sw{display:flex;align-items:center;gap:4px;background:var(--bg);border-radius:20px;padding:4px 8px;border:1px solid var(--border)}
+.lang-sw .lbtn{cursor:pointer;padding:3px 10px;border-radius:12px;font-size:12px;font-weight:700;transition:background .15s,color .15s;color:var(--muted)}
+.lang-sw .lbtn.active{background:var(--teal);color:var(--white)}
+.lang-sw .ldiv{color:#ddd;font-weight:300;font-size:12px}
+
+/* NAVBAR */
+.navbar{background:var(--white);padding:0 48px;display:flex;align-items:center;height:70px;box-shadow:var(--sh1);position:sticky;top:0;z-index:500}
+.logo{display:flex;align-items:center;gap:10px;margin-right:32px;flex-shrink:0}
+.logo-text{font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink)}
+.logo-text span{color:var(--teal)}
+.nav-items{display:flex;align-items:center;gap:2px;flex:1}
+.nav-link{padding:8px 13px;color:var(--ink2);font-size:13.5px;font-weight:600;border-radius:10px;white-space:nowrap;display:flex;align-items:center;gap:4px;transition:color .15s,background .15s}
+.nav-link:hover{color:var(--teal);background:var(--teal-l)}
+.nav-cta{padding:10px 20px;background:var(--teal);color:var(--white)!important;font-size:13.5px;font-weight:700;border-radius:12px;margin-left:12px;transition:background .15s,box-shadow .15s,transform .15s;white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:var(--teal-d);transform:translateY(-1px);box-shadow:0 6px 22px rgba(43,191,160,.42)}
+.chevron{width:13px;height:13px;opacity:.5;transition:transform .2s}
+
+/* dropdown */
+.nav-dd{position:relative}
+.dd-menu{display:none;position:absolute;top:calc(100% + 10px);left:0;background:var(--white);border-radius:var(--r);box-shadow:var(--sh3);min-width:230px;padding:8px 0;z-index:600;border:1px solid var(--border);animation:ddIn .15s ease}
+@keyframes ddIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.nav-dd.open .dd-menu{display:block}
+.nav-dd.open .chevron{transform:rotate(180deg)}
+.dd-item{display:flex;align-items:center;gap:10px;padding:11px 20px;font-size:13.5px;font-weight:600;color:var(--ink2);transition:background .12s,color .12s}
+.dd-item:hover{background:var(--teal-l);color:var(--teal)}
+.dd-dot{width:6px;height:6px;background:var(--teal);border-radius:50%;flex-shrink:0;opacity:.4;transition:opacity .12s}
+.dd-item:hover .dd-dot{opacity:1}
+
+/* hamburger */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;margin-left:12px;flex-shrink:0}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink2);border-radius:2px;transition:all .22s;transform-origin:center}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* MOBILE MENU */
+#mobileMenu{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--white);z-index:499;overflow-y:auto;padding:20px 20px 40px;box-shadow:var(--sh3)}
+.mob-link{padding:13px 16px;font-size:15px;font-weight:600;color:var(--ink2);border-radius:10px;display:block;transition:background .12s,color .12s}
+.mob-link:hover{background:var(--teal-l);color:var(--teal)}
+.mob-acc-btn{width:100%;padding:13px 16px;font-size:15px;font-weight:600;color:var(--ink2);border-radius:10px;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:left;font-family:'Sora',sans-serif;transition:background .12s,color .12s}
+.mob-acc-btn:hover{background:var(--teal-l);color:var(--teal)}
+.mob-sub{display:none;flex-direction:column;padding:4px 8px 8px 28px;gap:2px}
+.mob-sub a{padding:9px 12px;font-size:14px;font-weight:600;color:var(--ink2);border-radius:8px;display:block;transition:background .12s,color .12s}
+.mob-sub a:hover{background:var(--teal-l);color:var(--teal)}
+.mob-cta{margin-top:16px;padding:15px 22px;background:var(--teal);color:var(--white);font-size:15px;font-weight:700;border-radius:12px;text-align:center;display:block;box-shadow:0 4px 16px rgba(43,191,160,.3);transition:background .15s}
+.mob-cta:hover{background:var(--teal-d)}
+.mob-lang{display:flex;gap:8px;margin-top:16px}
+.mob-lang .lbtn{flex:1;text-align:center;padding:10px;border-radius:10px;font-weight:700;font-size:14px;border:1.5px solid var(--border);color:var(--muted);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.mob-lang .lbtn.active{background:var(--teal);color:var(--white);border-color:var(--teal)}
+.mob-divider{margin-top:24px;padding-top:20px;border-top:1px solid var(--border)}
+.mob-divider p{font-size:13.5px;color:var(--muted);line-height:2.1;display:flex;align-items:center;gap:8px}
+
+/* HERO */
+.hero{position:relative;min-height:520px;background:linear-gradient(130deg,#0a2e2a 0%,#0c4a42 40%,#158272 75%,#2bbfa0 100%);overflow:hidden;display:flex;align-items:center;padding:80px 60px}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/svg%3E")}
+.hero-ring{position:absolute;right:-80px;top:-80px;width:520px;height:520px;border-radius:50%;border:60px solid rgba(255,255,255,.05);pointer-events:none}
+.hero-ring2{position:absolute;right:120px;bottom:-120px;width:340px;height:340px;border-radius:50%;border:40px solid rgba(255,255,255,.04);pointer-events:none}
+.hero-letter{position:absolute;right:60px;top:50%;transform:translateY(-50%);font-family:'DM Serif Display',serif;font-size:360px;color:rgba(255,255,255,.055);line-height:1;pointer-events:none;user-select:none}
+.hero-content{position:relative;z-index:2;max-width:620px;width:100%}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);border-radius:40px;padding:6px 16px;font-size:12px;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.5px;margin-bottom:22px;text-transform:uppercase}
+.hero-dot{width:7px;height:7px;background:var(--teal);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.4)}}
+.hero-content h1{font-family:'DM Serif Display',serif;font-size:50px;font-weight:400;color:#fff;line-height:1.15;margin-bottom:18px;letter-spacing:-.5px}
+.hero-content h1 em{font-style:italic;color:rgba(255,255,255,.72)}
+.hero-content p{font-size:17px;color:rgba(255,255,255,.78);font-weight:400;line-height:1.65;margin-bottom:34px;max-width:480px}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.btn-w{padding:13px 26px;background:var(--white);color:var(--teal);font-size:14px;font-weight:700;border-radius:12px;transition:transform .15s,box-shadow .15s;white-space:nowrap;display:inline-block}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.btn-ghost-w{padding:13px 22px;background:transparent;color:rgba(255,255,255,.88);font-size:14px;font-weight:600;border-radius:12px;border:1.5px solid rgba(255,255,255,.3);cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap;font-family:'Sora',sans-serif;display:inline-block}
+.btn-ghost-w:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+.hero-stats{position:absolute;bottom:40px;right:60px;z-index:2;display:flex;gap:36px}
+.hero-stat-num{font-family:'DM Serif Display',serif;font-size:38px;color:#fff;line-height:1}
+.hero-stat-label{font-size:12px;color:rgba(255,255,255,.6);font-weight:500;margin-top:3px}
+
+/* FEATURES */
+.features{background:var(--white);padding:60px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px;border-bottom:1px solid var(--border)}
+.feature{display:flex;flex-direction:column;gap:14px}
+.feature-icon{width:52px;height:52px;background:var(--teal-l);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feature h3{font-size:17px;font-weight:700;color:var(--ink);line-height:1.3}
+.feature p{font-size:14px;color:var(--muted);line-height:1.7;font-weight:400}
+
+/* DOCTOR */
+.doctor-section{background:var(--bg);padding:80px 60px;display:flex;align-items:center;position:relative;overflow:hidden}
+.doctor-bg{position:absolute;left:0;top:0;bottom:0;width:36%;background:linear-gradient(135deg,var(--teal-m),#a8ddd4);z-index:0}
+.doctor-img-wrap{position:relative;z-index:1;flex-shrink:0;width:260px}
+.doc-ph{width:240px;height:310px;background:linear-gradient(160deg,#b8e4dc,#8ecec3);border-radius:18px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;position:relative;box-shadow:var(--sh2)}
+.doc-ph svg{position:absolute;bottom:0}
+.doctor-card{position:relative;z-index:2;background:var(--white);border-radius:var(--rL);padding:44px 48px;max-width:480px;margin-left:56px;box-shadow:var(--sh3);border:1px solid var(--border)}
+.doc-tag{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:12px}
+.doctor-card h3{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:14px}
+.doctor-card p{font-size:14.5px;color:var(--muted);line-height:1.75;font-weight:400}
+.doc-quote{margin-top:22px;padding:16px 20px;background:var(--teal-l);border-radius:10px;font-size:13.5px;font-style:italic;color:var(--teal-d);line-height:1.65;font-weight:500}
+
+/* SECTION HEADER */
+.sec-header{text-align:center;margin-bottom:56px}
+.sec-tag{display:inline-block;font-size:11px;font-weight:700;color:var(--teal);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.sec-header h2{font-family:'DM Serif Display',serif;font-size:38px;font-weight:400;color:var(--ink);margin-bottom:14px}
+.sec-header p{font-size:15.5px;color:var(--muted);max-width:500px;margin:0 auto;line-height:1.65;font-weight:400}
+
+/* SERVICES */
+.services{background:var(--white);padding:80px 60px}
+.cat-title{font-family:'DM Serif Display',serif;font-size:26px;font-weight:400;color:var(--ink);text-align:center;margin-bottom:32px;position:relative}
+.cat-title::after{content:'';display:block;width:40px;height:3px;background:var(--teal);border-radius:2px;margin:12px auto 0}
+.services-cat{margin-bottom:56px}
+.srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.srv-item{display:flex;gap:18px;align-items:flex-start;padding:22px;border-radius:var(--r);border:1px solid var(--border);background:var(--bg);transition:box-shadow .18s,border-color .18s}
+.srv-item:hover{box-shadow:var(--sh2);border-color:var(--teal-m)}
+.srv-icon{width:46px;height:46px;flex-shrink:0;background:var(--white);border-radius:12px;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh1)}
+.srv-item h4{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.35}
+.badge{display:inline-block;font-size:11px;font-weight:700;color:var(--teal);background:var(--teal-l);border-radius:6px;padding:2px 9px;margin-bottom:6px}
+.srv-item p{font-size:13.5px;color:var(--muted);line-height:1.65;font-weight:400}
+.srv-center{display:flex;justify-content:center;margin-top:18px}
+.srv-center .srv-item{max-width:440px}
+
+/* TEAM */
+.team-section{background:var(--bg);padding:80px 60px;border-top:1px solid var(--border)}
+.lead-doctor{display:flex;gap:52px;align-items:flex-start;margin-bottom:60px}
+.lead-ph{width:280px;height:340px;background:linear-gradient(160deg,var(--teal-m),#98d5ca);border-radius:18px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;box-shadow:var(--sh2);flex-shrink:0}
+.lead-info h3{font-family:'DM Serif Display',serif;font-size:24px;font-weight:400;color:var(--ink);margin-bottom:6px}
+.lead-sub{font-size:13px;font-weight:600;color:var(--teal);margin-bottom:18px}
+.info-lbl{font-size:11px;font-weight:700;color:var(--ink);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;margin-top:18px}
+.info-txt{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:16px;font-weight:400}
+.btn-ol{display:inline-block;padding:9px 22px;border:1.5px solid var(--teal);border-radius:10px;color:var(--teal);font-size:13.5px;font-weight:700;transition:background .18s,color .18s;cursor:pointer}
+.btn-ol:hover{background:var(--teal);color:var(--white)}
+.spec-list{margin-top:4px}
+.spec-list li{font-size:13.5px;color:var(--ink2);padding:4px 0;display:flex;align-items:center;gap:8px;font-weight:500}
+.spec-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);flex-shrink:0}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.team-ph{height:170px;border-radius:14px;overflow:hidden}
+.tp1{background:linear-gradient(160deg,#b8d8d4,#8fc5bc)}.tp2{background:linear-gradient(160deg,#a8cfc9,#7ab8b0)}.tp3{background:linear-gradient(160deg,#bed9d5,#95c6be)}.tp4{background:linear-gradient(160deg,#aacfc9,#7ec0b8)}.tp5{background:linear-gradient(160deg,#d4b8b8,#c4a0a0)}.tp6{background:linear-gradient(160deg,#b8c8d8,#90b0c4)}.tp7{background:linear-gradient(160deg,#b0cec8,#88bab2)}.tp8{background:linear-gradient(160deg,#c8b8d0,#b0a0bc)}.tp9{background:linear-gradient(160deg,#d0b8b8,#bca0a0)}.tp10{background:linear-gradient(160deg,#b8c8d4,#96b4c4)}
+
+/* ABOUT */
+.about-section{background:var(--white);padding:80px 60px}
+.about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.about-card{display:flex;flex-direction:column;align-items:center;gap:16px;padding:36px 24px;border-radius:var(--rL);border:1px solid var(--border);background:var(--bg);text-align:center;transition:box-shadow .2s,border-color .2s}
+.about-card:hover{box-shadow:var(--sh2);border-color:var(--teal-m)}
+.about-icon{width:76px;height:76px;background:var(--teal-l);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.about-card h3{font-size:17px;font-weight:700;color:var(--ink)}
+.about-card p{font-size:14px;color:var(--muted);line-height:1.65;font-weight:400}
+
+/* MISSION */
+.mission-section{background:var(--bg);padding:70px 60px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);gap:40px;flex-wrap:wrap}
+.mission-left h2{font-family:'DM Serif Display',serif;font-size:30px;font-weight:400;color:var(--ink);margin-bottom:20px}
+.mission-list{display:flex;flex-direction:column;gap:12px}
+.mission-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink2);font-weight:500}
+.mission-stats{display:flex;gap:48px;flex-shrink:0}
+.stat{display:flex;flex-direction:column;align-items:center;gap:4px}
+.stat-num{font-family:'DM Serif Display',serif;font-size:46px;color:var(--teal);line-height:1}
+.stat-label{font-size:13px;color:var(--muted);font-weight:500;text-align:center}
+
+/* CONTACT */
+.contact-section{background:var(--white);padding:80px 60px}
+.contact-inner{display:grid;grid-template-columns:1fr 1.7fr;gap:48px;align-items:start}
+.c-lbl{font-size:11px;font-weight:700;color:var(--ink);letter-spacing:1px;text-transform:uppercase;margin-top:18px;margin-bottom:6px}
+.contact-info p{font-size:14px;color:var(--ink2);line-height:1.9;font-weight:500}
+.contact-info a{color:var(--teal);font-weight:600}
+.contact-info a:hover{text-decoration:underline}
+.cta-box{margin-top:28px;background:linear-gradient(130deg,#0a2e2a,#1a6b60);border-radius:16px;padding:28px;color:#fff}
+.cta-box p{font-size:15px;font-weight:600;margin-bottom:16px;line-height:1.5}
+.btn-ol-w{display:inline-block;padding:10px 22px;border:1.5px solid rgba(255,255,255,.5);border-radius:10px;color:#fff;font-size:13.5px;font-weight:700;transition:background .15s,border-color .15s}
+.btn-ol-w:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.8)}
+.map-wrap{width:100%;height:310px;border-radius:18px;overflow:hidden;box-shadow:var(--sh2)}
+.map-wrap iframe{width:100%;height:100%;border:none}
+
+/* BLOG */
+.blog-section{background:var(--bg);padding:80px 60px;border-top:1px solid var(--border)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-bottom:36px}
+.blog-card{border-radius:var(--r);overflow:hidden;background:var(--white);border:1px solid var(--border);transition:box-shadow .2s,transform .2s}
+.blog-card:hover{box-shadow:var(--sh2);transform:translateY(-3px)}
+.blog-img{height:165px}
+.bi1{background:linear-gradient(135deg,#b8e6de,#8ecfc6)}.bi2{background:linear-gradient(135deg,#b8d4e8,#90b8d0)}.bi3{background:linear-gradient(135deg,#d8c4e0,#bba8cc)}
+.blog-body{padding:20px}
+.blog-tag-lbl{font-size:11px;color:var(--teal);font-weight:700;letter-spacing:.5px;margin-bottom:8px}
+.blog-body h4{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px;line-height:1.35}
+.blog-body p{font-size:13.5px;color:var(--muted);line-height:1.65;margin-bottom:12px;font-weight:400}
+.blog-meta{font-size:12px;color:#b0bec8;font-weight:500}
+.blog-center{text-align:center}
+
+/* GUARANTEE */
+.guarantee-section{background:var(--white);padding:60px;display:flex;justify-content:center;border-top:1px solid var(--border)}
+.guarantee-card{background:linear-gradient(130deg,var(--teal-l),var(--white));border:1px solid var(--teal-m);border-radius:var(--rL);padding:44px 52px;display:flex;align-items:center;gap:32px;max-width:720px;box-shadow:var(--sh1)}
+.guarantee-icon{width:84px;height:84px;flex-shrink:0;background:var(--white);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:var(--sh1)}
+.guarantee-card h3{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:10px}
+.guarantee-card p{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:18px;font-weight:400}
+
+/* PARTNERS */
+.partners-section{background:var(--bg);padding:48px 60px;border-top:1px solid var(--border)}
+.partners-inner{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.partners-lbl{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;flex-shrink:0}
+.partners-logos{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+.partner-logo{font-size:15px;font-weight:800;color:var(--ink);opacity:.4;white-space:nowrap;transition:opacity .15s;letter-spacing:-.3px}
+.partner-logo:hover{opacity:.85}
+.partner-logo span{color:var(--teal)}
+
+/* FOOTER STICKY */
+.footer-nav{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:0 48px;display:flex;align-items:center;height:58px;gap:0;overflow:hidden}
+.fsn-logo{display:flex;align-items:center;gap:8px;margin-right:28px;font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink);flex-shrink:0}
+.fsn-links{display:flex;align-items:center;gap:2px;flex:1;overflow:hidden}
+.fsn-link{padding:6px 12px;color:var(--ink2);font-weight:600;font-size:13px;border-radius:8px;white-space:nowrap;transition:color .15s,background .15s}
+.fsn-link:hover{color:var(--teal);background:var(--teal-l)}
+.fsn-cta{margin-left:auto;padding:9px 20px;background:var(--teal);color:#fff;font-size:13px;font-weight:700;border-radius:10px;transition:background .15s;flex-shrink:0}
+.fsn-cta:hover{background:var(--teal-d)}
+
+/* FOOTER */
+.footer-cols{background:var(--white);padding:52px 60px 36px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;border-bottom:1px solid var(--border)}
+.footer-col h4{font-size:11px;font-weight:700;color:var(--ink);letter-spacing:1px;text-transform:uppercase;margin-bottom:16px}
+.footer-col p,.footer-col a,.footer-col li{font-size:13.5px;color:var(--muted);line-height:2.1;display:block}
+.footer-col a:hover{color:var(--teal)}
+.foot-socials{display:flex;gap:10px;margin-top:14px}
+.foot-socials a{width:34px;height:34px;border-radius:9px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);transition:border-color .15s,color .15s}
+.foot-socials a:hover{border-color:var(--teal);color:var(--teal)}
+.footer-bottom{background:var(--white);padding:18px 60px;display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:#b0bec8;flex-wrap:wrap;gap:10px}
+.footer-bottom-links{display:flex;gap:22px;flex-wrap:wrap}
+.footer-bottom-links a{font-size:12.5px;color:#b0bec8}
+.footer-bottom-links a:hover{color:var(--teal)}
+.footer-bottom-left{display:flex;align-items:center;gap:8px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .top-bar{padding:7px 24px;font-size:12px;gap:14px}
+  .navbar{padding:0 20px;height:62px}
+  #mobileMenu{top:62px}
+  .nav-items,.footer-nav{display:none}
+  .hamburger{display:flex!important}
+  .nav-cta{font-size:12.5px;padding:9px 16px;margin-left:auto}
+  .hero{padding:52px 28px 44px;min-height:auto}
+  .hero-content h1{font-size:36px}
+  .hero-content p{font-size:15px}
+  .hero-letter{font-size:200px;right:10px;opacity:.04}
+  .hero-stats{position:static;margin-top:32px;gap:28px;flex-wrap:wrap}
+  .hero-stat-num{font-size:30px}
+  .hero-actions{gap:10px}
+  .features{grid-template-columns:1fr 1fr;padding:40px 28px;gap:24px}
+  .doctor-section{padding:50px 28px;flex-direction:column;gap:28px}
+  .doctor-bg{display:none}
+  .doctor-img-wrap{width:100%}
+  .doc-ph{width:100%;height:220px}
+  .doctor-card{margin-left:0;padding:28px 24px;max-width:100%}
+  .services{padding:56px 28px}
+  .sec-header h2{font-size:30px}
+  .srv-grid{grid-template-columns:1fr;gap:14px}
+  .srv-center .srv-item{max-width:100%}
+  .team-section{padding:56px 28px}
+  .lead-doctor{flex-direction:column;gap:24px}
+  .lead-ph{width:100%;height:230px}
+  .team-grid{grid-template-columns:repeat(5,1fr);gap:10px}
+  .team-ph{height:120px}
+  .about-section{padding:56px 28px}
+  .about-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .mission-section{padding:50px 28px;flex-direction:column;align-items:flex-start}
+  .mission-stats{gap:36px}
+  .contact-section{padding:56px 28px}
+  .contact-inner{grid-template-columns:1fr;gap:28px}
+  .map-wrap{height:250px}
+  .blog-section{padding:56px 28px}
+  .blog-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .guarantee-section{padding:40px 20px}
+  .guarantee-card{padding:30px 28px;gap:24px}
+  .partners-section{padding:36px 28px}
+  .footer-cols{padding:36px 28px 24px;grid-template-columns:1fr 1fr;gap:24px}
+  .footer-bottom{padding:16px 28px}
+}
+
+@media(max-width:600px){
+  .top-bar{display:none}
+  .hero{padding:44px 18px 36px}
+  .hero-content h1{font-size:28px}
+  .hero-letter{display:none}
+  .hero-actions{flex-direction:column;width:100%}
+  .btn-w,.btn-ghost-w{width:100%;text-align:center;padding:14px}
+  .hero-stats{gap:22px}
+  .features{grid-template-columns:1fr;padding:36px 18px;gap:20px}
+  .doctor-section{padding:36px 18px}
+  .services{padding:44px 18px}
+  .sec-header h2{font-size:24px}
+  .cat-title{font-size:22px}
+  .team-section{padding:44px 18px}
+  .team-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .team-ph{height:130px}
+  .about-section{padding:44px 18px}
+  .about-grid{grid-template-columns:1fr}
+  .mission-section{padding:40px 18px}
+  .mission-stats{gap:24px;flex-wrap:wrap}
+  .stat-num{font-size:38px}
+  .contact-section{padding:44px 18px}
+  .blog-section{padding:44px 18px}
+  .blog-grid{grid-template-columns:1fr}
+  .guarantee-section{padding:32px 14px}
+  .guarantee-card{flex-direction:column;text-align:center;padding:28px 20px}
+  .partners-section{padding:32px 18px}
+  .partners-inner{gap:20px}
+  .footer-cols{padding:32px 18px 20px;grid-template-columns:1fr}
+  .footer-bottom{padding:14px 18px;flex-direction:column;text-align:center}
+  .footer-bottom-links{justify-content:center;gap:14px}
+}
+</style>
+</head>
+<body>
+  <!-- DEMO POPUP -->
+<div id="demoPopupOverlay" style="position:fixed;inset:0;z-index:9999;background:rgba(5,30,25,0.72);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#fff;border-radius:20px;padding:2.4rem 2rem 2rem;width:100%;max-width:460px;box-shadow:0 24px 60px rgba(0,0,0,0.22);position:relative;text-align:center;">
+    <div style="width:56px;height:56px;background:#edfaf6;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.1rem;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2bbfa0" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+    </div>
+    <div style="display:inline-block;background:#edfaf6;color:#1d9e84;font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.22rem 0.75rem;border-radius:20px;margin-bottom:0.8rem;">Demo sablon</div>
+    <h3 style="font-family:'Sora',sans-serif;font-size:1.35rem;font-weight:800;color:#111c2d;margin-bottom:0.6rem;line-height:1.25;">Ez egy előzetes demo<br>végleges állapota még készül.</h3>
+    <p style="font-size:0.88rem;color:#6b7788;line-height:1.7;margin-bottom:1.5rem;">Ez az oldal a fogorvos weboldal sablon bemutatója. A menüpontok és belső oldalak még nem érhetők el — a végleges sablon hamarosan elkészül.</p>
+    <div style="display:flex;flex-direction:column;gap:0.7rem;">
+      <a href="index.html" style="display:block;background:#1d9e84;color:#fff;font-weight:700;font-size:0.94rem;padding:0.85rem 1.5rem;border-radius:50px;text-decoration:none;transition:background 0.2s;">← Vissza a főoldalra</a>
+      <button onclick="document.getElementById('demoPopupOverlay').style.display='none'" style="background:transparent;border:1.5px solid #c2ede4;color:#1d9e84;font-weight:700;font-size:0.9rem;padding:0.8rem 1.5rem;border-radius:50px;cursor:pointer;font-family:'Sora',sans-serif;">Értem, megnézem a demót</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const T = {
+  hu: {
+    pageTitle:'Fogorvos | Esztétikai és Lézerfogászat Budapest',
+    tb_hours:'H–Cs: 8:00–20:00  |  P: 8:00–15:00',
+    tb_address:'[Irányítószám] [Város], [Utca, házszám]',
+    tb_contact:'Kapcsolat', tb_faq:'GYIK',
+    nav_services:'Szolgáltatásaink', nav_about:'Rólunk', nav_prices:'Áraink',
+    nav_complaints:'Fogászati panaszok', nav_works:'Munkáink', nav_cta:'Időpontfoglalás',
+    nd_laser:'Lézeres szájsebészet', nd_aesthetic:'Esztétikai fogászat',
+    nd_implant:'Implantáció', nd_align:'Fogszabályozás',
+    nd_guarantee:'Rendelői Garancia', nd_payment:'Fizetési lehetőségek',
+    nd_intro:'Bemutatkozunk', nd_team:'Csapatunk',
+    nd_reviews:'Pácienseink véleménye', nd_career:'Karrier',
+    hero_tag:'[Város]  ·  [Év] óta',
+    hero_h1a:'Ahol a mosoly', hero_h1b:'igazán otthon van',
+    hero_p:'Lézeres pontossággal, természetes anyagokkal és szívből jövő gondoskodással – rendelőnk a legkorszerűbb technológiát állítja pácienseink szolgálatába.',
+    hero_btn1:'Időpontfoglalás', hero_btn2:'Fedezze fel szolgáltatásainkat',
+    hero_s1n:'[Szám]', hero_s1l:'elégedett páciens',
+    hero_s2n:'[Szám]+', hero_s2l:'év tapasztalat',
+    f1h:'[Szakterület] fogászat – magyarországi úttörők',
+    f1p:'Ide írja be főbb előnyét, pl. egyedülálló minősítés, fejlett eszközpark, tapasztalt csapat. Max. 2–3 mondat.',
+    f2h:'Komplex problémák – egy helyen megoldva',
+    f2p:'Legegyszerűbb kezeléstől a teljes mosolykorrekciókig: minden beavatkozást ugyanaz a gondos csapat végez, folyamatos odafigyeléssel.',
+    f3h:'Csúcstechnológia és emberi figyelem',
+    f3p:'3D digitális lenyomattól a CAD/CAM fogpótlásokig – nálunk a modern eszközök és a személyre szabott gondoskodás kéz a kézben járnak.',
+    doc_tag:'Vezető fogorvos & Alapító',
+    doc_h:'Tudás, tapasztalat és emberi közelség',
+    doc_p:'Ide kerül a vezető fogorvos rövid, személyes bemutatója. Írja le végzettségét, specialitásait, díjait vagy kutatásait – maximum 3–4 mondatban, barátságos hangnemben.',
+    doc_quote:'„Ide kerülhet egy idézet a vezető fogorvostól – valami, ami hitelesen tükrözi a rendelő szemléletét és értékrendjét."',
+    srv_tag:'Szolgáltatásaink',
+    srv_h:'Fogászati megoldások minden igényre',
+    srv_p:'A legmodernebb eljárásokat és kezeléseket egyetlen rendelőben, szakértő kezekben',
+    cat_laser:'Lézeres szájsebészet',
+    ls1h:'[Kezelés neve]', ls1p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ls2h:'[Kezelés neve]', ls2p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ls3h:'[Kezelés neve]', ls3p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ls4h:'[Kezelés neve]', ls4p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ls5h:'[Kiemelt kezelés neve]', ls5p:'Rövid leírás a sor közepére kerülő kiemelt kezelésről. 1–2 mondat.',
+    cat_aesth:'Esztétikai fogászat',
+    ae1badge:'[Minősítés / Partner]',
+    ae1h:'[Kezelés neve]', ae1p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ae2h:'[Kezelés neve]', ae2p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ae3h:'[Kezelés neve]', ae3p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ae4h:'[Kezelés neve]', ae4p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ae5h:'[Kezelés neve]', ae5p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ae6h:'[Kezelés neve]', ae6p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ae7h:'[Kezelés neve]', ae7p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    ae8h:'[Kezelés neve]', ae8p:'Rövid leírás: mi ez a kezelés, kiknek ajánlott, mi a fő előnye. 1–2 mondat.',
+    team_tag:'Csapatunk', team_h:'Szakértők, akikre számíthat',
+    team_p:'Tapasztalt fogorvosoink és asszisztenseink mindennap azért dolgoznak, hogy Ön mosolyogva hagyja el rendelőnket',
+    lead_name:'Dr. [Vezető fogorvos neve], [Fokozatok]',
+    lead_sub:'[Beosztás]  ·  [Specialitás]  ·  [Egyéb minősítés]',
+    lead_lbl:'Bemutatkozás',
+    lead_txt:'Ide kerül a vezető fogorvos részletesebb bemutatója. Írja le tanulmányait, legfontosabb szakmai eredményeit, esetleg személyes motivációját. Javasolt hossz: 4–6 mondat, olvasmányos, személyes hangnemben.',
+    lead_btn:'Bővebben olvasom', spec_lbl:'Szakterületek',
+    spec1:'[Szakterület 1]', spec2:'[Szakterület 2]', spec3:'[Szakterület 3]',
+    spec4:'[Szakterület 4]', spec5:'[Szakterület 5]', spec6:'[Szakterület 6]',
+    ab_tag:'Miért válasszon minket?',
+    ab_h:'A [Rendelő neve] különbsége',
+    ab_p:'Nem csupán fogakat kezelünk – gondoskodunk Önről. Három érték, amely mindennap vezérel bennünket',
+    ab1h:'[Előny 1 neve, pl. Prémium környezet]', ab1p:'Ide írja be, mi teszi különlegessé rendelőjét ebből a szempontból. 2–3 mondat, konkrét részletekkel.',
+    ab2h:'[Előny 2 neve, pl. Holisztikus szemlélet]', ab2p:'Ide írja be, mi teszi különlegessé rendelőjét ebből a szempontból. 2–3 mondat, konkrét részletekkel.',
+    ab3h:'[Előny 3 neve, pl. Megelőzés]', ab3p:'Ide írja be, mi teszi különlegessé rendelőjét ebből a szempontból. 2–3 mondat, konkrét részletekkel.',
+    mis_h:'Küldetésünk',
+    mis1:'Természetes módszerekkel megőrizzük fogai hosszú távú egészségét',
+    mis2:'Biokompatibilis, természetbarát anyagokat alkalmazunk',
+    mis3:'Minden pácienst egyedként kezeljük, nem „esetként"',
+    mis4:'Folyamatosan fejlesztjük tudásunkat és eszközparkunkat',
+    st1n:'[Alapítás éve]', st1l:'óta a piacon',
+    st2n:'[Szám]', st2l:'elégedett páciens',
+    st3n:'[Szám]', st3l:'kezelő, 1 helyszín',
+    con_tag:'Elérhetőségek', con_h:'Látogasson meg minket',
+    con_p:'Rendelőnk könnyen megközelíthető helyen várja Önt – akár személyesen, akár online foglal időpontot',
+    con_addr_lbl:'Cím', con_addr:'[Irányítószám] [Város], [Utca, házszám]',
+    con_tel_lbl:'Telefonszám', con_tel:'[+36 X XXX XXXX]',
+    con_email_lbl:'E-mail', con_email:'[info@yoursite.hu]',
+    con_hours_lbl:'Nyitvatartás',
+    con_h1:'Hétfő – Csütörtök: 8:00 – 20:00',
+    con_h2:'Péntek: 8:00 – 15:00', con_h3:'Hétvége: zárva',
+    con_note:'A rendelő áthelyezett munkanapokon is zárva tart.',
+    con_cta_p:'Foglaljon időpontot állapotfelmérésre – teljesen online, akár most!',
+    con_cta_btn:'Időpontfoglalás',
+    blog_tag:'Fogászati blog', blog_h:'Hasznos tudnivalók fogainkról',
+    blog_p:'Szakértő fogorvosoktól, közérthetően – mert a tudatos páciens a legjobb páciens',
+    b1tag:'[Kategória]', b1h:'[Blog bejegyzés 1 címe]',
+    b1p:'Rövid, 2–3 soros leírás a cikk tartalmáról. Legyen figyelemfelkeltő és informatív.',
+    b1m:'[Dátum]  ·  [X] perces olvasnivaló',
+    b2tag:'[Kategória]', b2h:'[Blog bejegyzés 2 címe]',
+    b2p:'Rövid, 2–3 soros leírás a cikk tartalmáról. Legyen figyelemfelkeltő és informatív.',
+    b2m:'[Dátum]  ·  [X] perces olvasnivaló',
+    b3tag:'[Kategória]', b3h:'[Blog bejegyzés 3 címe]',
+    b3p:'Rövid, 2–3 soros leírás a cikk tartalmáról. Legyen figyelemfelkeltő és informatív.',
+    b3m:'[Dátum]  ·  [X] perces olvasnivaló',
+    blog_all:'Összes cikk megtekintése',
+    gar_h:'A [Rendelő neve] Garancia',
+    gar_p:'Ide kerül a garancia rövid leírása. Mire vonatkozik? Mi a feltétele? Miért fontos ez a pácienseknek? 2–3 mondatban, magabiztosan és hitelesen fogalmazva.',
+    gar_btn:'Tudjon meg többet',
+    part_lbl:'Partnereink',
+    fc1:'Elérhetőségek', fc2:'Nyitvatartás',
+    fc2h1:'Hétfő–Csütörtök: 8:00–20:00', fc2h2:'Péntek: 8:00–15:00',
+    fc2h3:'Hétvége: zárva', fc2note:'A rendelő áthelyezett munkanapokon is zárva tart.',
+    fc3:'Népszerű oldalak',
+    f_complaints:'Fogászati panaszok', f_services:'Szolgáltatásaink',
+    f_blog:'Blog', f_works:'Munkáink', f_reviews:'Pácienseink véleménye',
+    fc4:'Hasznos linkek', f_payment:'Fizetési lehetőségek', f_prices:'Áraink',
+    f_booking:'Időpontfoglalás', f_contact:'Kapcsolat', f_faq:'GYIK', f_career:'Karrier',
+    f_copy:'© [Rendelő neve]  ·  [Alapítás éve]–[Aktuális év] Minden jog fenntartva.',
+    f_aszf:'ÁSZF', f_privacy:'Adatkezelési tájékoztató',
+    f_legal:'Jogi nyilatkozat', f_sitemap:'Oldaltérkép',
+  },
+  en: {
+    pageTitle:'Dentist | Aesthetic & Laser Dentistry Budapest',
+    tb_hours:'Mon–Thu: 8:00–20:00  |  Fri: 8:00–15:00',
+    tb_address:'[Postal code] [City], [Street, number]',
+    tb_contact:'Contact', tb_faq:'FAQ',
+    nav_services:'Services', nav_about:'About us', nav_prices:'Pricing',
+    nav_complaints:'Dental complaints', nav_works:'Our work', nav_cta:'Book appointment',
+    nd_laser:'Laser oral surgery', nd_aesthetic:'Aesthetic dentistry',
+    nd_implant:'Implantology', nd_align:'Orthodontics',
+    nd_guarantee:'Our Guarantee', nd_payment:'Payment options',
+    nd_intro:'About us', nd_team:'Our team',
+    nd_reviews:'Patient reviews', nd_career:'Careers',
+    hero_tag:'[City]  ·  Since [Year]',
+    hero_h1a:'Where your smile', hero_h1b:'truly feels at home',
+    hero_p:'With laser precision, natural materials and genuine care – our practice brings the most advanced technology to the service of our patients.',
+    hero_btn1:'Book online', hero_btn2:'Explore our services',
+    hero_s1n:'[Number]', hero_s1l:'happy patients',
+    hero_s2n:'[Number]+', hero_s2l:'years of experience',
+    f1h:'[Specialty] dentistry – pioneers in Hungary',
+    f1p:'Enter your main advantage here, e.g. unique qualification, advanced equipment, experienced team. Max. 2–3 sentences.',
+    f2h:'Complex problems – solved in one place',
+    f2p:'From simple cleanings to full smile makeovers: every procedure is performed by the same caring team with continuous attention.',
+    f3h:'Cutting-edge technology and human care',
+    f3p:'From 3D digital impressions to CAD/CAM restorations – in our practice, modern tools and personalised care go hand in hand.',
+    doc_tag:'Lead dentist & Founder',
+    doc_h:'Knowledge, experience and personal connection',
+    doc_p:"Enter the lead dentist's short, personal introduction here. Describe their qualifications, specialisations, awards or research – in a maximum of 3–4 sentences, in a friendly tone.",
+    doc_quote:'"Enter a quote from the lead dentist here – something that authentically reflects the practice\'s philosophy and values."',
+    srv_tag:'Our services',
+    srv_h:'Dental solutions for every need',
+    srv_p:'The most advanced procedures and treatments under one roof, in expert hands',
+    cat_laser:'Laser oral surgery',
+    ls1h:'[Treatment name]', ls1p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ls2h:'[Treatment name]', ls2p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ls3h:'[Treatment name]', ls3p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ls4h:'[Treatment name]', ls4p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ls5h:'[Featured treatment name]', ls5p:'Brief description of the featured central treatment. 1–2 sentences.',
+    cat_aesth:'Aesthetic dentistry',
+    ae1badge:'[Certification / Partner]',
+    ae1h:'[Treatment name]', ae1p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ae2h:'[Treatment name]', ae2p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ae3h:'[Treatment name]', ae3p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ae4h:'[Treatment name]', ae4p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ae5h:'[Treatment name]', ae5p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ae6h:'[Treatment name]', ae6p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ae7h:'[Treatment name]', ae7p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    ae8h:'[Treatment name]', ae8p:'Brief description: what is this treatment, who is it for, what is the main benefit. 1–2 sentences.',
+    team_tag:'Our team', team_h:'Experts you can count on',
+    team_p:'Our experienced dentists and assistants work every day so you leave our practice with a smile',
+    lead_name:'Dr. [Lead dentist name], [Degrees]',
+    lead_sub:'[Position]  ·  [Speciality]  ·  [Other qualification]',
+    lead_lbl:'Introduction',
+    lead_txt:"Enter the lead dentist's more detailed profile here. Describe their studies, most important professional achievements, or personal motivation. Recommended length: 4–6 sentences, readable and personal in tone.",
+    lead_btn:'Read more', spec_lbl:'Areas of expertise',
+    spec1:'[Speciality 1]', spec2:'[Speciality 2]', spec3:'[Speciality 3]',
+    spec4:'[Speciality 4]', spec5:'[Speciality 5]', spec6:'[Speciality 6]',
+    ab_tag:'Why choose us?',
+    ab_h:'The [Practice name] difference',
+    ab_p:"We don't just treat teeth – we care for you. Three values that guide us every day",
+    ab1h:'[Advantage 1, e.g. Premium environment]', ab1p:'Write what makes your practice special from this perspective. 2–3 sentences with concrete details.',
+    ab2h:'[Advantage 2, e.g. Holistic approach]', ab2p:'Write what makes your practice special from this perspective. 2–3 sentences with concrete details.',
+    ab3h:'[Advantage 3, e.g. Prevention]', ab3p:'Write what makes your practice special from this perspective. 2–3 sentences with concrete details.',
+    mis_h:'Our mission',
+    mis1:'We preserve your long-term dental health using natural methods',
+    mis2:'We use biocompatible, eco-friendly materials',
+    mis3:'We treat every patient as an individual, not a "case"',
+    mis4:'We continuously develop our knowledge and equipment',
+    st1n:'[Founded]', st1l:'years in practice',
+    st2n:'[Number]', st2l:'happy patients',
+    st3n:'[Number]', st3l:'treatment rooms',
+    con_tag:'Contact', con_h:'Come and visit us',
+    con_p:'Our practice is easy to reach – whether you visit in person or book an appointment online',
+    con_addr_lbl:'Address', con_addr:'[Postal code] [City], [Street, number]',
+    con_tel_lbl:'Phone', con_tel:'[+36 X XXX XXXX]',
+    con_email_lbl:'E-mail', con_email:'[info@yoursite.hu]',
+    con_hours_lbl:'Opening hours',
+    con_h1:'Monday – Thursday: 8:00 – 20:00',
+    con_h2:'Friday: 8:00 – 15:00', con_h3:'Weekend: closed',
+    con_note:'The practice is also closed on shifted working days.',
+    con_cta_p:'Book a consultation appointment – fully online, even right now!',
+    con_cta_btn:'Book online',
+    blog_tag:'Dental blog', blog_h:'Useful information about your teeth',
+    blog_p:'From expert dentists, in plain language – because an informed patient is the best patient',
+    b1tag:'[Category]', b1h:'[Blog post 1 title]',
+    b1p:'Short 2–3 line description of the article content. Be engaging and informative.',
+    b1m:'[Date]  ·  [X] min read',
+    b2tag:'[Category]', b2h:'[Blog post 2 title]',
+    b2p:'Short 2–3 line description of the article content. Be engaging and informative.',
+    b2m:'[Date]  ·  [X] min read',
+    b3tag:'[Category]', b3h:'[Blog post 3 title]',
+    b3p:'Short 2–3 line description of the article content. Be engaging and informative.',
+    b3m:'[Date]  ·  [X] min read',
+    blog_all:'View all articles',
+    gar_h:'The [Practice name] Guarantee',
+    gar_p:'Enter a brief description of the guarantee here. What does it cover? What are the conditions? Why is this important for patients? 2–3 sentences, written confidently and credibly.',
+    gar_btn:'Learn more',
+    part_lbl:'Our partners',
+    fc1:'Contact', fc2:'Opening hours',
+    fc2h1:'Monday–Thursday: 8:00–20:00', fc2h2:'Friday: 8:00–15:00',
+    fc2h3:'Weekend: closed', fc2note:'The practice is also closed on shifted working days.',
+    fc3:'Popular pages',
+    f_complaints:'Dental complaints', f_services:'Our services',
+    f_blog:'Blog', f_works:'Our work', f_reviews:'Patient reviews',
+    fc4:'Useful links', f_payment:'Payment options', f_prices:'Pricing',
+    f_booking:'Book appointment', f_contact:'Contact', f_faq:'FAQ', f_career:'Careers',
+    f_copy:'© [Practice name]  ·  [Founded]–[Current year] All rights reserved.',
+    f_aszf:'Terms & Conditions', f_privacy:'Privacy policy',
+    f_legal:'Legal notice', f_sitemap:'Sitemap',
+  }
+};
+
+let lang='hu';
+
+function s(id,val){const e=document.getElementById(id);if(e)e.textContent=val}
+
+function setLang(l){
+  lang=l;
+  const t=T[l];
+  document.getElementById('html-root').lang=l;
+  document.title=t.pageTitle;
+  document.querySelectorAll('.lbtn').forEach(b=>b.classList.toggle('active',b.dataset.l===l));
+
+  s('tb-hours',t.tb_hours); s('tb-address',t.tb_address);
+  s('tb-contact',t.tb_contact); s('tb-faq',t.tb_faq);
+
+  s('nav-services',t.nav_services); s('nav-about',t.nav_about);
+  s('nav-prices',t.nav_prices); s('nav-complaints',t.nav_complaints);
+  s('nav-works',t.nav_works);
+  document.querySelectorAll('.nav-cta-txt').forEach(e=>e.textContent=t.nav_cta);
+
+  s('nd-laser',t.nd_laser); s('nd-aesthetic',t.nd_aesthetic);
+  s('nd-implant',t.nd_implant); s('nd-align',t.nd_align);
+  s('nd-guarantee',t.nd_guarantee); s('nd-payment',t.nd_payment);
+  s('nd-intro',t.nd_intro); s('nd-team',t.nd_team);
+  s('nd-reviews',t.nd_reviews); s('nd-career',t.nd_career);
+
+  s('hero-tag-txt',t.hero_tag); s('hero-h1a',t.hero_h1a); s('hero-h1b',t.hero_h1b);
+  s('hero-p',t.hero_p); s('hero-btn1',t.hero_btn1); s('hero-btn2',t.hero_btn2);
+  s('hero-s1n',t.hero_s1n); s('hero-s1l',t.hero_s1l);
+  s('hero-s2n',t.hero_s2n); s('hero-s2l',t.hero_s2l);
+
+  s('f1h',t.f1h); s('f1p',t.f1p); s('f2h',t.f2h); s('f2p',t.f2p);
+  s('f3h',t.f3h); s('f3p',t.f3p);
+
+  s('doc-tag',t.doc_tag); s('doc-h',t.doc_h); s('doc-p',t.doc_p); s('doc-quote',t.doc_quote);
+
+  s('srv-tag',t.srv_tag); s('srv-h',t.srv_h); s('srv-p',t.srv_p);
+  s('cat-laser',t.cat_laser);
+  s('ls1h',t.ls1h); s('ls1p',t.ls1p); s('ls2h',t.ls2h); s('ls2p',t.ls2p);
+  s('ls3h',t.ls3h); s('ls3p',t.ls3p); s('ls4h',t.ls4h); s('ls4p',t.ls4p);
+  s('ls5h',t.ls5h); s('ls5p',t.ls5p);
+  s('cat-aesth',t.cat_aesth);
+  s('ae1badge',t.ae1badge);
+  s('ae1h',t.ae1h); s('ae1p',t.ae1p); s('ae2h',t.ae2h); s('ae2p',t.ae2p);
+  s('ae3h',t.ae3h); s('ae3p',t.ae3p); s('ae4h',t.ae4h); s('ae4p',t.ae4p);
+  s('ae5h',t.ae5h); s('ae5p',t.ae5p); s('ae6h',t.ae6h); s('ae6p',t.ae6p);
+  s('ae7h',t.ae7h); s('ae7p',t.ae7p); s('ae8h',t.ae8h); s('ae8p',t.ae8p);
+
+  s('team-tag',t.team_tag); s('team-h',t.team_h); s('team-p',t.team_p);
+  s('lead-name',t.lead_name); s('lead-sub',t.lead_sub);
+  s('lead-lbl',t.lead_lbl); s('lead-txt',t.lead_txt); s('lead-btn',t.lead_btn);
+  s('spec-lbl',t.spec_lbl);
+  s('spec1',t.spec1); s('spec2',t.spec2); s('spec3',t.spec3);
+  s('spec4',t.spec4); s('spec5',t.spec5); s('spec6',t.spec6);
+
+  s('ab-tag',t.ab_tag); s('ab-h',t.ab_h); s('ab-p',t.ab_p);
+  s('ab1h',t.ab1h); s('ab1p',t.ab1p); s('ab2h',t.ab2h); s('ab2p',t.ab2p);
+  s('ab3h',t.ab3h); s('ab3p',t.ab3p);
+
+  s('mis-h',t.mis_h); s('mis1',t.mis1); s('mis2',t.mis2);
+  s('mis3',t.mis3); s('mis4',t.mis4);
+  s('st1n',t.st1n); s('st1l',t.st1l); s('st2n',t.st2n); s('st2l',t.st2l);
+  s('st3n',t.st3n); s('st3l',t.st3l);
+
+  s('con-tag',t.con_tag); s('con-h',t.con_h); s('con-p',t.con_p);
+  s('con-addr-lbl',t.con_addr_lbl); s('con-addr',t.con_addr);
+  s('con-tel-lbl',t.con_tel_lbl); s('con-tel',t.con_tel);
+  s('con-email-lbl',t.con_email_lbl); s('con-email',t.con_email);
+  s('con-hours-lbl',t.con_hours_lbl);
+  s('con-h1',t.con_h1); s('con-h2',t.con_h2); s('con-h3',t.con_h3);
+  s('con-note',t.con_note); s('con-cta-p',t.con_cta_p); s('con-cta-btn',t.con_cta_btn);
+
+  s('blog-tag',t.blog_tag); s('blog-h',t.blog_h); s('blog-p',t.blog_p);
+  s('b1tag',t.b1tag); s('b1h',t.b1h); s('b1p',t.b1p); s('b1m',t.b1m);
+  s('b2tag',t.b2tag); s('b2h',t.b2h); s('b2p',t.b2p); s('b2m',t.b2m);
+  s('b3tag',t.b3tag); s('b3h',t.b3h); s('b3p',t.b3p); s('b3m',t.b3m);
+  s('blog-all',t.blog_all);
+
+  s('gar-h',t.gar_h); s('gar-p',t.gar_p); s('gar-btn',t.gar_btn);
+  s('part-lbl',t.part_lbl);
+
+  s('fc1',t.fc1); s('fc2',t.fc2);
+  s('fc2h1',t.fc2h1); s('fc2h2',t.fc2h2); s('fc2h3',t.fc2h3); s('fc2note',t.fc2note);
+  s('fc3',t.fc3); s('f-complaints',t.f_complaints); s('f-services',t.f_services);
+  s('f-blog',t.f_blog); s('f-works',t.f_works); s('f-reviews',t.f_reviews);
+  s('fc4',t.fc4); s('f-payment',t.f_payment); s('f-prices',t.f_prices);
+  s('f-booking',t.f_booking); s('f-contact',t.f_contact);
+  s('f-faq',t.f_faq); s('f-career',t.f_career);
+  s('f-copy',t.f_copy); s('f-aszf',t.f_aszf); s('f-privacy',t.f_privacy);
+  s('f-legal',t.f_legal); s('f-sitemap',t.f_sitemap);
+
+  // mobile
+  s('mob-nav-services',t.nav_services); s('mob-nav-about',t.nav_about);
+  s('mob-nav-prices',t.nav_prices); s('mob-nav-complaints',t.nav_complaints);
+  s('mob-nav-works',t.nav_works); s('mob-cta-txt',t.nav_cta);
+  s('mob-nd-laser',t.nd_laser); s('mob-nd-aesthetic',t.nd_aesthetic);
+  s('mob-nd-implant',t.nd_implant); s('mob-nd-align',t.nd_align);
+  s('mob-nd-guarantee',t.nd_guarantee); s('mob-nd-payment',t.nd_payment);
+  s('mob-nd-intro',t.nd_intro); s('mob-nd-team',t.nd_team);
+  s('mob-nd-reviews',t.nd_reviews); s('mob-nd-career',t.nd_career);
+  s('mob-hours',t.tb_hours); s('mob-address',t.tb_address);
+
+  // footer sticky
+  s('fsn-services',t.nav_services); s('fsn-about',t.nav_about);
+  s('fsn-prices',t.nav_prices); s('fsn-complaints',t.nav_complaints);
+  s('fsn-blog',t.f_blog); s('fsn-works',t.nav_works);
+  s('fsn-cta-txt',t.nav_cta);
+}
+
+document.addEventListener('DOMContentLoaded',()=>setLang('hu'));
+</script>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>
+    <svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    <span id="tb-hours"></span>
+  </span>
+  <span>
+    <svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+    <span id="tb-address"></span>
+  </span>
+  <div class="tb-right">
+    <div class="lang-sw">
+      <span class="lbtn active" data-l="hu" onclick="setLang('hu')">HU</span>
+      <span class="ldiv">|</span>
+      <span class="lbtn" data-l="en" onclick="setLang('en')">EN</span>
+    </div>
+    <a href="kapcsolat.html" id="tb-contact"></a>
+    <a href="gyik.html" id="tb-faq"></a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="logo">
+    <span class="logo-text">Fog<span>Orvos</span></span>
+  </a>
+  <div class="nav-items">
+
+    <!-- SZOLGÁLTATÁSAINK dropdown -->
+    <div class="nav-dd" id="dd-srv">
+      <a href="szolgaltatasok.html" class="nav-link" onclick="toggleDD(event,'dd-srv')">
+        <span id="nav-services"></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="dd-menu">
+        <a href="szolgaltatasok.html#lazer" class="dd-item"><span class="dd-dot"></span><span id="nd-laser"></span></a>
+        <a href="szolgaltatasok.html#esztetika" class="dd-item"><span class="dd-dot"></span><span id="nd-aesthetic"></span></a>
+        <a href="implantacio.html" class="dd-item"><span class="dd-dot"></span><span id="nd-implant"></span></a>
+        <a href="fogszabalyozas.html" class="dd-item"><span class="dd-dot"></span><span id="nd-align"></span></a>
+      </div>
+    </div>
+
+    <!-- RÓLUNK dropdown -->
+    <div class="nav-dd" id="dd-about">
+      <a href="rolunk.html" class="nav-link" onclick="toggleDD(event,'dd-about')">
+        <span id="nav-about"></span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+      <div class="dd-menu">
+        <a href="garancia.html" class="dd-item"><span class="dd-dot"></span><span id="nd-guarantee"></span></a>
+        <a href="fizetes.html" class="dd-item"><span class="dd-dot"></span><span id="nd-payment"></span></a>
+        <a href="rolunk.html#bemutatkozas" class="dd-item"><span class="dd-dot"></span><span id="nd-intro"></span></a>
+        <a href="rolunk.html#csapat" class="dd-item"><span class="dd-dot"></span><span id="nd-team"></span></a>
+        <a href="velemenyek.html" class="dd-item"><span class="dd-dot"></span><span id="nd-reviews"></span></a>
+        <a href="karrier.html" class="dd-item"><span class="dd-dot"></span><span id="nd-career"></span></a>
+      </div>
+    </div>
+
+    <a href="araink.html" class="nav-link"><span id="nav-prices"></span></a>
+    <a href="panaszok.html" class="nav-link"><span id="nav-complaints"></span></a>
+    <a href="munkak.html" class="nav-link"><span id="nav-works"></span></a>
+  </div>
+  <a href="idopont.html" class="nav-cta"><span class="nav-cta-txt"></span></a>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu">
+  <div style="display:flex;flex-direction:column;gap:4px">
+    <div>
+      <button class="mob-acc-btn" onclick="toggleAcc('mob-srv','mob-srv-ic')">
+        <span id="mob-nav-services"></span>
+        <svg id="mob-srv-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform .2s;flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div id="mob-srv" class="mob-sub">
+        <a href="szolgaltatasok.html#lazer"><span id="mob-nd-laser"></span></a>
+        <a href="szolgaltatasok.html#esztetika"><span id="mob-nd-aesthetic"></span></a>
+        <a href="implantacio.html"><span id="mob-nd-implant"></span></a>
+        <a href="fogszabalyozas.html"><span id="mob-nd-align"></span></a>
+      </div>
+    </div>
+    <div>
+      <button class="mob-acc-btn" onclick="toggleAcc('mob-about','mob-about-ic')">
+        <span id="mob-nav-about"></span>
+        <svg id="mob-about-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="transition:transform .2s;flex-shrink:0"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div id="mob-about" class="mob-sub">
+        <a href="garancia.html"><span id="mob-nd-guarantee"></span></a>
+        <a href="fizetes.html"><span id="mob-nd-payment"></span></a>
+        <a href="rolunk.html#bemutatkozas"><span id="mob-nd-intro"></span></a>
+        <a href="rolunk.html#csapat"><span id="mob-nd-team"></span></a>
+        <a href="velemenyek.html"><span id="mob-nd-reviews"></span></a>
+        <a href="karrier.html"><span id="mob-nd-career"></span></a>
+      </div>
+    </div>
+    <a href="araink.html" class="mob-link"><span id="mob-nav-prices"></span></a>
+    <a href="panaszok.html" class="mob-link"><span id="mob-nav-complaints"></span></a>
+    <a href="munkak.html" class="mob-link"><span id="mob-nav-works"></span></a>
+    <a href="idopont.html" class="mob-cta"><span id="mob-cta-txt"></span></a>
+    <div class="mob-lang">
+      <span class="lbtn active" data-l="hu" onclick="setLang('hu')">🇭🇺 Magyar</span>
+      <span class="lbtn" data-l="en" onclick="setLang('en')">🇬🇧 English</span>
+    </div>
+  </div>
+  <div class="mob-divider">
+    <p><svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span id="mob-hours"></span></p>
+    <p><svg width="13" height="13" fill="none" stroke="var(--teal)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span id="mob-address"></span></p>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ring"></div><div class="hero-ring2"></div>
+  <div class="hero-letter">N</div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="hero-dot"></span><span id="hero-tag-txt"></span></div>
+    <h1><span id="hero-h1a"></span><br><em id="hero-h1b"></em></h1>
+    <p id="hero-p"></p>
+    <div class="hero-actions">
+      <a href="idopont.html" class="btn-w"><span id="hero-btn1"></span></a>
+      <a href="szolgaltatasok.html" class="btn-ghost-w"><span id="hero-btn2"></span></a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num" id="hero-s1n"></div><div class="hero-stat-label" id="hero-s1l"></div></div>
+    <div class="hero-stat"><div class="hero-stat-num" id="hero-s2n"></div><div class="hero-stat-label" id="hero-s2l"></div></div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature">
+    <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+    <h3 id="f1h"></h3><p id="f1p"></p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <h3 id="f2h"></h3><p id="f2p"></p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+    <h3 id="f3h"></h3><p id="f3p"></p>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section class="doctor-section" id="bemutatkozas">
+  <div class="doctor-bg"></div>
+  <div class="doctor-img-wrap">
+    <div class="doc-ph"><svg width="170" height="250" viewBox="0 0 170 250" fill="none"><ellipse cx="85" cy="68" rx="42" ry="48" fill="rgba(43,191,160,.26)"/><path d="M14 250 C14 164 156 164 156 250Z" fill="rgba(43,191,160,.26)"/></svg></div>
+  </div>
+  <div class="doctor-card">
+    <p class="doc-tag" id="doc-tag"></p>
+    <h3 id="doc-h"></h3>
+    <p id="doc-p"></p>
+    <div class="doc-quote" id="doc-quote"></div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="szolgaltatasok">
+  <div class="sec-header">
+    <span class="sec-tag" id="srv-tag"></span>
+    <h2 id="srv-h"></h2>
+    <p id="srv-p"></p>
+  </div>
+  <div class="services-cat" id="lazer">
+    <h3 class="cat-title" id="cat-laser"></h3>
+    <div class="srv-grid">
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div><div><h4 id="ls1h"></h4><p id="ls1p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4 id="ls2h"></h4><p id="ls2p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div><h4 id="ls3h"></h4><p id="ls3p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div><div><h4 id="ls4h"></h4><p id="ls4p"></p></div></div>
+    </div>
+    <div class="srv-center"><div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div><h4 id="ls5h"></h4><p id="ls5p"></p></div></div></div>
+  </div>
+  <div class="services-cat" id="esztetika">
+    <h3 class="cat-title" id="cat-aesth"></h3>
+    <div class="srv-grid">
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div><div><span class="badge" id="ae1badge"></span><h4 id="ae1h"></h4><p id="ae1p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div><h4 id="ae2h"></h4><p id="ae2p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12h8M12 8v8"/></svg></div><div><h4 id="ae3h"></h4><p id="ae3p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><h4 id="ae4h"></h4><p id="ae4p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><div><h4 id="ae5h"></h4><p id="ae5p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg></div><div><h4 id="ae6h"></h4><p id="ae6p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><div><h4 id="ae7h"></h4><p id="ae7p"></p></div></div>
+      <div class="srv-item"><div class="srv-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div><div><h4 id="ae8h"></h4><p id="ae8p"></p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team-section" id="csapat">
+  <div class="sec-header">
+    <span class="sec-tag" id="team-tag"></span>
+    <h2 id="team-h"></h2>
+    <p id="team-p"></p>
+  </div>
+  <div class="lead-doctor">
+    <div class="lead-ph"><svg width="190" height="280" viewBox="0 0 190 280" fill="none"><ellipse cx="95" cy="78" rx="50" ry="57" fill="rgba(43,191,160,.22)"/><path d="M18 280 C18 182 172 182 172 280Z" fill="rgba(43,191,160,.22)"/></svg></div>
+    <div class="lead-info">
+      <h3 id="lead-name"></h3>
+      <p class="lead-sub" id="lead-sub"></p>
+      <p class="info-lbl" id="lead-lbl"></p>
+      <p class="info-txt" id="lead-txt"></p>
+      <a href="rolunk.html#bemutatkozas" class="btn-ol"><span id="lead-btn"></span></a>
+      <p class="info-lbl" id="spec-lbl" style="margin-top:20px"></p>
+      <ul class="spec-list">
+        <li id="spec1"></li><li id="spec2"></li><li id="spec3"></li>
+        <li id="spec4"></li><li id="spec5"></li><li id="spec6"></li>
+      </ul>
+    </div>
+  </div>
+  <div class="team-grid">
+    <div class="team-ph tp1"></div><div class="team-ph tp2"></div>
+    <div class="team-ph tp3"></div><div class="team-ph tp4"></div>
+    <div class="team-ph tp5"></div><div class="team-ph tp6"></div>
+    <div class="team-ph tp7"></div><div class="team-ph tp8"></div>
+    <div class="team-ph tp9"></div><div class="team-ph tp10"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="rolunk">
+  <div class="sec-header">
+    <span class="sec-tag" id="ab-tag"></span>
+    <h2 id="ab-h"></h2>
+    <p id="ab-p"></p>
+  </div>
+  <div class="about-grid">
+    <div class="about-card"><div class="about-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3 id="ab1h"></h3><p id="ab1p"></p></div>
+    <div class="about-card"><div class="about-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg></div><h3 id="ab2h"></h3><p id="ab2p"></p></div>
+    <div class="about-card"><div class="about-icon"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div><h3 id="ab3h"></h3><p id="ab3p"></p></div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission-section">
+  <div class="mission-left">
+    <h2 id="mis-h"></h2>
+    <ul class="mission-list">
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="mis1"></span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="mis2"></span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="mis3"></span></li>
+      <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span id="mis4"></span></li>
+    </ul>
+  </div>
+  <div class="mission-stats">
+    <div class="stat"><span class="stat-num" id="st1n"></span><span class="stat-label" id="st1l"></span></div>
+    <div class="stat"><span class="stat-num" id="st2n"></span><span class="stat-label" id="st2l"></span></div>
+    <div class="stat"><span class="stat-num" id="st3n"></span><span class="stat-label" id="st3l"></span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="kapcsolat">
+  <div class="sec-header">
+    <span class="sec-tag" id="con-tag"></span>
+    <h2 id="con-h"></h2>
+    <p id="con-p"></p>
+  </div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <p class="c-lbl" id="con-addr-lbl"></p><p id="con-addr"></p>
+      <p class="c-lbl" id="con-tel-lbl"></p><p id="con-tel"></p>
+      <p class="c-lbl" id="con-email-lbl"></p><p id="con-email"></p>
+      <p class="c-lbl" id="con-hours-lbl"></p>
+      <p id="con-h1"></p><p id="con-h2"></p><p id="con-h3"></p>
+      <p style="margin-top:8px;font-size:12.5px;color:var(--muted)" id="con-note"></p>
+      <div class="cta-box"><p id="con-cta-p"></p><a href="idopont.html" class="btn-ol-w"><span id="con-cta-btn"></span></a></div>
+    </div>
+      <iframe src="" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Térkép"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="blog-section">
+  <div class="sec-header">
+    <span class="sec-tag" id="blog-tag"></span>
+    <h2 id="blog-h"></h2>
+    <p id="blog-p"></p>
+  </div>
+  <div class="blog-grid">
+    <article class="blog-card"><a href="blog.html"><div class="blog-img bi1"></div><div class="blog-body"><p class="blog-tag-lbl" id="b1tag"></p><h4 id="b1h"></h4><p id="b1p"></p><p class="blog-meta" id="b1m"></p></div></a></article>
+    <article class="blog-card"><a href="blog.html"><div class="blog-img bi2"></div><div class="blog-body"><p class="blog-tag-lbl" id="b2tag"></p><h4 id="b2h"></h4><p id="b2p"></p><p class="blog-meta" id="b2m"></p></div></a></article>
+    <article class="blog-card"><a href="blog.html"><div class="blog-img bi3"></div><div class="blog-body"><p class="blog-tag-lbl" id="b3tag"></p><h4 id="b3h"></h4><p id="b3p"></p><p class="blog-meta" id="b3m"></p></div></a></article>
+  </div>
+  <div class="blog-center"><a href="blog.html" class="btn-ol"><span id="blog-all"></span></a></div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section" id="garancia">
+  <div class="guarantee-card">
+    <div class="guarantee-icon"><svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
+    <div><h3 id="gar-h"></h3><p id="gar-p"></p><a href="garancia.html" class="btn-ol"><span id="gar-btn"></span></a></div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section class="partners-section">
+  <div class="partners-inner">
+    <p class="partners-lbl" id="part-lbl"></p>
+    <div class="partners-logos">
+      <span class="partner-logo">[Partner<span>1</span>]</span>
+      <span class="partner-logo">[Partner<span>2</span>]</span>
+      <span class="partner-logo">[Partner<span>3</span>]</span>
+      <span class="partner-logo">[Partner<span>4</span>]</span>
+      <span class="partner-logo">[Partner<span>5</span>]</span>
+      <span class="partner-logo">[Partner<span>6</span>]</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER STICKY -->
+<div class="footer-nav">
+  <a href="index.html" class="fsn-logo">
+    <svg width="24" height="16" viewBox="0 0 44 28" fill="none"><path d="M4 20 C8 8,16 4,22 14 C28 24,36 20,40 8" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+    Fogorvosi rendelő
+  </a>
+  <div class="fsn-links">
+    <a href="szolgaltatasok.html" class="fsn-link" id="fsn-services"></a>
+    <a href="rolunk.html" class="fsn-link" id="fsn-about"></a>
+    <a href="araink.html" class="fsn-link" id="fsn-prices"></a>
+    <a href="panaszok.html" class="fsn-link" id="fsn-complaints"></a>
+    <a href="blog.html" class="fsn-link" id="fsn-blog"></a>
+    <a href="munkak.html" class="fsn-link" id="fsn-works"></a>
+  </div>
+  <a href="idopont.html" class="fsn-cta"><span id="fsn-cta-txt"></span></a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4 id="fc1"></h4>
+      <p>[+36 X XXX XXXX]</p>
+      <p>[info@yoursite.hu]</p>
+      <p>[Irányítószám] [Város], [Utca, házszám]</p>
+      <div class="foot-socials">
+        <a href="#" title="Instagram"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="#" title="Facebook"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" title="TikTok"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4 id="fc2"></h4>
+      <p id="fc2h1"></p><p id="fc2h2"></p><p id="fc2h3"></p>
+      <p style="margin-top:8px;font-size:12px;color:#b0bec8;line-height:1.6" id="fc2note"></p>
+    </div>
+    <div class="footer-col">
+      <h4 id="fc3"></h4>
+      <ul>
+        <li><a href="panaszok.html" id="f-complaints"></a></li>
+        <li><a href="szolgaltatasok.html" id="f-services"></a></li>
+        <li><a href="munkak.html" id="f-works"></a></li>
+        <li><a href="velemenyek.html" id="f-reviews"></a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 id="fc4"></h4>
+      <ul>
+        <li><a href="fizetes.html" id="f-payment"></a></li>
+        <li><a href="araink.html" id="f-prices"></a></li>
+        <li><a href="idopont.html" id="f-booking"></a></li>
+        <li><a href="kapcsolat.html" id="f-contact"></a></li>
+        <li><a href="gyik.html" id="f-faq"></a></li>
+        <li><a href="karrier.html" id="f-career"></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <svg width="18" height="12" viewBox="0 0 44 28" fill="none"><path d="M4 20 C8 8,16 4,22 14 C28 24,36 20,40 8" stroke="var(--teal)" stroke-width="3" stroke-linecap="round" fill="none"/></svg>
+      <span id="f-copy"></span>
+    </div>
+    <div class="footer-bottom-links">
+      <a href="aszf.html" id="f-aszf"></a>
+      <a href="adatvedelem.html" id="f-privacy"></a>
+      <a href="jogi.html" id="f-legal"></a>
+      <a href="sitemap.html" id="f-sitemap"></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleDD(e,id){
+  e.preventDefault();
+  document.querySelectorAll('.nav-dd').forEach(d=>{if(d.id!==id)d.classList.remove('open')});
+  document.getElementById(id).classList.toggle('open');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.nav-dd'))document.querySelectorAll('.nav-dd').forEach(d=>d.classList.remove('open'));
+});
+document.querySelectorAll('.nav-dd').forEach(dd=>{
+  dd.addEventListener('mouseenter',function(){this.classList.add('open')});
+  dd.addEventListener('mouseleave',function(){this.classList.remove('open')});
+});
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  const h=document.getElementById('hamburger');
+  const open=m.style.display==='block';
+  m.style.display=open?'none':'block';
+  h.classList.toggle('open',!open);
+  document.body.style.overflow=open?'':'hidden';
+}
+document.querySelectorAll('#mobileMenu a').forEach(l=>{
+  l.addEventListener('click',()=>{
+    document.getElementById('mobileMenu').style.display='none';
+    document.getElementById('hamburger').classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+function toggleAcc(id,iconId){
+  const p=document.getElementById(id);
+  const ic=document.getElementById(iconId);
+  const open=p.style.display==='flex';
+  p.style.display=open?'none':'flex';
+  p.style.flexDirection='column';
+  ic.style.transform=open?'':'rotate(180deg)';
+}
+</script>
+</body>
+</html>

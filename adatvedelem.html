@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adatvédelmi tájékoztató & Cookie-szabályzat | Vállalkozó Online</title>
+  <meta name="description" content="Vállalkozó Online adatvédelmi tájékoztató és cookie-szabályzat. Adatkezelő: Yago – Vállalkozó Online.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://vallalkozoonline.hu/adatvedelem.html">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue-900: #05042e;
+      --blue-800: #080650;
+      --blue-700: #0d0963;
+      --blue-600: #1a1299;
+      --blue-500: #0d0963;
+      --blue-400: #3d35c9;
+      --blue-300: #7b75e0;
+      --blue-100: #dedcf8;
+      --blue-50:  #f0effc;
+      --white:    #ffffff;
+      --gray-100: #f4f4fb;
+      --gray-300: #c8c7e8;
+      --gray-500: #7a7aaa;
+      --gray-700: #3c3a64;
+      --gold: #f0c040;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Sora', sans-serif;
+      background: var(--white);
+      color: var(--blue-900);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 5vw;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(13,9,99,0.07);
+    }
+    .logo {
+      font-size: 1.3rem; font-weight: 800; letter-spacing: -0.04em;
+      color: var(--blue-700); text-decoration: none;
+    }
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.87rem; font-weight: 600; color: var(--gray-700);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--blue-500); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 7rem 5vw 4rem;
+      background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 55%, var(--blue-500) 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 30%, rgba(61,53,201,0.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.05;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    .page-hero > * { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18);
+      color: var(--blue-100); font-size: 0.76rem; font-weight: 600;
+      padding: 0.38rem 0.95rem; border-radius: 50px;
+      letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 1.4rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px; background: var(--gold);
+      border-radius: 50%; display: inline-block; flex-shrink: 0;
+    }
+    .page-hero h1 {
+      font-size: clamp(1.9rem, 4.5vw, 3.2rem); font-weight: 800;
+      line-height: 1.15; letter-spacing: -0.03em; color: var(--white);
+      max-width: 680px; margin: 0 auto 1rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+    .page-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(90deg, #7b75e0, #b8b4f5);
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-hero .hero-sub {
+      color: rgba(220,233,255,0.75); font-size: 0.95rem; font-weight: 300;
+      max-width: 500px; margin: 0 auto;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+    .updated-badge {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 1.6rem;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(200,211,232,0.55); font-size: 0.72rem; font-weight: 600;
+      padding: 0.28rem 0.8rem; border-radius: 50px;
+      letter-spacing: 0.06em;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    /* ── LAYOUT ── */
+    .page-wrapper {
+      max-width: 860px; margin: 0 auto;
+      padding: 4rem 5vw 6rem;
+    }
+
+    /* Sticky TOC */
+    .toc-bar {
+      background: var(--blue-50); border: 1.5px solid var(--blue-100);
+      border-radius: 14px; padding: 1.2rem 1.6rem;
+      margin-bottom: 3.5rem;
+      display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; align-items: center;
+    }
+    .toc-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--blue-400);
+      margin-right: 0.4rem; flex-shrink: 0;
+    }
+    .toc-link {
+      font-size: 0.82rem; font-weight: 600; color: var(--blue-500);
+      text-decoration: none; padding: 0.2rem 0.6rem;
+      border-radius: 6px; transition: background 0.18s, color 0.18s;
+    }
+    .toc-link:hover { background: var(--blue-100); color: var(--blue-700); }
+
+    /* Sections */
+    .doc-section {
+      margin-bottom: 3.8rem;
+      animation: fadeUp 0.5s ease both;
+    }
+    .section-tag {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.22rem 0.7rem;
+      border-radius: 20px; margin-bottom: 0.8rem;
+    }
+    .tag-privacy { background: rgba(13,9,99,0.07); color: var(--blue-600); border: 1px solid rgba(13,9,99,0.1); }
+    .tag-cookie  { background: rgba(240,192,64,0.13); color: #7a5c00; border: 1px solid rgba(240,192,64,0.3); }
+
+    .doc-section h2 {
+      font-size: clamp(1.35rem, 3vw, 1.85rem); font-weight: 800;
+      letter-spacing: -0.03em; color: var(--blue-900);
+      margin-bottom: 1.4rem; line-height: 1.2;
+      border-bottom: 2px solid var(--blue-50);
+      padding-bottom: 0.7rem;
+    }
+    .doc-section h2 em { font-style: normal; color: var(--blue-500); }
+
+    .doc-section h3 {
+      font-size: 1rem; font-weight: 700; color: var(--blue-800);
+      margin: 1.8rem 0 0.6rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .h3-dot {
+      width: 8px; height: 8px; background: var(--blue-300); border-radius: 50%; flex-shrink: 0;
+    }
+
+    .doc-section p {
+      font-size: 0.92rem; color: var(--gray-500); line-height: 1.8;
+      margin-bottom: 0.9rem; font-weight: 300;
+    }
+    .doc-section p strong { color: var(--blue-800); font-weight: 700; }
+
+    /* Info boxes */
+    .info-box {
+      background: var(--blue-50); border: 1.5px solid var(--blue-100);
+      border-radius: 12px; padding: 1.1rem 1.4rem;
+      margin: 1.2rem 0;
+    }
+    .info-box.gold {
+      background: rgba(240,192,64,0.06); border-color: rgba(240,192,64,0.25);
+    }
+    .info-box p { margin-bottom: 0; color: var(--gray-700); font-size: 0.88rem; }
+    .info-box.gold p { color: #6a4e00; }
+
+    /* Data list */
+    .data-list {
+      list-style: none; display: flex; flex-direction: column;
+      gap: 0.55rem; margin: 0.8rem 0 1.2rem;
+    }
+    .data-list li {
+      display: flex; align-items: flex-start; gap: 0.7rem;
+      font-size: 0.89rem; color: var(--gray-700); line-height: 1.65;
+    }
+    .data-list li .bullet {
+      width: 22px; height: 22px; flex-shrink: 0; margin-top: 0.05rem;
+      background: var(--blue-100); border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem; font-weight: 800; color: var(--blue-500);
+    }
+
+    /* Rights grid */
+    .rights-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 0.8rem; margin: 1rem 0 1.4rem;
+    }
+    .right-card {
+      background: var(--white); border: 1.5px solid var(--blue-100);
+      border-radius: 12px; padding: 1rem 1.1rem;
+      transition: border-color 0.2s, transform 0.18s, box-shadow 0.18s;
+    }
+    .right-card:hover { border-color: var(--blue-300); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13,9,99,0.08); }
+    .right-card .right-icon {
+      font-size: 1.3rem; margin-bottom: 0.5rem; display: block;
+    }
+    .right-card h4 {
+      font-size: 0.88rem; font-weight: 700; color: var(--blue-900); margin-bottom: 0.25rem;
+    }
+    .right-card p {
+      font-size: 0.76rem; color: var(--gray-500); line-height: 1.5; margin-bottom: 0;
+    }
+
+    /* Cookie table */
+    .cookie-table-wrap {
+      overflow-x: auto; margin: 1rem 0 1.4rem;
+      border-radius: 12px; border: 1.5px solid var(--blue-100);
+    }
+    .cookie-table {
+      width: 100%; border-collapse: collapse; font-size: 0.84rem;
+    }
+    .cookie-table thead th {
+      background: var(--blue-50); color: var(--blue-700); font-weight: 700;
+      padding: 0.75rem 1rem; text-align: left; font-size: 0.76rem;
+      letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+      border-bottom: 1.5px solid var(--blue-100);
+    }
+    .cookie-table tbody td {
+      padding: 0.75rem 1rem; color: var(--gray-700); vertical-align: top;
+      border-bottom: 1px solid var(--blue-50); line-height: 1.5;
+    }
+    .cookie-table tbody tr:last-child td { border-bottom: none; }
+    .cookie-table tbody tr:hover td { background: var(--blue-50); }
+    .badge-required {
+      display: inline-block; font-size: 0.64rem; font-weight: 700;
+      padding: 0.15rem 0.5rem; border-radius: 20px;
+      background: rgba(13,9,99,0.07); color: var(--blue-600);
+      border: 1px solid rgba(13,9,99,0.1); white-space: nowrap;
+    }
+    .badge-none {
+      display: inline-block; font-size: 0.64rem; font-weight: 700;
+      padding: 0.15rem 0.5rem; border-radius: 20px;
+      background: rgba(200,211,232,0.18); color: var(--gray-500);
+      border: 1px solid rgba(200,211,232,0.4);
+    }
+
+    /* Divider */
+    .section-divider {
+      height: 1px; background: linear-gradient(90deg, transparent, var(--blue-100), transparent);
+      margin: 3.5rem 0;
+    }
+
+    /* Contact card */
+    .contact-card {
+      background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 100%);
+      border-radius: 18px; padding: 2rem 2.2rem;
+      display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;
+      margin-top: 2.5rem;
+    }
+    .contact-card-text { flex: 1; min-width: 200px; }
+    .contact-card-text h3 {
+      font-size: 1.05rem; font-weight: 800; color: white; margin-bottom: 0.4rem;
+    }
+    .contact-card-text p {
+      font-size: 0.84rem; color: rgba(220,233,255,0.65); margin-bottom: 0;
+    }
+    .contact-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.84rem; font-weight: 600; color: var(--blue-300);
+      text-decoration: none; transition: color 0.18s;
+    }
+    .contact-link:hover { color: white; }
+    .contact-link svg { width: 15px; height: 15px; opacity: 0.7; }
+
+    /* NAIH box */
+    .naih-box {
+      background: var(--gray-100); border: 1.5px solid var(--blue-100);
+      border-radius: 12px; padding: 1.1rem 1.4rem; margin-top: 1.2rem;
+    }
+    .naih-box h4 { font-size: 0.9rem; font-weight: 700; color: var(--blue-900); margin-bottom: 0.3rem; }
+    .naih-box p { font-size: 0.83rem; color: var(--gray-500); margin-bottom: 0.15rem; }
+    .naih-box a { color: var(--blue-500); text-decoration: none; font-weight: 600; }
+    .naih-box a:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer {
+      background: #060e1f; padding: 2.5rem 5vw 1.6rem;
+      border-top: 1px solid rgba(123,117,224,0.12);
+    }
+    .footer-bottom {
+      max-width: 860px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 0.7rem;
+    }
+    .footer-copy { font-size: 0.73rem; color: rgba(200,211,232,0.25); }
+    .footer-legal { display: flex; gap: 1.3rem; }
+    .footer-legal a {
+      font-size: 0.73rem; color: rgba(200,211,232,0.45);
+      text-decoration: none; transition: color 0.18s;
+    }
+    .footer-legal a:hover { color: var(--blue-300); }
+    .footer-legal a.active { color: var(--blue-300); font-weight: 700; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      .rights-grid { grid-template-columns: 1fr 1fr; }
+      .contact-card { flex-direction: column; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 420px) {
+      .rights-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a class="logo" href="index.html">Vállalkozó Online</a>
+  <a class="nav-back" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    Vissza a főoldalra
+  </a>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="page-hero">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-badge">Jogi dokumentumok</div>
+  <h1>Adatvédelmi tájékoztató &amp; <em>Cookie-szabályzat</em></h1>
+  <p class="hero-sub">Átlátható adatkezelés, egyszerű nyelven mert az adataid védelme komoly ügy.</p>
+  <div class="updated-badge">Hatályos: 2026. január 1-től</div>
+</section>
+
+<!-- ══ TARTALOM ══ -->
+<div class="page-wrapper">
+
+  <!-- Tartalomjegyzék -->
+  <div class="toc-bar reveal">
+    <span class="toc-label">Ugrás:</span>
+    <a class="toc-link" href="#adatvedelem">Adatvédelem</a>
+    <a class="toc-link" href="#kezelt-adatok">Kezelt adatok</a>
+    <a class="toc-link" href="#jogalap">Jogalap</a>
+    <a class="toc-link" href="#jogok">Jogaid</a>
+    <a class="toc-link" href="#cookie">Cookie-k</a>
+    <a class="toc-link" href="#kapcsolat">Kapcsolat</a>
+  </div>
+
+  <!-- ═══════════════════════════════
+       1. ADATVÉDELMI TÁJÉKOZTATÓ
+       ═══════════════════════════════ -->
+  <div class="doc-section reveal" id="adatvedelem">
+    <div class="section-tag tag-privacy">📘 Adatvédelmi tájékoztató</div>
+    <h2>Az adatok <em>kezelése</em> és védelme</h2>
+
+    <p>Ez a tájékoztató bemutatja, hogy a Vállalkozó Online weboldal milyen személyes adatokat kezel, milyen céllal és jogalapon, valamint milyen jogok illetik meg az érintetteket.</p>
+
+    <h3><span class="h3-dot"></span>Adatkezelő</h3>
+    <div class="info-box">
+      <p><strong>Vállalkozó Online</strong> (tesztüzem)<br>
+      Képviselő: Yago<br>
+      E-mail: <a href="mailto:vallalkozoonline@gmail.com" style="color: var(--blue-500); font-weight: 600;">vallalkozoonline@gmail.com</a><br>
+      Telefon: <a href="tel:+36203844289" style="color: var(--blue-500); font-weight: 600;">+36 20 384 4289</a><br>
+      Ország: Magyarország</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       2. KEZELT ADATOK
+       ═══════════════════════════════ -->
+  <div class="doc-section reveal" id="kezelt-adatok">
+    <h3><span class="h3-dot"></span>Kezelt személyes adatok</h3>
+    <p>A kapcsolatfelvételi és ajánlatkérő űrlapon keresztül az alábbi adatokat kezeljük:</p>
+    <ul class="data-list">
+      <li><div class="bullet">1</div><span><strong>Teljes név</strong> az érintett azonosításához</span></li>
+      <li><div class="bullet">2</div><span><strong>E-mail cím</strong> visszajelzés és kapcsolattartás céljából</span></li>
+      <li><div class="bullet">3</div><span><strong>Telefonszám</strong> személyes egyeztetéshez, konzultációhoz</span></li>
+      <li><div class="bullet">4</div><span><strong>Város / Régió</strong> a szolgáltatás tervezéséhez</span></li>
+      <li><div class="bullet">5</div><span><strong>Üzenet tartalma</strong> az ajánlatkérés részleteinek rögzítéséhez</span></li>
+    </ul>
+
+    <h3><span class="h3-dot"></span>Az adatkezelés célja</h3>
+    <ul class="data-list">
+      <li><div class="bullet">✓</div><span>Kapcsolatfelvétel és kommunikáció az érintettel</span></li>
+      <li><div class="bullet">✓</div><span>Ajánlat elkészítése és megküldése</span></li>
+      <li><div class="bullet">✓</div><span>Ingyenes konzultáció időpontjának egyeztetése</span></li>
+      <li><div class="bullet">✓</div><span>A kért szolgáltatás előkészítése, elvégzése</span></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════
+       3. JOGALAP
+       ═══════════════════════════════ -->
+  <div class="doc-section reveal" id="jogalap">
+    <h3><span class="h3-dot"></span>Az adatkezelés jogalapja</h3>
+    <p>Az adatkezelés az alábbi GDPR-jogalapokon nyugszik:</p>
+    <div class="info-box">
+      <p>
+        <strong>GDPR 6. cikk (1) a) Hozzájárulás:</strong> Az érintett az űrlap elküldésével önkéntesen és tájékozottan járul hozzá adatai kezeléséhez.
+      </p>
+    </div>
+    <div class="info-box" style="margin-top: 0.7rem;">
+      <p>
+        <strong>GDPR 6. cikk (1) b) Szerződés előkészítése:</strong> Az adatkezelés szükséges a felek között megkötendő szerződés előkészítéséhez és teljesítéséhez.
+      </p>
+    </div>
+
+    <h3><span class="h3-dot"></span>Adatmegőrzés időtartama</h3>
+    <ul class="data-list">
+      <li><div class="bullet">→</div><span><strong>Ajánlatkérés esetén:</strong> legfeljebb 6 hónap, amennyiben nem jön létre szerződés</span></li>
+      <li><div class="bullet">→</div><span><strong>Szerződéskötés esetén:</strong> a vonatkozó jogszabályok (pl. számviteli törvény) által előírt ideig</span></li>
+    </ul>
+
+    <h3><span class="h3-dot"></span>Adattovábbítás</h3>
+    <div class="info-box gold">
+      <p>
+        <strong>Harmadik félnek személyes adatot nem adunk át.</strong><br>
+        A tárhelyszolgáltató technikai üzemeltetési feladatai kapcsán korlátozott hozzáféréssel rendelkezhet az adatokhoz, azonban adatfeldolgozóként kizárólag az adatkezelő utasításai alapján jár el.
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════
+       4. ÉRINTETTI JOGOK
+       ═══════════════════════════════ -->
+  <div class="doc-section reveal" id="jogok">
+    <h3><span class="h3-dot"></span>Az érintett jogai</h3>
+    <p>A GDPR alapján az alábbi jogokat gyakorolhatod személyes adataiddal kapcsolatban:</p>
+    <div class="rights-grid">
+      <div class="right-card">
+        <span class="right-icon">👁️</span>
+        <h4>Hozzáférés</h4>
+        <p>Tájékoztatást kérhetsz arról, milyen adataidat kezeljük.</p>
+      </div>
+      <div class="right-card">
+        <span class="right-icon">✏️</span>
+        <h4>Helyesbítés</h4>
+        <p>Kérheted a pontatlan adatok kijavítását.</p>
+      </div>
+      <div class="right-card">
+        <span class="right-icon">🗑️</span>
+        <h4>Törlés</h4>
+        <p>Kérheted az adataid törlését az elfeledtetéshez való jog alapján.</p>
+      </div>
+      <div class="right-card">
+        <span class="right-icon">🔒</span>
+        <h4>Korlátozás</h4>
+        <p>Kérheted az adatkezelés ideiglenes korlátozását.</p>
+      </div>
+      <div class="right-card">
+        <span class="right-icon">🚫</span>
+        <h4>Tiltakozás</h4>
+        <p>Tiltakozhatsz adataid bizonyos célú kezelése ellen.</p>
+      </div>
+      <div class="right-card">
+        <span class="right-icon">📦</span>
+        <h4>Hordozhatóság</h4>
+        <p>Kérheted adataidat géppel olvasható formátumban.</p>
+      </div>
+    </div>
+    <p>Jogaid gyakorlásához küldj e-mailt a <a href="mailto:vallalkozoonline@gmail.com" style="color: var(--blue-500); font-weight: 600;">vallalkozoonline@gmail.com</a> címre. Kérésedre 30 napon belül válaszolunk.</p>
+
+    <div class="naih-box">
+      <h4>Jogorvoslat NAIH</h4>
+      <p>Ha úgy érzed, adataid kezelése sérti a GDPR-t, panaszt tehetsz a felügyeleti hatóságnál:</p>
+      <p><strong>Nemzeti Adatvédelmi és Információszabadság Hatóság (NAIH)</strong><br>
+      Cím: 1055 Budapest, Falk Miksa utca 9-11.<br>
+      Web: <a href="https://naih.hu" target="_blank" rel="noopener noreferrer">naih.hu</a> · E-mail: <a href="mailto:ugyfelszolgalat@naih.hu">ugyfelszolgalat@naih.hu</a></p>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ═══════════════════════════════
+       5. COOKIE-SZABÁLYZAT
+       ═══════════════════════════════ -->
+  <div class="doc-section reveal" id="cookie">
+    <div class="section-tag tag-cookie">🍪 Cookie-szabályzat</div>
+    <h2>Sütik <em>mit, miért és hogyan?</em></h2>
+
+    <p>A sütik (cookie-k) kis adatfájlok, amelyeket a weboldal helyez el a böngésződben látogatásod során. Ezek segítik a weboldal alapvető működését.</p>
+
+    <h3><span class="h3-dot"></span>Milyen sütiket használunk?</h3>
+    <div class="cookie-table-wrap">
+      <table class="cookie-table">
+        <thead>
+          <tr>
+            <th>Süti neve / típusa</th>
+            <th>Cél</th>
+            <th>Időtartam</th>
+            <th>Típus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Technikai sütik</strong></td>
+            <td>A weboldal és az ajánlatkérő űrlap helyes működése</td>
+            <td>Munkamenet</td>
+            <td><span class="badge-required">Szükséges</span></td>
+          </tr>
+          <tr>
+            <td><strong>Statisztikai sütik</strong></td>
+            <td>Látogatói statisztikák gyűjtése (pl. Google Analytics)</td>
+            <td>-</td>
+            <td><span class="badge-none">Jelenleg nem aktív</span></td>
+          </tr>
+          <tr>
+            <td><strong>Marketing sütik</strong></td>
+            <td>Célzott hirdetések megjelenítése</td>
+            <td>-</td>
+            <td><span class="badge-none">Jelenleg nem aktív</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box gold">
+      <p>
+        <strong>Tesztüzem:</strong> A weboldal jelenleg tesztüzemi fázisban működik. Statisztikai vagy marketing célú sütiket nem alkalmazunk. Ha ezt a jövőben megváltoztatjuk, a szabályzatot frissítjük és tájékoztatjuk az érintetteket.
+      </p>
+    </div>
+
+    <h3><span class="h3-dot"></span>Harmadik féltől származó sütik</h3>
+    <p>Jelenleg <strong>nem használunk</strong> harmadik féltől (pl. Google, Facebook, YouTube) származó sütiket. Amennyiben ez változik például Google Analytics integrálása esetén , a szabályzat azonnal frissítésre kerül.</p>
+
+    <h3><span class="h3-dot"></span>Hogyan kezelheted a sütiket?</h3>
+    <ul class="data-list">
+      <li><div class="bullet">→</div><span>A böngésző beállításaiban bármikor <strong>törölheted vagy letilthatod</strong> a sütiket</span></li>
+      <li><div class="bullet">→</div><span>A szükséges technikai sütik letiltása esetén egyes funkciók (pl. az űrlap) nem működhetnek megfelelően</span></li>
+      <li><div class="bullet">→</div><span>Böngészőnként eltérő: Chrome, Firefox, Safari, Edge mind tartalmaz sütikkezelési lehetőséget a beállítások menüben</span></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════
+       6. KAPCSOLAT
+       ═══════════════════════════════ -->
+  <div class="doc-section reveal" id="kapcsolat">
+    <h3><span class="h3-dot"></span>Kérdésed van? Lépj kapcsolatba!</h3>
+    <div class="contact-card">
+      <div class="contact-card-text">
+        <h3>Adatvédelmi kérdésekkel fordulj Yagóhoz</h3>
+        <p>Hozzáférés, törlés, módosítás 30 napon belül válaszolunk minden megkeresésre.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:vallalkozoonline@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          vallalkozoonline@gmail.com
+        </a>
+        <a class="contact-link" href="tel:+36203844289">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +36 20 384 4289
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page-wrapper -->
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Vállalkozó Online · Yago. Minden jog fenntartva.</div>
+    <div class="footer-legal">
+      <a href="index.html">Főoldal</a>
+      <a href="adatvedelem.html" class="active">Adatvédelem</a>
+      <a href="#">ÁSZF</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+
+</body>
+</html>

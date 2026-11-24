@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vállalkozó Online | Professzionális weboldal szakembereknek</title>
+  <meta name="description" content="Professzionális weboldal-készítés fogorvosoknak és más szakembereknek. Mobilbarát, SEO-kész sablon vagy egyedi megoldás. Vállalkozó Online">
+  <meta name="keywords" content="fogorvos weboldal, fogászat weboldal, fogászati rendelő honlap, weboldal sablon fogorvos, SEO fogorvos, webfejlesztés orvosoknak, Vállalkozó Online">
+  <meta name="author" content="Yago – Vállalkozó Online">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vallalkozoonline.hu/">
+  <meta name="google-site-verification" content="MRpDgtPejx8nnLuzz5TQG4MCS5DutOMK8plvJVrC3_g" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vallalkozoonline.hu/">
+  <meta property="og:site_name" content="Vállalkozó Online">
+  <meta property="og:title" content="Vállalkozó Online | Weboldal szakembereknek">
+  <meta property="og:description" content="Professzionális sablon- vagy egyedi weboldal szakembereknek. Mobilbarát, SEO-kész.">
+  <meta property="og:image" content="pictures/ahaha.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vállalkozó Online – professzionális weboldal szakembereknek">
+  <meta property="og:locale" content="hu_HU">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vállalkozó Online | Weboldal szakembereknek">
+  <meta name="twitter:description" content="Professzionális weboldal szakembereknek.">
+  <meta name="twitter:image" content="https://vallalkozoonline.hu/pictures/og-image.jpg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Vállalkozó Online",
+    "description": "Professzionális weboldal-készítés fogorvosoknak és más szakembereknek. Sablon vagy egyedi megoldás.",
+    "url": "https://vallalkozoonline.hu",
+    "telephone": "+36203844289",
+    "email": "vallalkozoonline@gmail.com",
+    "areaServed": { "@type": "Country", "name": "Hungary" },
+    "founder": { "@type": "Person", "name": "Yago" },
+    "priceRange": "99 900 Ft egyszeri",
+    "image": "https://vallalkozoonline.hu/pictures/og-image.jpg"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Lora:ital,wght@1,400&display=swap" rel="stylesheet">
+</head>
+  <style>
+    :root {
+      --blue-900: #05042e;
+      --blue-800: #080650;
+      --blue-700: #0d0963;
+      --blue-600: #1a1299;
+      --blue-500: #0d0963;
+      --blue-400: #3d35c9;
+      --blue-300: #7b75e0;
+      --blue-100: #dedcf8;
+      --blue-50:  #f0effc;
+      --white:    #ffffff;
+      --gray-100: #f4f4fb;
+      --gray-300: #c8c7e8;
+      --gray-500: #7a7aaa;
+      --gray-700: #3c3a64;
+      --gold: #f0c040;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Sora', sans-serif; background: var(--white); color: var(--blue-900); overflow-x: hidden; line-height: 1.7; }
+
+    .btn-emoji-icon,
+    .tag-emoji-icon,
+    .proj-emoji-icon,
+    .comp-emoji-icon,
+    .badge-emoji-icon,
+    .pricing-emoji-icon,
+    .badge-star-icon,
+    .future-star-icon,
+    .inline-icon {
+      width: 18px; height: 18px; object-fit: contain; vertical-align: middle; display: inline-block;
+    }
+    .future-star-icon { width: 28px; height: 28px; }
+    .fc-emoji-icon { width: 18px; height: 18px; object-fit: contain; display: inline-block; vertical-align: middle; }
+    .badge-star-icon { width: 14px; height: 14px; }
+    .pricing-emoji-icon { width: 28px; height: 28px; object-fit: contain; display: block; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 5vw;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(13,9,99,0.07);
+    }
+    .logo { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.04em; color: var(--blue-700); text-decoration: none; }
+    .nav-links { list-style: none; display: flex; gap: 2rem; align-items: center; }
+    .nav-links a { font-size: 0.87rem; font-weight: 600; color: var(--gray-700); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--blue-500); }
+    .nav-cta { background: var(--blue-500); color: var(--white) !important; padding: 0.5rem 1.2rem; border-radius: 50px; font-weight: 700 !important; font-size: 0.84rem !important; box-shadow: 0 2px 12px rgba(13,9,99,0.2); transition: background 0.2s, transform 0.15s !important; display: inline-flex; align-items: center; gap: 0.4rem; }
+    .nav-cta:hover { background: var(--blue-600) !important; transform: translateY(-1px); color: white !important; }
+
+    .hamburger { display: none; flex-direction: column; justify-content: center; align-items: center; width: 38px; height: 38px; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 8px; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: var(--blue-700); border-radius: 2px; transition: transform 0.3s, opacity 0.3s, width 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-drawer { display: none; position: fixed; top: 58px; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 99; opacity: 0; pointer-events: none; transform: translateY(-6px); transition: opacity 0.25s ease, transform 0.25s ease; overflow-y: auto; border-top: 1px solid var(--blue-50); }
+    .mobile-drawer.open { opacity: 1; pointer-events: all; transform: translateY(0); }
+    .drawer-top { padding: 1.1rem 1.4rem 0.9rem; display: flex; flex-direction: column; gap: 0.6rem; border-bottom: 1px solid var(--gray-100); }
+    .drawer-btn-primary { display: flex; align-items: center; justify-content: center; gap: 0.45rem; text-align: center; background: var(--blue-500); color: white; font-weight: 700; font-size: 0.94rem; padding: 0.8rem 1rem; border-radius: 10px; text-decoration: none; border: none; cursor: pointer; font-family: 'Sora', sans-serif; width: 100%; transition: background 0.2s; }
+    .drawer-btn-primary:hover { background: var(--blue-600); }
+    .drawer-btn-outline { display: block; text-align: center; background: transparent; color: var(--blue-600); font-weight: 700; font-size: 0.94rem; padding: 0.8rem 1rem; border-radius: 10px; border: 2px solid var(--blue-300); text-decoration: none; cursor: pointer; font-family: 'Sora', sans-serif; width: 100%; transition: background 0.2s; }
+    .drawer-btn-outline:hover { background: var(--blue-50); }
+    .drawer-nav { display: flex; flex-direction: column; padding: 0.3rem 0 2rem; }
+    .drawer-nav a { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.4rem; font-size: 1rem; font-weight: 600; color: var(--blue-900); text-decoration: none; border-bottom: 1px solid var(--gray-100); transition: background 0.15s, color 0.15s; }
+    .drawer-nav a:hover { background: var(--blue-50); color: var(--blue-600); }
+    .drawer-nav a .chev { color: var(--gray-300); transition: transform 0.2s; }
+    .drawer-nav a:hover .chev { transform: translateX(3px); color: var(--blue-400); }
+
+    .value-strip { background: var(--blue-50); border-bottom: 1px solid var(--blue-100); padding: 1.4rem 5vw; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap; }
+    .value-item { display: flex; align-items: center; gap: 0.5rem; font-size: 0.86rem; font-weight: 600; color: var(--blue-700); }
+    .value-item img { width: 24px; height: 24px; object-fit: contain; }
+
+    .hero {
+      min-height: 100svh;
+      background: linear-gradient(135deg, var(--blue-900) 0%, var(--blue-700) 55%, var(--blue-500) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 7rem 5vw 4rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 30%, rgba(61,53,201,0.22) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; opacity: 0.05;
+      background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+      background-size: 60px 60px; z-index: 0;
+    }
+    .hero-badge, .hero h1, .hero .hero-sub, .hero-btns, .hero-scroll { position: relative; z-index: 1; }
+
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); color: var(--blue-100); font-size: 0.76rem; font-weight: 600; padding: 0.38rem 0.95rem; border-radius: 50px; letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 1.6rem; animation: fadeUp 0.6s ease both; }
+    .hero-badge::before { content: ''; width: 7px; height: 7px; background: var(--gold); border-radius: 50%; display: inline-block; flex-shrink: 0; }
+
+    h1 { font-size: clamp(2.2rem, 5.5vw, 4.6rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; color: var(--white); max-width: 780px; animation: fadeUp 0.7s 0.1s ease both; }
+    h1 em { font-style: normal; background: linear-gradient(90deg, #7b75e0, #b8b4f5); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+    .hero-sub { margin-top: 1.3rem; font-size: clamp(0.97rem, 2vw, 1.18rem); color: rgba(220,233,255,0.82); max-width: 540px; font-weight: 300; animation: fadeUp 0.7s 0.2s ease both; }
+    .hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; justify-content: center; margin-top: 2.4rem; animation: fadeUp 0.7s 0.3s ease both; }
+    .hero-scroll { margin-top: 3.5rem; color: rgba(255,255,255,0.32); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; animation: bounce 2s infinite; display: flex; flex-direction: column; align-items: center; gap: 0.35rem; }
+    .hero-scroll::after { content: '↓'; font-size: 1rem; color: rgba(255,255,255,0.35); }
+
+    .cta-final { background: var(--blue-900); text-align: center; padding: 7rem 5vw; position: relative; overflow: hidden; }
+    .cta-final::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 550px; height: 550px; background: radial-gradient(circle, rgba(59,114,232,0.28) 0%, transparent 70%); pointer-events: none; z-index: 0; }
+    .cta-final::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.05;
+  background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+    .cta-final > div { position: relative; z-index: 1; }
+    .cta-final h2 { color: white; font-size: clamp(1.9rem, 4.5vw, 3.2rem); margin-bottom: 1rem; }
+    .cta-final h2 em, .cta-final h2 .highlight { font-style: normal; background: linear-gradient(90deg, #7b75e0, #b8b4f5); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .cta-final p { color: rgba(220,233,255,0.68); font-size: 1rem; max-width: 500px; margin: auto; margin-top: 30px; }
+    .cta-final .hero-btns { justify-content: center; }
+    .cta-note { margin-top: 2.6rem; font-size: 0.78rem; color: rgba(200,211,232,0.38); letter-spacing: 0.04em; }
+
+    .btn-primary { background: var(--white); color: var(--blue-700); font-weight: 700; font-size: 0.94rem; padding: 0.85rem 1.9rem; border-radius: 50px; border: none; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; box-shadow: 0 4px 24px rgba(0,0,0,0.16); font-family: 'Sora', sans-serif; transition: transform 0.18s, box-shadow 0.18s; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.22); }
+    .btn-ghost { background: transparent; color: var(--white); font-weight: 600; font-size: 0.94rem; padding: 0.85rem 1.9rem; border-radius: 50px; border: 2px solid rgba(255,255,255,0.32); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; font-family: 'Sora', sans-serif; transition: background 0.18s, border-color 0.18s, transform 0.18s; }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.55); transform: translateY(-2px); }
+    .btn-blue { display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; text-align: center; background: var(--blue-500); color: white; font-weight: 700; font-size: 0.91rem; padding: 0.82rem 1.5rem; border-radius: 50px; text-decoration: none; border: none; cursor: pointer; font-family: 'Sora', sans-serif; transition: background 0.2s, transform 0.15s; box-shadow: 0 3px 14px rgba(13,9,99,0.2); }
+    .btn-blue:hover { background: var(--blue-600); transform: translateY(-1px); }
+    .btn-outline-blue { display: block; text-align: center; background: transparent; color: var(--blue-600); font-weight: 700; font-size: 0.91rem; padding: 0.82rem 1.5rem; border-radius: 50px; border: 2px solid var(--blue-300); text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn-outline-blue:hover { background: var(--blue-50); transform: translateY(-1px); }
+
+    .section-label { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-400); margin-bottom: 0.7rem; }
+    h2 { font-size: clamp(1.75rem, 3.8vw, 2.7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; color: var(--blue-900); margin-bottom: 0.9rem; }
+    h2 em { font-style: normal; color: var(--blue-300); }
+    .section-intro { font-size: 1.05rem; color: var(--gray-500); max-width: 540px; font-weight: 300; margin-bottom: 2.8rem; line-height: 1.7; }
+    .center { text-align: center; }
+    .center .section-intro { margin-left: auto; margin-right: auto; }
+    .comp-item { display: flex; align-items: flex-start; gap: 0.65rem; font-size: 0.87rem; color: var(--gray-700); }
+    .comp-item .check { color: var(--blue-500); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
+
+    #sablon { padding: 6rem 5vw; background: var(--white); }
+    .product-section { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: center; max-width: 1160px; margin: 0 auto; }
+    .product-mockup { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 28px 70px rgba(10,22,40,0.16), 0 4px 18px rgba(30,82,201,0.1); aspect-ratio: 4/3; background: linear-gradient(135deg, var(--blue-800) 0%, var(--blue-600) 100%); display: flex; align-items: center; justify-content: center; }
+    .mockup-inner { width: 88%; height: 88%; background: var(--white); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+    .mockup-bar { height: 26px; background: var(--blue-50); border-bottom: 1px solid var(--blue-100); display: flex; align-items: center; padding: 0 10px; gap: 5px; }
+    .mockup-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .mockup-content { flex: 1; background: linear-gradient(180deg, var(--blue-50) 0%, var(--white) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.55rem; padding: 1rem; }
+    .mockup-badge-demo { position: absolute; bottom: -8px; right: -8px; background: var(--white); border: 2px solid var(--blue-100); border-radius: 50px; padding: 0.45rem 0.9rem; font-size: 0.75rem; font-weight: 700; color: var(--blue-700); box-shadow: 0 4px 18px rgba(30,82,201,0.14); white-space: nowrap; display: flex; align-items: center; gap: 0.35rem; }
+
+    #hogyan { background: var(--white); padding: 5.5rem 5vw; border-top: 1px solid var(--blue-50); }
+    
+    .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 2.8rem; max-width: 1000px; margin-left: auto; margin-right: auto;   display: flex;
+  justify-content: center; /* vízszintesen */
+  align-items: center;      /* függőlegesen */}
+    .step { text-align: center; padding: 0 0.4rem; }
+    .step-icon { width: 66px; height: 66px; background: var(--blue-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 1.7rem; box-shadow: 0 5px 20px rgba(13,9,99,0.2); }
+    .step-icon img { width: 40px; height: 40px; object-fit: contain; display: block; margin: 8px auto 10px; border-radius: 8px; }
+    .step:last-child .step-icon { background: var(--blue-700); }
+    .step-num { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue-400); margin-bottom: 0.35rem; }
+    .step h4 { font-size: 0.97rem; font-weight: 700; color: var(--blue-900); margin-bottom: 0.4rem; }
+    .step p { font-size: 0.83rem; color: var(--gray-500); line-height: 1.6; }
+    .risk-banner { margin-top: 2.8rem; background: var(--blue-50); border: 1.5px solid var(--blue-100); border-radius: 14px; padding: 1.4rem 1.8rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .risk-icon-img { width: 32px; height: 32px; object-fit: contain; display: block; }
+    .risk-banner .risk-text { flex: 1; min-width: 180px; }
+    .risk-banner .risk-text strong { font-size: 0.97rem; color: var(--blue-900); display: block; margin-bottom: 0.2rem; }
+    .risk-banner .risk-text span { font-size: 0.86rem; color: var(--gray-500); }
+
+    #features { background: var(--gray-100); padding: 5.5rem 5vw; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.3rem; margin-top: 2.8rem; }
+    .feature-card { background: var(--white); border: 1px solid var(--blue-100); border-radius: 14px; padding: 1.6rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+    .feature-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(30,82,201,0.09); border-color: var(--blue-300); }
+    .feature-icon img { width: 40px; height: 40px; object-fit: contain; display: block; margin: 0 auto 15px; }
+    .feature-card h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.35rem; color: var(--blue-900); }
+    .feature-card p { font-size: 0.86rem; color: var(--gray-500); line-height: 1.6; }
+
+    #osszehasonlitas { background: var(--white); padding: 5.5rem 5vw; }
+    .comparison-table { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 2.8rem; }
+    .comp-col { background: var(--gray-100); border-radius: 18px; overflow: hidden; border: 2px solid transparent; }
+    .comp-col.featured { border-color: var(--blue-400); background: var(--white); box-shadow: 0 6px 28px rgba(30,82,201,0.1); }
+    .comp-head { padding: 1.4rem 1.7rem; background: var(--blue-50); border-bottom: 1px solid var(--blue-100); }
+    .comp-col.featured .comp-head { background: var(--blue-600); }
+    .comp-head h3 { font-size: 1.1rem; font-weight: 800; color: var(--blue-900); display: flex; align-items: center; gap: 0.45rem; }
+    .comp-col.featured .comp-head h3 { color: white; }
+    .comp-head .price { font-size: 0.8rem; color: var(--gray-500); margin-top: 0.2rem; }
+    .comp-col.featured .comp-head .price { color: rgba(220,233,255,0.8); }
+    .comp-list { padding: 1.4rem 1.7rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .comp-cta { padding: 0 1.7rem 1.7rem; }
+
+    #projektek { background: var(--gray-100); padding: 5.5rem 5vw; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; margin-top: 2.8rem; max-width: 1100px; margin-left: auto; margin-right: auto; }
+
+    /* Projekt kártyák */
+    .project-card { background: var(--white); border: 1.5px solid var(--blue-100); border-radius: 20px; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s; display: flex; flex-direction: column; }
+    .project-card--fogaszat:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(29,158,132,0.18); border-color: #1d9e84; }
+    .project-card--eb:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(57,137,201,0.18); border-color: #3989c9; }
+    .project-card--burger:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(217,48,37,0.18); border-color: #D93025; }
+
+    .project-thumb { height: 200px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .project-thumb-fogaszat { background: linear-gradient(135deg, #e8f4ff 0%, #1d9e84 100%); }
+    .project-thumb-ebklinika { background: linear-gradient(135deg, #d6eaf8 0%, #c0d9ee 100%); }
+    .project-thumb-burger { background: linear-gradient(135deg, #0C0B09 0%, #1E1B16 100%); }
+
+    .project-body { padding: 1.4rem 1.6rem 1.6rem; display: flex; flex-direction: column; flex: 1; }
+    .project-tag { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.67rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 20px; margin-bottom: 0.75rem; width: fit-content; }
+    .project-tag-logo { width: 20px; height: 20px; object-fit: contain; margin-right: 6px; vertical-align: middle; }
+    .tag-fogaszat { background: rgba(29,158,132,0.09); color: #1d9e84; border: 1px solid rgba(29,158,132,0.22); }
+    .tag-ebklinika { background: rgba(57,137,201,0.09); color: #3989c9; border: 1px solid rgba(57,137,201,0.2); }
+    .tag-burger { background: rgba(217,48,37,0.09); color: #D93025; border: 1px solid rgba(217,48,37,0.2); }
+    .project-body h3 { font-size: 1.08rem; font-weight: 800; color: var(--blue-900); margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+    .project-body p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.65; margin-bottom: 1.2rem; flex: 1; }
+    .project-links { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .proj-link-primary { display: inline-flex; align-items: center; gap: 0.35rem; color: white; font-weight: 700; font-size: 0.82rem; padding: 0.6rem 1.15rem; border-radius: 50px; text-decoration: none; transition: opacity 0.2s, transform 0.15s; }
+    .proj-link-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+    .proj-link-ghost, button.proj-link-ghost { display: inline-flex; align-items: center; gap: 0.35rem; background: transparent; font-weight: 700; font-size: 0.82rem; padding: 0.6rem 1.15rem; border-radius: 50px; text-decoration: none; transition: background 0.2s, transform 0.15s; cursor: pointer; font-family: 'Sora', sans-serif; line-height: 1; border: 1.5px solid; }
+    .proj-link-ghost:hover, button.proj-link-ghost:hover { transform: translateY(-1px); }
+
+    /* Projekt specifikus gomb színek */
+    .proj-link-fogaszat { background: #1d9e84; box-shadow: 0 3px 12px rgba(29,158,132,0.25); }
+    .proj-link-ghost-fogaszat { color: #1d9e84; border-color: rgba(29,158,132,0.45); }
+    .proj-link-ghost-fogaszat:hover { background: rgba(29,158,132,0.07); }
+    .proj-link-eb { background: #3989c9; box-shadow: 0 3px 12px rgba(57,137,201,0.25); }
+    .proj-link-ghost-eb { color: #3989c9; border-color: rgba(57,137,201,0.4); }
+    .proj-link-ghost-eb:hover { background: rgba(57,137,201,0.07); }
+    .proj-link-burger { background: #D93025; box-shadow: 0 3px 12px rgba(217,48,37,0.25); }
+    .proj-link-ghost-burger { color: #D93025; border-color: rgba(217,48,37,0.4); }
+    .proj-link-ghost-burger:hover { background: rgba(217,48,37,0.07); }
+
+    #tovabbi { background: var(--blue-900); padding: 5.5rem 5vw; }
+    #tovabbi h2 { color: white; }
+    #tovabbi .section-intro { color: rgba(220,233,255,0.65); }
+    #tovabbi .section-label { color: var(--blue-300); }
+    .templates-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-top: 2.8rem; max-width: 1000px; margin-left: auto; margin-right: auto; }
+    .template-card { border-radius: 14px; overflow: hidden; border: 1.5px solid rgba(255,255,255,0.1); transition: border-color 0.2s, transform 0.2s; position: relative; }
+    .template-card:hover { border-color: rgba(255,255,255,0.25); transform: translateY(-3px); }
+    .template-card.active { border-color: var(--blue-300); }
+    .template-thumb { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; position: relative; overflow: hidden; }
+    .template-thumb-icon { width: 78px; height: 72px; object-fit: contain; display: block; margin: 0 auto; }
+    .template-thumb-blur { opacity: 0.4; filter: blur(1px); }
+    .template-card.active .template-thumb { background: linear-gradient(135deg, rgba(13,9,99,0.8), rgba(61,53,201,0.6)); }
+    .template-card.soon .template-thumb { background: rgba(255,255,255,0.03); }
+    .template-body { padding: 1rem 1.2rem 1.2rem; background: rgba(255,255,255,0.04); }
+    .template-card.active .template-body { background: rgba(255,255,255,0.07); }
+    .template-pill { display: inline-block; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 20px; margin-bottom: 0.55rem; }
+    .pill-active { background: rgba(123,117,224,0.25); color: var(--blue-300); }
+    .pill-soon { background: rgba(255,255,255,0.07); color: rgba(200,211,232,0.38); }
+    .template-body h4 { font-size: 0.95rem; font-weight: 700; color: white; margin-bottom: 0.22rem; }
+    .template-card.soon .template-body h4 { color: rgba(200,211,224,0.4); }
+    .template-body p { font-size: 0.79rem; color: rgba(200,211,232,0.5); line-height: 1.5; }
+    .template-card.active .template-body p { color: rgba(200,211,232,0.7); }
+    .soon-icon { position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: rgba(200,211,232,0.4); }
+
+    #arak { background: var(--blue-900); padding: 5.5rem 5vw; }
+    #arak .section-label { color: var(--blue-300); }
+    #arak h2 { color: white; }
+    #arak .section-intro { color: rgba(220,233,255,0.65); }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; max-width: 860px; margin: 2.8rem auto 0; }
+    .pricing-card { background: rgba(255,255,255,0.05); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 22px; overflow: hidden; transition: transform 0.2s, border-color 0.2s; display: flex; flex-direction: column; }
+    .pricing-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.22); }
+    .pricing-card.featured { background: rgba(255,255,255,0.09); border-color: var(--blue-300); box-shadow: 0 0 0 1px var(--blue-300), 0 12px 40px rgba(61,53,201,0.25); }
+    .pricing-head { padding: 1.8rem 1.8rem 1.4rem; border-bottom: 1px solid rgba(255,255,255,0.07); position: relative; }
+    .pricing-card.featured .pricing-head { border-bottom-color: rgba(123,117,224,0.3); }
+    .pricing-badge { display: inline-flex; align-items: center; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 20px; margin-bottom: 0.85rem; gap: 0.3rem; }
+    .pricing-badge-logo { width: 20px; height: 20px; object-fit: contain; vertical-align: middle; }
+    .badge-sablon { background: rgba(123,117,224,0.2); color: var(--blue-300); }
+    .badge-egyedi { background: rgba(240,192,64,0.18); color: var(--gold); border: 1px solid rgba(240,192,64,0.3); }
+    .pricing-name { font-size: 1.1rem; font-weight: 800; color: white; margin-bottom: 1.2rem; }
+    .pricing-amount { display: flex; align-items: flex-end; gap: 0.3rem; margin-bottom: 0.25rem; }
+    .pricing-amount .amount { font-size: 2.6rem; font-weight: 800; color: white; line-height: 1; letter-spacing: -0.03em; }
+    .pricing-amount .currency { font-size: 1rem; font-weight: 700; color: rgba(200,211,232,0.6); margin-bottom: 0.3rem; }
+    .pricing-amount .period { font-size: 0.78rem; color: rgba(200,211,232,0.45); margin-bottom: 0.32rem; margin-left: 0.1rem; }
+    .pricing-sub { font-size: 0.8rem; color: rgba(200,211,232,0.5); }
+    .pricing-maintenance { padding: 1rem 1.8rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .pricing-card.featured .pricing-maintenance { border-bottom-color: rgba(123,117,224,0.15); }
+    .pm-label { font-size: 0.75rem; font-weight: 600; color: rgba(200,211,232,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+    .pm-price { font-size: 1rem; font-weight: 800; color: var(--blue-300); white-space: nowrap; }
+    .pm-price span { font-size: 0.72rem; font-weight: 500; color: rgba(200,211,232,0.4); }
+    .pricing-list { padding: 1.3rem 1.8rem; display: flex; flex-direction: column; gap: 0.65rem; flex: 1; }
+    .pricing-item { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.84rem; color: rgba(200,211,232,0.7); }
+    .pricing-item .pcheck { color: var(--blue-300); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
+    .pricing-card.featured .pricing-item .pcheck { color: var(--gold); }
+    .pricing-cta { padding: 0 1.8rem 1.8rem; }
+    .pricing-note { text-align: center; font-size: 0.72rem; color: rgba(200,211,232,0.3); margin-top: 0.55rem; letter-spacing: 0.03em; }
+    .pricing-custom-box { max-width: 860px; margin: 1.2rem auto 0; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.2rem 1.8rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .pricing-custom-box p { font-size: 0.85rem; color: rgba(200,211,232,0.55); flex: 1; min-width: 200px; }
+    .pricing-custom-box p strong { color: rgba(200,211,232,0.8); }
+
+    #faq { background: var(--gray-100); padding: 5.5rem 5vw; }
+    .faq-grid { max-width: 720px; margin: 2.8rem auto 0; display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--blue-100); padding: 1.3rem 0; }
+    .faq-q { font-size: 0.98rem; font-weight: 700; color: var(--blue-900); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none; }
+    .faq-q .arrow { width: 24px; height: 24px; flex-shrink: 0; background: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; color: var(--blue-500); transition: transform 0.3s, background 0.2s; }
+    .faq-item.open .faq-q .arrow { transform: rotate(180deg); background: var(--blue-500); color: white; }
+    .faq-a { font-size: 0.88rem; color: var(--gray-500); line-height: 1.75; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+    .faq-item.open .faq-a { max-height: 260px; padding-top: 0.75rem; }
+
+    .popup-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(5,4,46,0.7); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; padding: 1rem; opacity: 0; pointer-events: none; transition: opacity 0.28s ease; }
+    .popup-overlay.open { opacity: 1; pointer-events: all; }
+    .popup-box { background: var(--white); border-radius: 22px; padding: 2.6rem 2.2rem 2.2rem; width: 100%; max-width: 520px; max-height: 92svh; overflow-y: auto; position: relative; box-shadow: 0 28px 70px rgba(5,4,46,0.32), 0 4px 22px rgba(61,53,201,0.14); transform: translateY(20px) scale(0.97); transition: transform 0.28s ease; }
+    .popup-overlay.open .popup-box { transform: translateY(0) scale(1); }
+    .popup-close { position: absolute; top: 1.1rem; right: 1.1rem; width: 32px; height: 32px; background: var(--blue-50); border: none; border-radius: 50%; cursor: pointer; font-size: 0.95rem; color: var(--gray-500); display: flex; align-items: center; justify-content: center; transition: background 0.2s, color 0.2s; }
+    .popup-close:hover { background: var(--blue-100); color: var(--blue-700); }
+    .popup-badge { display: inline-flex; align-items: center; gap: 0.38rem; background: var(--blue-50); border: 1px solid var(--blue-100); color: var(--blue-500); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.28rem 0.75rem; border-radius: 50px; margin-bottom: 0.9rem; }
+    .popup-badge::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; display: inline-block; flex-shrink: 0; }
+    .popup-box h3 { font-size: 1.48rem; font-weight: 800; color: var(--blue-900); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 0.35rem; }
+    .popup-sub { font-size: 0.88rem; color: var(--gray-500); margin-bottom: 1.5rem; font-weight: 300; }
+    .consult-toggle { display: flex; align-items: flex-start; gap: 0.85rem; background: var(--blue-50); border: 1.5px solid var(--blue-100); border-radius: 12px; padding: 0.95rem 1.1rem; margin-bottom: 1.3rem; cursor: pointer; transition: border-color 0.2s, background 0.2s; user-select: none; }
+    .consult-toggle:hover { border-color: var(--blue-300); }
+    .consult-toggle.active { border-color: var(--blue-400); background: #eceaff; box-shadow: 0 0 0 3px rgba(61,53,201,0.07); }
+    .consult-checkbox { width: 20px; height: 20px; flex-shrink: 0; border-radius: 5px; border: 2px solid var(--blue-300); background: white; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; color: transparent; margin-top: 2px; transition: background 0.2s, border-color 0.2s; }
+    .consult-toggle.active .consult-checkbox { background: var(--blue-500); border-color: var(--blue-500); color: white; }
+    .consult-label strong { font-size: 0.9rem; font-weight: 700; color: var(--blue-900); display: block; margin-bottom: 0.12rem; }
+    .consult-label span { font-size: 0.78rem; color: var(--gray-500); line-height: 1.45; }
+    .consult-badge { display: inline-flex; align-items: center; background: #fff3cd; border: 1px solid #f0c040; color: #7a5c00; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 20px; margin-left: 0.45rem; vertical-align: middle; }
+    .consult-extra { overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.32s ease, opacity 0.28s ease, margin 0.28s; margin-bottom: 0; }
+    .consult-extra.show { max-height: 120px; opacity: 1; margin-bottom: 0.2rem; }
+    .popup-form { display: flex; flex-direction: column; gap: 0.9rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
+    .form-group label { font-size: 0.76rem; font-weight: 700; color: var(--blue-700); letter-spacing: 0.03em; }
+    .form-group input, .form-group select, .form-group textarea { padding: 0.72rem 0.95rem; border: 1.5px solid var(--blue-100); border-radius: 9px; font-size: 0.9rem; font-family: 'Sora', sans-serif; color: var(--blue-900); background: var(--white); outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue-400); box-shadow: 0 0 0 3px rgba(61,53,201,0.09); }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray-300); }
+    .form-group textarea { resize: vertical; min-height: 82px; }
+    .popup-submit { width: 100%; background: var(--blue-500); color: white; font-weight: 700; font-size: 0.98rem; padding: 0.9rem 1.5rem; border-radius: 50px; border: none; cursor: pointer; margin-top: 0.3rem; display: flex; align-items: center; justify-content: center; gap: 0.45rem; font-family: 'Sora', sans-serif; transition: background 0.2s, transform 0.15s; box-shadow: 0 4px 16px rgba(13,9,99,0.2); }
+    .popup-submit:hover { background: var(--blue-600); transform: translateY(-1px); }
+    .popup-submit:disabled { opacity: 0.58; cursor: not-allowed; transform: none; }
+    .popup-note { text-align: center; font-size: 0.73rem; color: var(--gray-500); margin-top: 0.55rem; display: flex; align-items: center; justify-content: center; gap: 0.35rem; }
+    .popup-note img { width: 14px; height: 14px; object-fit: contain; }
+    .popup-success { display: none; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem 1rem; gap: 0.9rem; }
+    .success-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--blue-500), var(--blue-400)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; box-shadow: 0 7px 22px rgba(13,9,99,0.22); }
+    .popup-success h4 { font-size: 1.25rem; font-weight: 800; color: var(--blue-900); }
+    .popup-success p { font-size: 0.88rem; color: var(--gray-500); max-width: 300px; }
+    .success-detail { font-size: 0.8rem; color: var(--blue-500); font-weight: 600; background: var(--blue-50); padding: 0.55rem 1.1rem; border-radius: 50px; display: flex; align-items: center; gap: 0.4rem; }
+    .success-detail img { width: 16px; height: 16px; object-fit: contain; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    footer { background: #060e1f; padding: 3rem 5vw 1.8rem; border-top: 1px solid rgba(123,117,224,0.12); }
+    .footer-inner { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 2.2rem; padding-bottom: 2.2rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .footer-brand .footer-logo { font-size: 1.25rem; font-weight: 800; color: var(--blue-300); letter-spacing: -0.03em; display: block; margin-bottom: 0.65rem; }
+    .footer-brand p { font-size: 0.82rem; color: rgba(200,211,232,0.42); line-height: 1.65; max-width: 220px; margin-bottom: 1.2rem; }
+    .footer-social { display: flex; gap: 0.55rem; }
+    .footer-social a { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.09); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: rgba(200,211,232,0.55); text-decoration: none; transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.15s; }
+    .footer-social a:hover { background: rgba(123,117,224,0.22); border-color: var(--blue-300); color: white; transform: translateY(-2px); }
+    .footer-social a svg { width: 16px; height: 16px; }
+    .footer-col h4 { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(200,211,232,0.42); margin-bottom: 0.9rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .footer-col ul li a { font-size: 0.83rem; color: rgba(200,211,232,0.52); text-decoration: none; transition: color 0.18s; }
+    .footer-col ul li a:hover { color: var(--blue-300); }
+    .fc-row { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.6rem; }
+    .fc-icon { font-size: 0.95rem; opacity: 0.55; display: flex; align-items: center; }
+    .fc-text { font-size: 0.82rem; color: rgba(200,211,232,0.52); }
+    .fc-text a { color: rgba(200,211,232,0.52); text-decoration: none; transition: color 0.18s; }
+    .fc-text a:hover { color: var(--blue-300); }
+    .footer-bottom { max-width: 1080px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.7rem; padding-top: 1.4rem; }
+    .footer-copy { font-size: 0.73rem; color: rgba(200,211,232,0.25); }
+    .footer-legal { display: flex; gap: 1.3rem; }
+    .footer-legal a { font-size: 0.73rem; color: rgba(200,211,232,0.32); text-decoration: none; transition: color 0.18s; }
+    .footer-legal a:hover { color: var(--blue-300); }
+
+    @media (max-width: 860px) { .nav-links { display: none; } .hamburger { display: flex; } .mobile-drawer { display: block; } }
+    @media (max-width: 960px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 780px) { .product-section { grid-template-columns: 1fr; gap: 2.5rem; } .footer-inner { grid-template-columns: 1fr 1fr; } .projects-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .steps-grid { grid-template-columns: 1fr 1fr; 
+       display: flex;
+    flex-direction: column;
+    gap: 2rem; /* ha kell távolság */} .templates-row { grid-template-columns: 1fr; gap: 0.9rem; } }
+    @media (max-width: 620px) { .comparison-table { grid-template-columns: 1fr; } .pricing-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 460px) { .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .footer-inner { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+    @media (max-width: 420px) { .steps-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .value-strip { gap: 1rem; padding: 1.2rem 4vw; }
+      .hero-btns { flex-direction: column; align-items: stretch; }
+      .hero-btns .btn-primary, .hero-btns .btn-ghost { justify-content: center; }
+      .risk-banner { flex-direction: column; }
+      .risk-banner .btn-blue { width: 100%; text-align: center; }
+      #sablon { padding: 4rem 5vw; }
+      #hogyan, #features, #osszehasonlitas, #projektek, #tovabbi, #faq { padding: 4rem 5vw; }
+      .cta-final { padding: 5rem 5vw; }
+    }
+    @media (max-width: 700px) {
+      .intro-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="ajanlatPopup" role="dialog" aria-modal="true" aria-label="Ajánlatkérő űrlap">
+  <div class="popup-box">
+    <button class="popup-close" id="popupClose" aria-label="Bezárás">✕</button>
+    <div id="popupFormContent">
+      <div class="popup-badge">Ingyenes ajánlatkérés</div>
+      <h3>Kérj ajánlatot, <br>12 órán belül válaszolok.</h3>
+      <p class="popup-sub">Töltsd ki az alábbi mezőket, és én hamarosan felveszem veled a kapcsolatot.</p>
+      <div class="consult-toggle" id="consultToggle" onclick="toggleConsult()">
+        <div class="consult-checkbox" id="consultCheckbox">✓</div>
+        <div class="consult-label">
+          <strong>Szeretnék ingyenes konzultációt <span class="consult-badge">Ingyenes</span></strong>
+          <span>Rövid, kötelezettségmentes egyeztetés  elmondod az igényeidet, vagy ötletelünk és én megvalósítom.</span>
+        </div>
+      </div>
+      <div class="consult-extra" id="consultExtra">
+        <div class="form-group" style="margin-bottom: 0.7rem;">
+          <label for="idopont">Mikor érsz rá a konzultációra?</label>
+          <select id="idopont">
+            <option value="" disabled selected>Válassz időpontot…</option>
+            <option>Hétfő–péntek délelőtt (9–12)</option>
+            <option>Hétfő–péntek délután (13–17)</option>
+            <option>Hétfő–péntek este (17–19)</option>
+            <option>Szombat délelőtt</option>
+            <option>Bármikor, rugalmas vagyok</option>
+          </select>
+        </div>
+      </div>
+      <form class="popup-form" id="ajanlatForm" action="https://formspree.io/f/mpqookvp" method="POST">
+        <input type="hidden" name="_subject" value="Új ajánlatkérés  Vállalkozó Online">
+        <input type="hidden" name="forras" id="popupForras" value="">
+        <input type="hidden" name="konzultacio" id="konzultacioField" value="Nem kér konzultációt">
+        <input type="hidden" name="idopont_preferencia" id="idopontField" value="">
+        <div class="form-row">
+          <div class="form-group"><label for="nev">Teljes név *</label><input type="text" id="nev" name="nev" placeholder="Dr. Kiss Péter" required></div>
+          <div class="form-group"><label for="telefon">Telefonszám *</label><input type="tel" id="telefon" name="telefon" placeholder="+36 30 123 4567" required></div>
+        </div>
+        <div class="form-group"><label for="email">E-mail cím *</label><input type="email" id="email" name="email" placeholder="pelda@fogaszat.hu" required></div>
+        <div class="form-group"><label for="rendelo">Rendelő / Vállalkozás neve</label><input type="text" id="rendelo" name="rendelo" placeholder="Kiss Fogászat Bt."></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tipus">Mit kérsz? *</label>
+            <select id="tipus" name="tipus" required>
+              <option value="" disabled selected>Válassz…</option>
+              <option value="Fogorvos sablon">Fogorvos weboldal sablon</option>
+              <option value="Egyedi weboldal">Egyedi weboldal</option>
+              <option value="Nem tudom még">Még nem tudom</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="varos">Város / Régió</label><input type="text" id="varos" name="varos" placeholder="Budapest, Pécs…"></div>
+        </div>
+        <div class="form-group"><label for="uzenet">Üzenet / Kérdés</label><textarea id="uzenet" name="uzenet" placeholder="Pl.: jelenleg nincs weboldalunk, szeretnénk megújulni…"></textarea></div>
+        <button type="submit" class="popup-submit" id="submitBtn"><span id="submitText">Elküldöm az ajánlatkérést →</span></button>
+        <p class="popup-note">
+          <img src="pictures/padlock.png" alt="Adatvédelem">
+          Adataidat bizalmasan kezeljük, harmadik félnek nem adjuk át.
+        </p>
+      </form>
+    </div>
+    <div class="popup-success" id="popupSuccess">
+      <div class="success-icon">✓</div>
+      <h4>Megkaptuk az üzeneted!</h4>
+      <p>Yago 24 órán belül felveszi veled a kapcsolatot.</p>
+      <div class="success-detail" id="successDetail">
+        <img src="pictures/gmail.png" alt="E-mail értesítés"> Hamarosan e-mailt kapsz tőlünk!
+      </div>
+      <button onclick="closePopup()" class="btn-blue" style="margin-top: 0.4rem; padding: 0.75rem 2rem; border-radius: 50px;">Bezárás</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVIGÁCIÓ -->
+<nav>
+  <a class="logo" href="index.html">Vállalkozó Online</a>
+  <ul class="nav-links">
+    <li><a href="#sablon">Fogorvos sablon</a></li>
+    <li><a href="#projektek">Eddigi projektjeim</a></li>
+    <li><a href="#osszehasonlitas">Összehasonlítás</a></li>
+    <li><a href="#arak">Árak</a></li>
+    <li><a href="#faq">GYIK</a></li>
+    <li>
+      <a href="dentist.html" class="nav-cta">
+        <img src="pictures/tooth.png" alt="Fogorvos weboldal sablon kipróbálása" class="btn-emoji-icon">
+        Próbáld ki a sablont→
+      </a>
+    </li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Navigációs menü megnyitása"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBIL DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-top">
+    <a href="dentist.html" class="drawer-btn-primary">
+      <img src="pictures/tooth.png" alt="Fogorvos sablon" class="btn-emoji-icon">
+      Próbáld ki a fogorvos weboldal sablont
+    </a>
+    <button onclick="openPopup('Drawer Ajánlat'); closeDrawer();" class="drawer-btn-outline">Ajánlatot kérek</button>
+  </div>
+  <nav class="drawer-nav" aria-label="Mobil navigáció">
+    <a href="#sablon">Fogorvos sablon <span class="chev">›</span></a>
+    <a href="#projektek">Eddigi projektjeim <span class="chev">›</span></a>
+    <a href="#osszehasonlitas">Sablon vs. egyedi <span class="chev">›</span></a>
+    <a href="#arak">Árak <span class="chev">›</span></a>
+    <a href="#tovabbi">Hamarosan érkező <span class="chev">›</span></a>
+    <a href="#faq">GYIK <span class="chev">›</span></a>
+  </nav>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Főoldal fejléc">
+  <div class="hero-grid" aria-hidden="true"></div>
+<div class="hero-badge">Weboldal szakembereknek gyorsan</div>
+
+<h1>A weboldal, ami <em>valódi online jelenlétet ad</em> önnek.</h1>
+
+<p class="hero-sub">
+Választhatsz kész optimalizált sablonból vagy kérhetsz teljesen egyedi weboldalt a cégednek. 
+</p>
+
+<div class="hero-scroll">görgess le</div>
+</section>
+
+<!-- VALUE STRIP -->
+<div class="value-strip" aria-label="Főbb előnyök">
+  <div class="value-item"><img src="pictures/phone.png" alt="Mobilbarát"><span>100% mobilbarát</span></div>
+  <div class="value-item"><img src="pictures/magnifier.png" alt="SEO"><span>SEO-optimalizált</span></div>
+</div>
+
+<!-- SABLON SZEKCIÓ -->
+<section id="sablon" aria-labelledby="sablon-cim">
+  <div class="product-section">
+    <div>
+<h2 id="sablon-cim">Próbáld ki a sablont, <em>aztán dönts.</em></h2>
+
+<p class="section-intro">
+Elküldöd a szövegeket és képeket, ezután én beépítem sablonba. 
+2-4 napon belül kész lesz. Domaint is biztosítom, ha nincsen.
+</p>
+      <div style="display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem;">
+  
+        <div class="comp-item"><span class="check">✓</span><span>Mobilbarát, SEO-optimalizált, azonnal éles fogorvos weboldal</span></div>
+        <div class="comp-item"><span class="check">✓</span><span>Kisebb módosításokkal a próbaidő alatt bármikor szólhatszés utána is számíthatsz rám.</span></div>
+      
+      </div>
+      <a href="dentist.html" class="btn-blue">Megnézem a fogorvos sablont →</a>
+    </div>
+    <div style="position: relative;">
+      <div class="product-mockup" aria-label="Fogászati weboldal sablon előnézete">
+        <div class="mockup-inner">
+          <div class="mockup-bar" aria-hidden="true">
+            <div class="mockup-dot" style="background: #ff5f57"></div>
+            <div class="mockup-dot" style="background: #febc2e"></div>
+            <div class="mockup-dot" style="background: #28c840"></div>
+          </div>
+          <div class="mockup-content" style="background: linear-gradient(180deg, var(--blue-50) 0%, var(--white) 100%); align-items: center; justify-content: center;">
+            <img src="pictures/tooth.png" alt="Fogászat ikon" style="width:72px;height:72px;object-fit:contain;">
+          </div>
+        </div>
+      </div>
+      <div class="mockup-badge-demo">
+        <img src="pictures/star.png" alt="Azonnal kipróbálható" class="badge-star-icon">
+        Azonnal kipróbálható
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOGYAN MŰKÖDIK -->
+<section id="hogyan" aria-labelledby="hogyan-cim">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div class="center">
+      <div class="section-label">Hogyan működik?</div>
+      <h2 id="hogyan-cim">Három lépés, és <em>már fut a fogászati weboldalad.</em></h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step reveal">
+        <div class="step-icon"><img src="pictures/gmail.png" alt="Kapcsolatfelvétel"></div>
+        <div class="step-num">1. lépés</div>
+        <h4>Elküldöd az anyagokat</h4>
+        <p>Szövegeket, képeket és elérhetőségeket küldesz egy egyszerű kérdőíven keresztül.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-icon"><img src="pictures/app-development.png" alt="Weboldal fejlesztés"></div>
+        <div class="step-num">2. lépés</div>
+        <h4>Elkészítem a weboldaladat</h4>
+        <p>Belekerülnek az adataid, elvégzek minden szükséges módosítást. Ezután te visszajelzést adsz.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-icon"><img src="pictures/decision-making.png" alt="Döntés"></div>
+        <div class="step-num">3. lépés</div>
+        <h4>Aktiválom a weboldalad</h4>
+        <p>Egyszeri vásárlás, az oldal a tiéd. Opcionális havi karbantartással. Ha nem tetszett semmit sem veszítettél.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" aria-labelledby="features-cim">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="center">
+      <div class="section-label">Mi van benne?</div>
+      <h2 id="features-cim">Minden, amire egy <em>profi fogászati weboldalnak</em> szüksége van.</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon"><img src="pictures/phone.png" alt="Mobilbarát"></div>
+        <h3>Tökéletes mobilon is</h3>
+        <p>A páciensek többsége telefonon keres fogászatot. Az oldal minden képernyőméreten hibátlanul jelenik meg.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><img src="pictures/magnifier.png" alt="SEO"></div>
+        <h3>Google megtalálja a rendelőd</h3>
+        <p>Gyors betöltés, helyes technikai alap és SEO-optimalizáció hogy a környékbeli páciensek rád találjanak.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><img src="pictures/web-apps.png" alt="Struktúra"></div>
+        <h3>Kész, átgondolt struktúra</h3>
+        <p>Bemutatkozás, kezelések, csapat, vélemények, kapcsolat a legfontosabb oldalak mind megvannak, jól felépítve.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon"><img src="pictures/decision-making.png" alt="Könnyű"></div>
+        <h3>Én megcsinálom, te ellenőrzöd</h3>
+        <p>Megadod az adatokat, bekerülnek az oldalra, te csak visszajelzést adsz. Nincs bíbelődés, nincs időpocsékolás.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ÖSSZEHASONLÍTÁS -->
+<section id="osszehasonlitas" aria-labelledby="ossz-cim">
+  <div style="max-width: 860px; margin: 0 auto;">
+    <div class="center">
+      <div class="section-label">Sablon vagy egyedi?</div>
+      <h2 id="ossz-cim">Válassz az igényeid alapján <em>mindkettő profi megoldás.</em></h2>
+      <p class="section-intro">Mindkét esetben én végzem a munkát személyesen. </p>
+    </div>
+    <div class="comparison-table">
+      <div class="comp-col reveal">
+        <div class="comp-head">
+          <h3>
+            <img src="pictures/tooth.png" alt="Fogorvos sablon" class="comp-emoji-icon">
+            Fogorvos weboldal sablon
+          </h3>
+          <div class="price">Egyszeri vásárlás · Karbantartás · Gyors beállítás</div>
+        </div>
+        <div class="comp-list">
+        
+          <div class="comp-item"><span class="check">✓</span><span>Én belerakom a tartalmaidat, te ellenőrzöd</span></div>
+          <div class="comp-item"><span class="check">✓</span><span>Mobilbarát, SEO-optimalizált, néhány napon belül már kint van</span></div>
+          <div class="comp-item"><span class="check">✓</span><span>Gyors átfutás: 2-4 nap</span></div>
+        </div>
+        <div class="comp-cta"><a href="dentist.html" class="btn-outline-blue">Kipróbálom a sablont</a></div>
+      </div>
+      <div class="comp-col featured reveal">
+        <div class="comp-head">
+          <h3>
+            <img src="pictures/star.png" alt="Egyedi weboldal" class="comp-emoji-icon">
+            Egyedi weboldal
+          </h3>
+          <div class="price">Személyre szabott árajánlat · Prémium kivitelezés</div>
+        </div>
+        <div class="comp-list">
+          <div class="comp-item"><span class="check" style="color: var(--blue-100)">✓</span><span>100%-ban egyedi dizájn és funkciók</span></div>
+          <div class="comp-item"><span class="check" style="color: var(--blue-100)">✓</span><span>Egyedi megoldások</span></div>
+          <div class="comp-item"><span class="check" style="color: var(--blue-100)">✓</span><span>Visszajelzés alapján finomítjuk</span></div>
+        </div>
+        <div class="comp-cta"><button onclick="openPopup('Összehasonlítás Egyedi')" class="btn-blue" style="width: 100%;">Kérj egyedi ajánlatot</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJEKTEK -->
+<section id="projektek" aria-labelledby="projektek-cim">
+  <div style="max-width: 1100px; margin: 0 auto;">
+    <div class="center">
+      <div class="section-label">Eddigi munkáim</div>
+      <h2 id="projektek-cim">Valódi projektjeim</em></h2>
+      <p class="section-intro" style="margin-left: auto; margin-right: auto;">Ezeket az oldalakat én készítettem nézd meg élőben, milyen minőséget kap a te vállalkozásod is.</p>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Projekt 1: Fogászat -->
+      <div class="project-card project-card--fogaszat reveal">
+        <div class="project-thumb project-thumb-fogaszat">
+          <img src="pictures/tooth.png" alt="Fogászati weboldal sablon"
+            style="max-width: 70%; max-height: 70%; object-fit: contain; display: block; margin: auto;">
+        </div>
+        <div class="project-body">
+          <div class="project-tag tag-fogaszat">
+            <img src="pictures/tooth.png" alt="Fogorvos sablon" class="tag-emoji-icon">
+            Fogorvos sablon
+          </div>
+          <h3>Fogászati rendelő weboldal sablon</h3>
+          <p>Professzionális weboldal fogorvosoknak és fogászati rendelőknek. Mobilbarát, SEO-kész.</p>
+          <div class="project-links">
+            <a href="dentist.html" class="proj-link-primary proj-link-fogaszat">Megnézem élőben →</a>
+            <button onclick="openPopup('Projektek Fogorvos sablon')" class="proj-link-ghost proj-link-ghost-fogaszat">Ajánlatot kérek</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projekt 2: Ebklinika -->
+      <div class="project-card project-card--eb reveal">
+        <div class="project-thumb project-thumb-ebklinika">
+          <img src="pictures/ebklinikalogo_vilagos_allo_feher_felirat_nellkuli.png"
+            alt="Ebklinika állatorvosi rendelő logó"
+            style="max-width: 70%; max-height: 70%; object-fit: contain; display: block; margin: auto;">
+        </div>
+        <div class="project-body">
+          <div class="project-tag tag-ebklinika">
+            <img src="pictures/ebklinikalogo_vilagos_allo_feher_felirat_nellkuli.png" alt="Ebklinika" class="project-tag-logo">
+            Egyedi weboldal
+          </div>
+          <h3>Ebklinika állatorvosi rendelő</h3>
+          <p>Egyedi weboldal állatorvosi klinikáknak modern arculattal, teljes mobiloptimalizálással és minden fontos technikai háttérrel.</p>
+          <div class="project-links">
+            <a href="https://ebklinika.hu" target="_blank" rel="noopener noreferrer" class="proj-link-primary proj-link-eb">Megnézem: ebklinika.hu →</a>
+            <a href="ebklinikaprojekt.html" class="proj-link-ghost proj-link-ghost-eb">Projekt leírása</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projekt 3: BurgerSite -->
+      <div class="project-card project-card--burger reveal">
+        <div class="project-thumb project-thumb-burger">
+          <img src="pictures/burger.png" alt="BurgerSite éttermi weboldal"
+            style="max-width: 70%; max-height: 70%; object-fit: contain; display: block; margin: auto;">
+        </div>
+        <div class="project-body">
+          <div class="project-tag tag-burger">
+            <img src="pictures/burger.png" alt="BurgerSite" style="width:16px; height:16px; object-fit:contain;">
+            Egyedi weboldal
+          </div>
+          <h3>BurgerSite – Éttermi weboldal</h3>
+          <p>Prémium hamburgeres weboldal sötét, karakteres dizájnnal. Kétnyelvű (EN/HU), animált menük, mobilbarát hamburgeres navigációval.</p>
+          <div class="project-links">
+            <a href="burgersite.html" class="proj-link-primary proj-link-burger">Megnézem élőben →</a>
+            <a href="burgersiteprojekt.html" class="proj-link-ghost proj-link-ghost-burger">Projekt leírása</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ÁRAK -->
+<section id="arak" aria-labelledby="arak-cim">
+  <div style="max-width: 860px; margin: 0 auto;">
+    <div class="center">
+      <div class="section-label">Árak</div>
+      <h2 id="arak-cim">Átlátható árak, <em>rejtett díjak nélkül.</em></h2>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-head">
+          <div class="pricing-badge badge-sablon">
+            <img src="pictures/tooth.png" alt="Fogorvos sablon ár" class="pricing-badge-logo">
+            Fogorvos sablon
+          </div>
+          <div class="pricing-name">Sablon weboldal</div>
+          <div class="pricing-amount"><span class="amount">99 900</span><span class="currency">Ft</span><span class="period">/ egyszeri</span></div>
+        </div>
+        <div class="pricing-maintenance"><div class="pm-label">+ Havi karbantartás</div><div class="pm-price">4 990 Ft <span>/ hó</span></div></div>
+        <div class="pricing-list">
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Kész sablon, hozzád szabva</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Én belerakom a tartalmaidat</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Mobilbarát, SEO-optimalizált</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Kisebb módosítások a próba alatt</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Havi karbantartás opcionális</span></div>
+        </div>
+        <div class="pricing-cta">
+          <a href="dentist.html" class="btn-outline-blue" style="border-color: rgba(123,117,224,0.4); color: var(--blue-300);">Kipróbálom →</a>
+          <p class="pricing-note">Nem kell előre fizetni semmit</p>
+        </div>
+      </div>
+      <div class="pricing-card featured reveal">
+        <div class="pricing-head">
+          <div class="pricing-badge badge-egyedi">
+            <img src="pictures/star.png" alt="Egyedi weboldal ár" class="pricing-badge-logo">
+            Egyedi weboldal
+          </div>
+          <div class="pricing-name">Egyedi megoldás</div>
+          <div class="pricing-amount"><span class="amount" style="font-size: 1.9rem; line-height: 1.15;">Projekttől</span></div>
+          <div class="pricing-amount" style="margin-top: 0.1rem; margin-bottom: 0.25rem;"><span class="amount" style="font-size: 1.9rem; line-height: 1.1;">függő ár</span></div>
+          <div class="pricing-sub">Egyedi árajánlat · Személyre szabott</div>
+        </div>
+        <div class="pricing-maintenance"><div class="pm-label">+ Havi karbantartás</div><div class="pm-price" style="color: var(--gold);">6 990 Ft <span>/ hó</span></div></div>
+        <div class="pricing-list">
+          <div class="pricing-item"><span class="pcheck">✓</span><span>100%-ban egyedi dizájn és funkciók</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Online időpontfoglalás és speciális igények</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Visszajelzés alapján finomítjuk</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Prémium kivitelezés</span></div>
+          <div class="pricing-item"><span class="pcheck">✓</span><span>Havi karbantartás opcionális</span></div>
+        </div>
+        <div class="pricing-cta">
+          <button onclick="openPopup('Árak Egyedi ajánlat')" class="btn-blue" style="width: 100%; background: linear-gradient(135deg, var(--blue-400), var(--blue-600));">Kérj egyedi ajánlatot →</button>
+          <p class="pricing-note">Ingyenes konzultáció · Kötelezettség nélkül</p>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-custom-box">
+      <div style="flex-shrink: 0; display: flex; align-items: center;">
+        <img src="pictures/wrench.png" alt="Karbantartás" class="pricing-emoji-icon">
+      </div>
+      <p><strong>Mi tartozik a karbantartásba?</strong> Szöveg- és képfrissítések, kisebb módosítások, biztonsági frissítések, hosting-support vagy akár új résszel bővítése. Bármikor lemondható, kötelezettség nélkül.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEMUTATKOZÁS -->
+<section id="bemutatkozas" style="background: var(--white); padding: 5.5rem 5vw; border-top: 1px solid var(--blue-50);" aria-labelledby="bemut-cim">
+  <div style="max-width: 860px; margin: 0 auto;">
+    <div style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: center;" class="intro-grid">
+      <div class="reveal" style="display: flex; flex-direction: column; align-items: center; gap: 1.4rem; text-align: center;">
+        <div style="width: 160px; height: 160px; border-radius: 50%; background: var(--blue-50); border: 3px solid var(--blue-100); display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;">
+          <img src="pictures/ember.png" alt="Yago – webfejlesztő" style="width:154px;height:154px;object-fit:contain;opacity:0.4;">
+        </div>
+        <div>
+          <div style="font-size: 1rem; font-weight: 800; color: var(--blue-900); margin-bottom: 0.15rem;">Yago</div>
+          <div style="font-size: 0.82rem; color: var(--gray-500);">Webfejlesztő · Vállalkozó Online</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.55rem; width: 100%;">
+          <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 10px; padding: 0.65rem 1rem; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.78rem; color: var(--gray-500);">Elkészített projektek</span>
+            <span style="font-size: 0.92rem; font-weight: 800; color: var(--blue-700);">2+</span>
+          </div>
+          <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 10px; padding: 0.65rem 1rem; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.78rem; color: var(--gray-500);">Sablon átfutás</span>
+            <span style="font-size: 0.92rem; font-weight: 800; color: var(--blue-700);">2-4 nap</span>
+          </div>
+          <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 10px; padding: 0.65rem 1rem; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.78rem; color: var(--gray-500);">Egyedi projekt</span>
+            <span style="font-size: 0.92rem; font-weight: 800; color: var(--blue-700);">1–5 hét</span>
+          </div>
+          <div style="background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 10px; padding: 0.65rem 1rem; display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-size: 0.78rem; color: var(--gray-500);">Helyszín</span>
+            <span style="font-size: 0.92rem; font-weight: 800; color: var(--blue-700);">Magyarország</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-label">Ki vagyok én?</div>
+        <h2 id="bemut-cim" style="margin-bottom: 1.2rem;">Nem egy ügynökség hanem<br><em>egy ember, aki megcsinálja.</em></h2>
+        <p style="font-size: 1rem; color: var(--gray-500); font-weight: 300; line-height: 1.85; margin-bottom: 1rem;">
+          Yago vagyok, webfejlesztő. Kifejezetten kis- és középvállalkozásokra, szakemberekre fókuszálok fogorvosokra, állatorvosokra és más rendelőkre. Azokra, akiknek nincs idejük weboldallal bajlódni, mégis szükségük van profi online jelenlétre.
+        </p>
+        <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
+          <button onclick="openPopup('Bemutatkozás Kapcsolat')" class="btn-blue">Írj nekem</button>
+          <a href="#projektek" class="btn-outline-blue">Eddigi munkáim</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOVÁBBI SABLONOK -->
+<section id="tovabbi" aria-labelledby="tovabbi-cim">
+  <div style="max-width: 1000px; margin: 0 auto;">
+    <div class="section-label">Hamarosan érkező</div>
+    <h2 id="tovabbi-cim">Csak az első sablon. <em>Több is jön.</em></h2>
+    <p class="section-intro">A Vállalkozó Online sabloncsaládja folyamatosan bővül más területen dolgozó szakembereknek is készülnek iparág-specifikus weboldalak.</p>
+    <div class="templates-row">
+      <div class="template-card active reveal">
+        <div class="template-thumb"><img src="pictures/tooth.png" alt="Fogorvos sablon – elérhető" class="template-thumb-icon"></div>
+        <div class="template-body"><div class="template-pill pill-active">Elérhető most</div><h4>Fogorvos sablon</h4><p>Fogászati rendelőkre szabott, azonnal kipróbálható sablon weboldal.</p></div>
+      </div>
+      <div class="template-card soon reveal">
+        <div class="template-thumb"><img src="images/medical-icon.png" alt="Szakember sablon – hamarosan" class="template-thumb-icon template-thumb-blur"><div class="soon-icon">?</div></div>
+        <div class="template-body"><div class="template-pill pill-soon">Hamarosan</div><h4>Szakember sablon #2</h4><p>Más területen dolgozó szakembereknek folyamatban van a fejlesztés.</p></div>
+      </div>
+      <div class="template-card soon reveal">
+        <div class="template-thumb"><img src="images/business-icon.png" alt="Üzleti sablon hamarosan" class="template-thumb-icon template-thumb-blur"><div class="soon-icon">?</div></div>
+        <div class="template-body"><div class="template-pill pill-soon">Hamarosan</div><h4>Szakember sablon #3</h4><p>Még egy terület értesítünk, amint kész.</p></div>
+      </div>
+    </div>
+    <div style="margin-top: 2rem; text-align: center;">
+      <button onclick="openPopup('Hamarosan Értesítés')" class="btn-ghost" style="border-color: rgba(255,255,255,0.22);">Értesíts, ha kész az újabb sablon →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" aria-labelledby="faq-cim">
+  <div style="max-width: 800px; margin: 0 auto;">
+    <div class="center">
+      <div class="section-label">Gyakori kérdések</div>
+      <h2 id="faq-cim">Ami valószínűleg <em>eszedbe jutott.</em></h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Mi van benne a fogorvos sablonban?<span class="arrow">▾</span></div>
+        <div class="faq-a">Bemutatkozó szekció, kezelések listája, csapatbemutató, vélemények, kapcsolati adatok és térkép. Mobilbarát, SEO-optimalizált, azonnal élesíthető.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Mi a különbség a sablon és az egyedi oldal között?<span class="arrow">▾</span></div>
+        <div class="faq-a">A sablon egy kész keretrendszer, amely gyorsabb és elérhető árú. Az egyedi weboldal teljesen a te vállalkozásodra szabott, saját funkciókkal és egyedi arculattal. Mindkét esetben én végzem személyesen a munkát.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Megtalálja-e a Google a weboldalát?<span class="arrow">▾</span></div>
+        <div class="faq-a">A sablon SEO-alapokkal érkezik helyes HTML-szerkezet, gyors betöltés, mobiloptimalizáció. Az indexeléshez az oldalt be kell nyújtani a Google Search Console-ban ehhez útmutatót adunk vagy megcsinálom én.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Mikor érkeznek az újabb sablonok?<span class="arrow">▾</span></div>
+        <div class="faq-a">Folyamatosan dolgozunk rajta a fogorvos sablon az első a sorban. Kérj ajánlatot, és elsők között értesítünk, ha kész az újabb.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section id="vasarlas" class="cta-final" aria-labelledby="cta-cim">
+  <div>
+    <div class="section-label" style="color: var(--blue-300); text-align: center; font-size: 30px;">Készen állsz?</div>
+    <div class="hero-btns">
+      <a href="dentist.html" class="btn-primary">
+        <img src="pictures/tooth.png" alt="Fogorvos weboldal sablon kipróbálása" class="btn-emoji-icon">
+        Kipróbálom a sablont
+      </a>
+      <button onclick="openPopup('CTA Ajánlat')" class="btn-ghost">Ajánlatot kérek →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">Vállalkozó Online</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigáció</h4>
+      <ul>
+        <li><a href="#sablon">Fogorvos sablon</a></li>
+        <li><a href="#projektek">Eddigi projektjeim</a></li>
+        <li><a href="#osszehasonlitas">Sablon vs. egyedi</a></li>
+        <li><a href="#arak">Árak</a></li>
+        <li><a href="#tovabbi">Hamarosan érkező</a></li>
+        <li><a href="#faq">GYIK</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Jogi</h4>
+      <ul>
+        <li><a href="adatvedelem.html">Adatvédelmi nyilatkozat</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Elérhetőség</h4>
+      <div class="fc-row">
+        <span class="fc-icon"><img src="pictures/gmail.png" alt="E-mail" class="fc-emoji-icon"></span>
+        <div class="fc-text"><a href="mailto:vallalkozoonline@gmail.com">vallalkozoonline@gmail.com</a></div>
+      </div>
+      <div class="fc-row">
+        <span class="fc-icon"><img src="pictures/phone.png" alt="Telefon" class="fc-emoji-icon"></span>
+        <div class="fc-text"><a href="tel:+36203844289">+36 20 384 4289</a></div>
+      </div>
+      <div class="fc-row">
+        <span class="fc-icon"><img src="pictures/pin.png" alt="Helyszín" class="fc-emoji-icon"></span>
+        <div class="fc-text">Magyarország</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Vállalkozó Online · Yago. Minden jog fenntartva.</div>
+    <div class="footer-legal">
+      <a href="#">ÁSZF</a>
+      <a href="#">Adatvédelem</a>
+      <a href="#" onclick="openPopup('Footer Kapcsolat'); return false;">Kapcsolat</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let konzultacioKerve = false;
+  function toggleConsult() {
+    konzultacioKerve = !konzultacioKerve;
+    document.getElementById('consultToggle').classList.toggle('active', konzultacioKerve);
+    document.getElementById('consultExtra').classList.toggle('show', konzultacioKerve);
+    document.getElementById('konzultacioField').value = konzultacioKerve ? 'Igen, konzultációt kér' : 'Nem kér konzultációt';
+  }
+  const hamburger = document.getElementById('hamburger');
+  const drawer = document.getElementById('mobileDrawer');
+  function closeDrawer() { hamburger.classList.remove('open'); drawer.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => {
+    const open = drawer.classList.contains('open');
+    if (open) { closeDrawer(); } else { hamburger.classList.add('open'); drawer.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  });
+  drawer.querySelectorAll('a').forEach(link => link.addEventListener('click', closeDrawer));
+  document.addEventListener('click', e => { if (!drawer.contains(e.target) && !hamburger.contains(e.target)) closeDrawer(); });
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
+    });
+  });
+  const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  const popup = document.getElementById('ajanlatPopup');
+  function openPopup(forras) { document.getElementById('popupForras').value = forras || ''; popup.classList.add('open'); document.body.style.overflow = 'hidden'; document.getElementById('popupFormContent').style.display = 'block'; document.getElementById('popupSuccess').style.display = 'none'; }
+  function closePopup() { popup.classList.remove('open'); document.body.style.overflow = ''; }
+  document.getElementById('popupClose').addEventListener('click', closePopup);
+  popup.addEventListener('click', e => { if (e.target === popup) closePopup(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+  document.getElementById('ajanlatForm').addEventListener('submit', async e => {
+    e.preventDefault();
+    const sel = document.getElementById('idopont');
+    document.getElementById('idopontField').value = (sel && konzultacioKerve) ? sel.value : '';
+    const btn = document.getElementById('submitBtn');
+    const txt = document.getElementById('submitText');
+    btn.disabled = true; txt.textContent = 'Küldés folyamatban…';
+    try {
+      const res = await fetch(e.target.action, { method: 'POST', body: new FormData(e.target), headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        document.getElementById('popupFormContent').style.display = 'none';
+        const detailEl = document.getElementById('successDetail');
+        if (konzultacioKerve) {
+          detailEl.innerHTML = '<img src="pictures/phone.png" alt="" style="width:16px;height:16px;object-fit:contain;"> Konzultációs igényedet rögzítettük hamarosan felhívunk!';
+        } else {
+          detailEl.innerHTML = '<img src="pictures/gmail.png" alt="" style="width:16px;height:16px;object-fit:contain;"> Hamarosan e-mailt kapsz tőlünk!';
+        }
+        document.getElementById('popupSuccess').style.display = 'flex';
+        e.target.reset(); konzultacioKerve = false;
+        document.getElementById('consultToggle').classList.remove('active');
+        document.getElementById('consultExtra').classList.remove('show');
+        document.getElementById('konzultacioField').value = 'Nem kér konzultációt';
+      } else { alert('Hiba történt. Írj e-mailt: vallalkozoonline@gmail.com'); }
+    } catch { alert('Nem sikerült elküldeni. Írj e-mailt: vallalkozoonline@gmail.com'); }
+    finally { btn.disabled = false; txt.textContent = 'Elküldöm az ajánlatkérést →'; }
+  });
+</script>
+</body>
+</html>
